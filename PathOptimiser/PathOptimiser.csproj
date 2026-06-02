@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CFB11B05-549A-41DA-AAE5-152EBC7E9165}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PathOptimiser</RootNamespace>
+    <AssemblyName>PathOptimiser</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMC_Form_Library">
+      <HintPath>\\SMCDESIGN15\SMC_Data_Store\SMC_Applications\SMC_NET_EXTENTIONS\SMC_Form_WPF\SMC_Form_Library\bin\Debug\SMC_Form_Library.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Tecnomatix.Engineering">
+      <HintPath>..\..\..\..\..\..\Program Files\Tecnomatix_16.1.1\eMPower\Tecnomatix.Engineering.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Tecnomatix.Engineering.Olp">
+      <HintPath>..\..\..\..\..\..\Program Files\Tecnomatix_16.1.1\eMPower\Tecnomatix.Engineering.Olp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Tecnomatix.Engineering.Ui">
+      <HintPath>..\..\..\..\..\..\Program Files\Tecnomatix_16.1.1\eMPower\Tecnomatix.Engineering.Ui.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Debugging\DebuggerAttachedConverter.cs" />
+    <Compile Include="DisplayGrid\OperationsList\AllOperationsDisplay.xaml.cs">
+      <DependentUpon>AllOperationsDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayGrid\DebugEnvelopeDisplay\EnvelopeDisplayGrid.xaml.cs">
+      <DependentUpon>EnvelopeDisplayGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayGrid\DebugEnvelopeDisplay\EnvelopeDisplayRow.xaml.cs">
+      <DependentUpon>EnvelopeDisplayRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayGrid\DebugEnvelopeDisplay\CollisionTimelineControl.xaml.cs">
+      <DependentUpon>CollisionTimelineControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayGrid\OperationsList\ViaDisplayRow.xaml.cs">
+      <DependentUpon>ViaDisplayRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayGrid\OperationsList\RobotCompOpsList.xaml.cs">
+      <DependentUpon>RobotCompOpsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayGrid\OperationsList\CompOpViasList.xaml.cs">
+      <DependentUpon>CompOpViasList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OperationToNearMissRegistry.cs" />
+    <Compile Include="Models\DeviceResetter.cs" />
+    <Compile Include="OptCommand.cs" />
+    <Compile Include="OptimisationSystem\Models\CollisionEnvelope.cs" />
+    <Compile Include="OptimisationSystem\Models\EnvelopeCollection.cs" />
+    <Compile Include="OptimisationSystem\Models\EnvelopeRecordingData.cs" />
+    <Compile Include="OptimisationSystem\Models\SolverParams.cs" />
+    <Compile Include="OptimisationSystem\Models\ViaAdjustment.cs" />
+    <Compile Include="OptimisationSystem\Services\BestAdjustmentFinder.cs" />
+    <Compile Include="OptimisationSystem\Services\EnvelopeRecorder\AcceptableClearanceRecorder.cs" />
+    <Compile Include="OptimisationSystem\Services\EnvelopeRecorder\CurrentViaTrace.cs" />
+    <Compile Include="OptimisationSystem\Services\EnvelopeRecorder\EnvelopeRecorder.cs" />
+    <Compile Include="OptimisationSystem\Services\PathSolver.cs" />
+    <Compile Include="OptimisationSystem\Services\PathSolver.EnvelopeDuplicate.cs" />
+    <Compile Include="OptimisationSystem\Services\Util\PlayToVia.cs" />
+    <Compile Include="OptimisationSystem\Services\Util\ReadyToRunChecks.cs" />
+    <Compile Include="TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SimPlayerTracker.cs" />
+    <Compile Include="TecnomatixStatics.cs" />
+    <Compile Include="_Deprecated\ViaDisplayGrid.xaml.cs">
+      <DependentUpon>ViaDisplayGrid.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DisplayGrid\OperationsList\AllOperationsDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplayGrid\DebugEnvelopeDisplay\EnvelopeDisplayGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplayGrid\DebugEnvelopeDisplay\EnvelopeDisplayRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplayGrid\DebugEnvelopeDisplay\CollisionTimelineControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplayGrid\OperationsList\ViaDisplayRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplayGrid\OperationsList\RobotCompOpsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplayGrid\OperationsList\CompOpViasList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_Deprecated\ViaDisplayGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
