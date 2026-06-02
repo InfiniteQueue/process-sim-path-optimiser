@@ -126,14 +126,6 @@ namespace PathOptimiser.OptimisationSystem
             }
 
 
-            //Todo: Implement this and replace IsMovingFromCurrentVia with it
-            public bool IsCloserOrPastNextVia
-            {
-                get {
-                    return true;
-                }
-            }
-
             public bool IsCloserToNextVia
             {
                 get {

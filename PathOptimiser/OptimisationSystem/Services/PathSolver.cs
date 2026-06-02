@@ -222,22 +222,27 @@ namespace PathOptimiser
 
             var extension = EnvelopeDuplicate.EnvelopeViaExtensionCount;
 
-            var IgnoredVias = duplicateVias.Take(extension).ToList();
-            IgnoredVias = IgnoredVias.Concat(duplicateVias.Skip(duplicateVias.Count() - extension)).ToList();
 
-            foreach (var item in IgnoredVias.ToArray()) {
-                if (testEnv.CollidingVias.Contains(duplicate.DuplicateToOriginal[item]))
-                    IgnoredVias.Remove(item);
-            }
+            /*Explanation:
+            Active vias are considered for speed adjustments
+            Ignored vias do not report collisions
 
-            duplicateSolverParams.IgnoredVias = IgnoredVias.ToHashSet();
+            All vias but the colliding vias, and their neighbours, are ignored
+            All vias but the first and last are active
+            */
+
+            var ignoredVias = testEnv.ExtendBy(extension, extension).Except(testEnv.ExtendBy(1, 1)).Select(x => duplicate.OriginalToCopy(x));
+
+
+
+            duplicateSolverParams.IgnoredVias = ignoredVias.OfType<LocOp>().ToHashSet();
 
 
 
             var duplicateActiveVias = testEnv.ExtendBy(EnvelopeDuplicate.EnvelopeViaExtensionCount - 1, EnvelopeDuplicate.EnvelopeViaExtensionCount - 1);
 
             //Active vias should not include the first and last vias of the duplicate, unless they themselves are involved in the collision
-            duplicateActiveVias = duplicateActiveVias.Append(testEnv.CollidingVias.First()).Append(testEnv.CollidingVias.Last()).Distinct();
+            //duplicateActiveVias = duplicateActiveVias.Append(testEnv.CollidingVias.First()).Append(testEnv.CollidingVias.Last()).Distinct();
 
             duplicateActiveVias = duplicateActiveVias.Intersect(inputActiveVias);
 

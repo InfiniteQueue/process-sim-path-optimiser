@@ -101,7 +101,7 @@
         Padding="2"/>
         </StackPanel>
         <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1">
-        <EnvelopeDisplay:EnvelopeDisplayGrid Visibility="Collapsed"/>
+        <EnvelopeDisplay:EnvelopeDisplayGrid x:Name="ctrlEnvelopeDisplay" Visibility="Collapsed"/>
             </Border>
     </Grid>
     <SMC_Form_Library:SMC_Form_WPF.ButtonPanel>

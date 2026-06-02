@@ -23,7 +23,12 @@ namespace PathOptimiser.OptimisationSystem.Services.EnvelopeRecorder
 
             Data.Motion.UpdateMotionData();
 
-            ViasAndLocations.Add((Data.CurrentVia, Data.Motion.CurrentEffectiveLocation));
+
+            Data.GetPathVias(out var from, out var to);
+
+            if (from != null)
+            ViasAndLocations.Add((from, Data.Motion.CurrentEffectiveLocation));
+            //if (Data.GetPrevVia is ITxRoboticLocationOperation prevVia)
 
         }
 
