@@ -42,8 +42,6 @@ namespace PathOptimiser.OptimisationSystem
         #region WorkingData
         public List<ITxOperation> SimulatingOperations = new List<ITxOperation>();
 
-        ITxRoboticLocationOperation SimulatingVia => SimulatingOperations.OfType<ITxRoboticLocationOperation>().FirstOrDefault();
-
         public EnvelopeCollection RecordedEnvelopes = null;
 
 
@@ -78,6 +76,7 @@ namespace PathOptimiser.OptimisationSystem
 
         public MotionData Motion;
 
+        //Todo: call this MotionCalculator. Make motion data a separate class
         public class MotionData
         {
             EnvelopeRecordingData data;
@@ -89,10 +88,18 @@ namespace PathOptimiser.OptimisationSystem
             public TxVector CurrentTcpfLocation => data.Robot.TCPF.AbsoluteLocation.Translation;
             public TxVector PrevTcpfLocation;
             public TxVector PrevViaLocation;
+            TxVector _prevViaLocationBuffer;
+            TxVector _prevTcpfLocationBuffer;
             private LocOp PrevFrameVia;
+            LocOp _prevFrameViaBuffer;
 
             public void UpdateMotionData()
             {
+                PrevFrameVia = _prevFrameViaBuffer;
+                PrevViaLocation = _prevViaLocationBuffer;
+                prevFrameTime = _prevFrameTimeBuffer;
+                PrevTcpfLocation = _prevTcpfLocationBuffer;
+
                 if (PrevFrameVia != null && PrevViaLocation != null && prevFrameTime != null) {
                     var speedByTcpf = (CurrentTcpfLocation - PrevTcpfLocation).Magnitude(); 
                     var speedByVia = ((PrevFrameVia as ITxLocatableObject).AbsoluteLocation.Translation - PrevViaLocation).Magnitude();
@@ -100,13 +107,16 @@ namespace PathOptimiser.OptimisationSystem
                     speed = dist / deltaTime;
                 }
 
-                if (IsCloserToNextVia && IsMovingFromCurrentVia) data.CurrentVia = data.GetNextVia;
+                if (SimulatedViaIndex == null || SimulatedViaIndex >= data.CurrentVia.Index()) {
+                    if (IsCloserToNextVia && IsMovingFromCurrentVia) data.CurrentVia = data.GetNextVia;
+                }
 
-                PrevFrameVia = data.CurrentVia;
-                PrevViaLocation = new TxVector((data.CurrentVia as ITxLocatableObject).AbsoluteLocation.Translation);
-                PrevTcpfLocation = new TxVector(CurrentTcpfLocation);
-                prevFrameTime = data.SimPlayer.CurrentTime;
+                _prevFrameViaBuffer = data.CurrentVia;
+                _prevViaLocationBuffer = new TxVector((data.CurrentVia as ITxLocatableObject).AbsoluteLocation.Translation);
+                _prevTcpfLocationBuffer = new TxVector(CurrentTcpfLocation);
+                _prevFrameTimeBuffer = data.SimPlayer.CurrentTime;
             }
+
 
             public void Reset()
             {
@@ -139,20 +149,35 @@ ITxLocatableObject).AbsoluteLocation.Translation - currentRobotPosition).Magnitu
             public bool IsMovingFromCurrentVia
             {
                 get {
+                    //Welds can introduce odd movements that interfere with this algorithm
+                    if (data.SimulatingOperations.Any(x => x is TxWeldLocationOperation && x == data.CurrentVia)) return false;
+
                     if (PrevFrameVia == null) return false;
+
+
                     if (data.CurrentVia?.GetParameter("MOUNTED_WORKPIECE_FRAME_NAME") is TxRoboticTxObjectParam parm && parm.Value is TxFrame frame) {
                         if (PrevViaLocation == null) return false;
-                        else return (frame.AbsoluteLocation.Translation - PrevViaLocation).Magnitude() < (frame.AbsoluteLocation.Translation - (PrevFrameVia as ITxLocatableObject).AbsoluteLocation.Translation).Magnitude();
+                        //If RTCP, the via changes location each frame
+                        var distanceFromViaPrevLocation = (frame.AbsoluteLocation.Translation - PrevViaLocation).Magnitude();
+                        double distanceFromViaCurrentLocation = (frame.AbsoluteLocation.Translation - (PrevFrameVia as ITxLocatableObject).AbsoluteLocation.Translation).Magnitude();
+
+                        return distanceFromViaPrevLocation < distanceFromViaCurrentLocation;
                     }
 
-                    return PrevTcpfLocation != null && (CurrentTcpfLocation - (data.CurrentVia as ITxLocatableObject).AbsoluteLocation.Translation).Magnitude() > (PrevTcpfLocation - (data.CurrentVia as ITxLocatableObject).AbsoluteLocation.Translation).Magnitude();
+                    else {
+                        //Else, use the movement of the TCPF to judge relative motion
+                        return PrevTcpfLocation != null && (CurrentTcpfLocation - (data.CurrentVia as ITxLocatableObject).AbsoluteLocation.Translation).Magnitude() > (PrevTcpfLocation - (data.CurrentVia as ITxLocatableObject).AbsoluteLocation.Translation).Magnitude();
+                    }
                 }
             }
+
+            public int? SimulatedViaIndex => data.SimulatingOperations.OfType<ITxRoboticLocationOperation>().FirstOrDefault(x => (data.Operation as ITxRoboticOrderedCompoundOperation)?.Vias().Contains(x) == true)?.Index();
 
             private double? speed;
             public double? Speed => speed;
 
             private double? prevFrameTime;
+            private double? _prevFrameTimeBuffer;
             private double? deltaTime => prevFrameTime == null ? null : data.SimPlayer.CurrentTime - prevFrameTime;
 
             public TxVector CurrentEffectiveLocation
