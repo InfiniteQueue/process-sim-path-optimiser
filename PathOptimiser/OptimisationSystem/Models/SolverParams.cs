@@ -48,7 +48,6 @@ namespace PathOptimiser.OptimisationSystem.Models
             /// </summary>
             public void Record(double clearance, ITxLocationOperation prevVia)
             {
-
                 //Todo: this should refer to the instance NearMissDistance instead of the default
                 if (clearance > EnvelopeRecordingData.DefaultCollisionDistance) return;
                 if (prevVia == null) return;

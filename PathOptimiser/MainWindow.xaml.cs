@@ -199,8 +199,8 @@ namespace PathOptimiser
                 Tracer.BuildTraceFrames();
 
                 Tracer.Dispose();
-
             });
+
             //var via = TxApplication.ActiveSelection.GetAllItems().OfType<ITxRoboticLocationOperation>().FirstOrDefault();
 
             //if (via.GetParameter("MOUNTED_WORKPIECE_FRAME_NAME") is TxRoboticTxObjectParam param) {

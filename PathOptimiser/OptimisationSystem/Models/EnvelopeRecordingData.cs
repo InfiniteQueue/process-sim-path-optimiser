@@ -248,6 +248,8 @@ ITxLocatableObject).AbsoluteLocation.Translation - currentRobotPosition).Magnitu
                 if (acceptedClearance > defaultRadius) return defaultRadius;
                 if (!parms.IgnoreExistingCollisions) acceptedClearance = Math.Max(0.0001, acceptedClearance);
                 if (!parms.IgnoreExistingNearMisses && acceptedClearance != 0) return defaultRadius;
+
+                acceptedClearance = acceptedClearance * 0.9; //Add a small buffer
                 return acceptedClearance;
             }
 
