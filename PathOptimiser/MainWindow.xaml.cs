@@ -95,8 +95,8 @@ namespace PathOptimiser
                 InRunMode = false;
                 this.TaskbarItemInfo = new TaskbarItemInfo();
                 this.TaskbarItemInfo.ProgressState = TaskbarItemProgressState.Indeterminate;
-                
-                //Todo: Hide DisplayGrid here
+
+                ctrlEnvelopeDisplay.Visibility = Visibility.Collapsed;
 
                 Debug.WriteLine($"{(DateTime.Now - DebugStartTime).TotalSeconds / 60.0:0.##} minutes elapsed");
             }

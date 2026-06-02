@@ -105,7 +105,7 @@ namespace PathOptimiser
         protected virtual void TimeIntervalReached(object sender, TxSimulationPlayer_TimeIntervalReachedEventArgs args)
         {
             if (paused) return;
-            Data.Motion.UpdateMotionData();
+            Data.MotionCalc.UpdateMotionData();
 
             new CollisionFinder(Data).RecordCollisionState();
 
@@ -156,7 +156,7 @@ namespace PathOptimiser
 
                 if (data.solverParams.IgnoredVias?.Contains(data.CurrentVia) == true) return false;
 
-                if (data.Welds.Any(x => (x.AbsoluteLocation.Translation - data.Motion.CurrentEffectiveLocation).Magnitude() < EnvelopeRecordingData.WeldIgnoreRadius)) return false;
+                if (data.Welds.Any(x => (x.AbsoluteLocation.Translation - data.MotionCalc.CurrentEffectiveLocation).Magnitude() < EnvelopeRecordingData.WeldIgnoreRadius)) return false;
 
                 if (results.MinDistance() >= data.GetCurrentPermissibleClearance()) return false;
 
@@ -181,25 +181,6 @@ namespace PathOptimiser
                 return results;
             }
 
-            double GetAcceptedClearanceRadius(TxCollisionQueryResults results)
-            {
-                var parms = data.solverParams;
-                var defaultRadius = parms.NearMissDistance;
-
-                data.GetPathVias(out var movingFrom, out var movingTo);
-                if (movingFrom == null) return defaultRadius;
-
-                if (parms.acceptedClearances.TryGetValue(movingFrom, out var val)) {
-
-                    var acceptedClearance = val.AcceptableClearance;
-                    if (acceptedClearance > defaultRadius) return defaultRadius;
-                    if (!parms.IgnoreExistingCollisions) acceptedClearance = Math.Max(0.0001, acceptedClearance);
-                    if (!parms.IgnoreExistingNearMisses && acceptedClearance != 0) return defaultRadius;
-                    return acceptedClearance;
-                }
-
-                return defaultRadius;
-            }
         }
 
         #region Events and Handlers

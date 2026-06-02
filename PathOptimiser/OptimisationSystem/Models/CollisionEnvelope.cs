@@ -93,7 +93,7 @@ namespace PathOptimiser
 
         public class FrameData
         {
-            public FrameData(EnvelopeRecordingData data, double clearance) : this(data.CurrentVia, data.SimPlayer.CurrentTime, clearance, data.GetCurrentPermissibleClearance(), data.Motion.Speed ?? 0, data.SimPlayer.TimeInterval) { }
+            public FrameData(EnvelopeRecordingData data, double clearance) : this(data.CurrentVia, data.SimPlayer.CurrentTime, clearance, data.GetCurrentPermissibleClearance(), data.MotionCalc.Speed ?? 0, data.SimPlayer.TimeInterval) { }
 
             public FrameData(ITxLocationOperation currentVia, double time, double clearance, double minIgnoredClearance, double speed, double duration)
             {

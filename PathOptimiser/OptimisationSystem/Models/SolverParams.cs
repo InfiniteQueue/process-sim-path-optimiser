@@ -11,6 +11,10 @@ namespace PathOptimiser.OptimisationSystem.Models
 {
     public class SolverParams
     {
+        public SolverParams() { 
+            this.acceptedClearances = new AcceptedClearancesCollection(this); 
+        }
+
         public bool IgnoreExistingNearMisses { get; set; } = true;
         public bool IgnoreExistingCollisions { get; set; } = true;
 
@@ -25,7 +29,7 @@ namespace PathOptimiser.OptimisationSystem.Models
         /// <summary> Vias explicitly set to have their collisions ignored </summary>
         public HashSet<ITxRoboticLocationOperation> IgnoredVias { get; set; } = new HashSet<ITxRoboticLocationOperation>();
 
-        public AcceptedClearancesCollection acceptedClearances = new AcceptedClearancesCollection();
+        public AcceptedClearancesCollection acceptedClearances;
 
         public PathSolver.EnvelopeDuplicate thisEnvelopeDuplicate;
 
@@ -42,14 +46,20 @@ namespace PathOptimiser.OptimisationSystem.Models
 
         public class AcceptedClearancesCollection : Dictionary<ITxLocationOperation,  AcceptedClearance>
         {
+            public AcceptedClearancesCollection(SolverParams solverParams)
+            {
+                this.SolverParams = solverParams;
+            }
+
+            SolverParams SolverParams { get; set; }
+
             /// <summary> 
             /// Note that 'prevVia' here is not the same as the 'CurrentVia' property in the EnvelopeRecordingData.
             /// CurrentVia considers the 'closest' current via, while prevVia is the last via that was 'passed' by the robot
             /// </summary>
             public void Record(double clearance, ITxLocationOperation prevVia)
             {
-                //Todo: this should refer to the instance NearMissDistance instead of the default
-                if (clearance > EnvelopeRecordingData.DefaultCollisionDistance) return;
+                if (clearance > SolverParams.NearMissDistance) return;
                 if (prevVia == null) return;
                 if (!ContainsKey(prevVia)) this[prevVia] = new AcceptedClearance() { PrevVia = prevVia, AcceptableClearance = clearance, NextVia = (prevVia.Collection as ITxOrderedCompoundOperation).AtIndex(prevVia.Index() + 1) };
                 else {
@@ -59,7 +69,7 @@ namespace PathOptimiser.OptimisationSystem.Models
 
             public AcceptedClearancesCollection GetEnvelopeDuplicateClone(PathSolver.EnvelopeDuplicate duplicate)
             {
-                var newCollection = new AcceptedClearancesCollection();
+                var newCollection = new AcceptedClearancesCollection(SolverParams);
                 foreach(var item in this.Keys) {
                     if (duplicate.OriginalToCopy( item ) is ITxLocationOperation newPrevVia
                         && duplicate.OriginalToCopy(this[item].NextVia ) is ITxLocationOperation newNextVia) {

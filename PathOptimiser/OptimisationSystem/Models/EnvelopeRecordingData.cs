@@ -21,7 +21,7 @@ namespace PathOptimiser.OptimisationSystem
             Robot = operation.SimulatedObjects.OfType<ITxRobot>().FirstOrDefault();
             this.solverParams = solverParams;
 
-            Motion =  new MotionData(this);
+            MotionCalc =  new MotionData(this);
         }
 
         #region InitialData
@@ -74,7 +74,7 @@ namespace PathOptimiser.OptimisationSystem
         }
         #endregion
 
-        public MotionData Motion;
+        public MotionData MotionCalc;
 
         //Todo: call this MotionCalculator. Make motion data a separate class
         public class MotionData
@@ -85,6 +85,7 @@ namespace PathOptimiser.OptimisationSystem
                 this.data = data;
             }
 
+            #region data
             public TxVector CurrentTcpfLocation => data.Robot.TCPF.AbsoluteLocation.Translation;
             public TxVector PrevTcpfLocation;
             public TxVector PrevViaLocation;
@@ -92,6 +93,12 @@ namespace PathOptimiser.OptimisationSystem
             TxVector _prevTcpfLocationBuffer;
             private LocOp PrevFrameVia;
             LocOp _prevFrameViaBuffer;
+            private double? prevFrameTime;
+            private double? _prevFrameTimeBuffer;
+
+            private double? speed;
+            public double? Speed => speed;
+            #endregion
 
             public void UpdateMotionData()
             {
@@ -165,11 +172,6 @@ ITxLocatableObject).AbsoluteLocation.Translation - currentRobotPosition).Magnitu
 
             public int? SimulatedViaIndex => data.SimulatingOperations.OfType<ITxRoboticLocationOperation>().FirstOrDefault(x => (data.Operation as ITxRoboticOrderedCompoundOperation)?.Vias().Contains(x) == true)?.Index();
 
-            private double? speed;
-            public double? Speed => speed;
-
-            private double? prevFrameTime;
-            private double? _prevFrameTimeBuffer;
             private double? deltaTime => prevFrameTime == null ? null : data.SimPlayer.CurrentTime - prevFrameTime;
 
             public TxVector CurrentEffectiveLocation
@@ -223,7 +225,7 @@ ITxLocatableObject).AbsoluteLocation.Translation - currentRobotPosition).Magnitu
 
         public void GetPathVias(out LocOp MovingFrom, out LocOp MovingTo)
         {
-            if (!Motion.IsMovingFromCurrentVia) {
+            if (!MotionCalc.IsMovingFromCurrentVia) {
                 MovingTo = CurrentVia; MovingFrom = GetPrevVia; return;
             }
             else {

@@ -186,7 +186,7 @@ namespace PathOptimiser
             SimPlayer.AskUserForReset(false);
             SimPlayer.Rewind();
 
-            Data?.Motion.Reset();
+            Data?.MotionCalc.Reset();
 
             var debugTime = DateTime.Now;
             SimPlayer.AskUserForReset(false);

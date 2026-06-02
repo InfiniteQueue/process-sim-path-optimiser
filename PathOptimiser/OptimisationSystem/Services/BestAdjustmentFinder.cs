@@ -29,7 +29,7 @@ namespace PathOptimiser
                 var envCollections = new Dictionary<ViaAdjustment, EnvelopeCollection>();
 
                 Debug.WriteLine($"Considering adjustments from {solverParams.ActiveVias.FirstOrDefault()?.Name} to {solverParams.ActiveVias.LastOrDefault()?.Name}");
-                Debug.WriteLine($"Collisions ignored on {string.Join(",", solverParams.IgnoredVias.Select(x => x.Name))}");
+                Debug.WriteLine($"Collisions ignored on {string.Join(",", solverParams.IgnoredVias.Select(x => x.Name)) ?? "None"}");
 
                 var adjustments =  new AdjustmentGenerator(solverParams.ActiveVias).GetAllStandardAdjustments();
 

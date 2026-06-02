@@ -24,7 +24,7 @@ namespace PathOptimiser.OptimisationSystem.Services.EnvelopeRecorder
         {
             if (paused) return;
 
-            Data.Motion.UpdateMotionData();
+            Data.MotionCalc.UpdateMotionData();
 
 
             var collisionHandler = new CollisionFinder(Data);
