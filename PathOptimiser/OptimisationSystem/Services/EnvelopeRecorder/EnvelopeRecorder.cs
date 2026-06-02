@@ -17,10 +17,8 @@ namespace PathOptimiser
 
         public EnvelopeRecordingData Data;
 
-        public EnvelopeCollection RecordedEnvelopes => Data.RecordedEnvelopes;
         public ITxOperation Operation => Data?.Operation;
 
-        private IEnumerable<ITxRoboticLocationOperation> Welds => (Data.CurrentVia.Collection as ITxCompoundOperation).Vias().OfType<TxWeldLocationOperation>();
         #endregion
 
         #region Properties
@@ -47,12 +45,12 @@ namespace PathOptimiser
 
         private void _simPlayer_OperationEndedForward(object sender, TxSimulationPlayer_OperationEndedForwardEventArgs args)
         {
-            Data.SimulatingOperations.Add(args.Operation);
+            Data.SimulatingOperations.Remove(args.Operation);
         }
 
         private void _simPlayer_OperationStartedForward(object sender, TxSimulationPlayer_OperationStartedForwardEventArgs args)
         {
-            Data.SimulatingOperations.Remove(args.Operation);
+            Data.SimulatingOperations.Add(args.Operation);
         }
 
         #endregion
