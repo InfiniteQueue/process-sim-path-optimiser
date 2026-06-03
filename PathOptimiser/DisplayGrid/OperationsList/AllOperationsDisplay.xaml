@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PathOptimiser.DisplayGrid"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Grid.IsSharedSizeScope="True">
         <StackPanel Orientation="Vertical" x:Name="stkOperations"/>
     </Grid>
 </UserControl>

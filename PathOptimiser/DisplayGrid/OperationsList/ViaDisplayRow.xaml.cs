@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,6 +24,8 @@ namespace PathOptimiser
             InitializeComponent();
             this.DataContext = this;
             this.data = data;
+
+            PathSolver.OperationFinished += SetFinalClearance;
         }
 
         private ViaParameters OriginalValues;
@@ -40,7 +43,7 @@ namespace PathOptimiser
             set {
                 locOp = value;
                 OriginalValues = new ViaParameters(LocOp);
-                Update();
+                Reset();
                 this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LocOp)));
                 this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CanBeActive)));
             }
@@ -73,9 +76,13 @@ namespace PathOptimiser
             lblSpeed.Content += (locOp.IsLinear() ? "mm/s" : "%");
         }
 
-        public void Update()
+        public void Reset()
         {
+            stkCollisionReport.Visibility = Visibility.Collapsed;
+            stkAcceptedClearance.Visibility = Visibility.Collapsed;
+
             Update(null);
+
             lblCnt.Foreground = Brushes.Gray;
             lblSpeed.Foreground = Brushes.Gray;
         }
@@ -84,6 +91,23 @@ namespace PathOptimiser
         {
             stkAcceptedClearance.Visibility = Visibility.Visible;
             lblAcceptedClearance.Content = $"{clearance:0.##}mm";
+        }
+
+        /// <summary> 
+        /// Does nothing if the path completed doesn't concern this via. 
+        /// Does nothing if collisions were properly cleared for this via
+        /// </summary>
+        public void SetFinalClearance(PathSolver.OperationOptimisedReport report)
+        {
+            var myFrameDatas = report.finalEnvelope.SelectMany(x => x.FrameDataList.Where(y => y.CurrentVia == locOp));
+            var myCollidingFrames = myFrameDatas.Select(x => x.CollisionState != CollisionEnvelope.FrameData.State.Clear);
+
+            if (myFrameDatas.Count() > 0) {
+                var clearance = myFrameDatas.Min(z => z.Clearance);
+
+                stkCollisionReport.Visibility = Visibility.Visible;
+                lblFinalClearance.Content = clearance;
+            }
         }
 
         #region properties
@@ -123,6 +147,20 @@ namespace PathOptimiser
         }
         #endregion
 
+        protected override void OnPreviewMouseWheel(MouseWheelEventArgs e)
+        {
+            e.Handled = false;
+            (Parent as UIElement).RaiseEvent(
+                new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta
+                )
+                { RoutedEvent = MouseWheelEvent}
+                );
+        }
+
+        protected override void OnMouseWheel(MouseWheelEventArgs e)
+        {
+            e.Handled = false;
+        }
     }
 
     public class IndexConverter : IValueConverter

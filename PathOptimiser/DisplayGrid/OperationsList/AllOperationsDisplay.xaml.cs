@@ -39,7 +39,7 @@ namespace PathOptimiser.DisplayGrid
 
         public void SetOperationClearStatus(PathSolver.OperationOptimisedReport report)
         {
-            stkOperations.Children.OfType<OperationsList.RobotOperationsListControl>().SelectMany(o => o.stkCollections.Children.OfType<OperationsList.CollectionOperationsDisplay>()).FirstOrDefault(x => x.CompoundOp == report.Operation)?.SetCompletionState(report);
+            stkOperations.Children.OfType<RobotOperationsListControl>().SelectMany(o => o.stkCollections.Children.OfType<CollectionOperationsDisplay>()).FirstOrDefault(x => x.CompoundOp == report.Operation)?.SetCompletionState(report);
         }
 
         public Dictionary<ITxRoboticLocationOperation, DisplayGridRow> GridRows => AllRows.ToDictionary(x => x.LocOp);
@@ -47,7 +47,7 @@ namespace PathOptimiser.DisplayGrid
         public List<ITxRoboticLocationOperation> AllVias => AllRows.Select(x => x.LocOp).ToList();
         public List<ITxRoboticLocationOperation> ActiveVias => AllRows.Where(x => x.Included).Select(x => x.LocOp).ToList();
 
-        public IEnumerable<DisplayGridRow> AllRows => stkOperations.Children.OfType<OperationsList.RobotOperationsListControl>().SelectMany(o => o.stkCollections.Children.OfType<OperationsList.CollectionOperationsDisplay>()).SelectMany(c => c.stkRows.Children.OfType<DisplayGridRow>());
+        public IEnumerable<DisplayGridRow> AllRows => stkOperations.Children.OfType<RobotOperationsListControl>().SelectMany(o => o.stkCollections.Children.OfType<CollectionOperationsDisplay>()).SelectMany(c => c.stkRows.Children.OfType<DisplayGridRow>());
 
         public void AssignSelectedVias()
         {
@@ -59,14 +59,13 @@ namespace PathOptimiser.DisplayGrid
 
             var allSelectedVias = selectedVias.Concat(operationSubVias).Distinct().ToList();
 
-
-
             RepopulateCategorised(allSelectedVias);
+
         }
 
         public void SetAcceptedClearances(SolverParams.AcceptedClearancesCollection clearances)
         {
-            foreach(var item in stkOperations.Children.OfType<OperationsList.RobotOperationsListControl>().SelectMany(o => o.stkCollections.Children.OfType<OperationsList.CollectionOperationsDisplay>())) {
+            foreach(var item in stkOperations.Children.OfType<RobotOperationsListControl>().SelectMany(o => o.stkCollections.Children.OfType<CollectionOperationsDisplay>())) {
                 foreach(var row in item.stkRows.Children.OfType<DisplayGridRow>()) {
                     if (clearances.ContainsKey(row.LocOp)) {
                         double? effectiveAcceptableClearance = clearances[row.LocOp].AcceptableClearance;
@@ -94,7 +93,9 @@ namespace PathOptimiser.DisplayGrid
                     gridRows[locOp].SetAcceptedClearance(item.Value.AcceptableClearance);
                 }
             }
+
         }
+
 
         public void RepopulateCategorised(IEnumerable<ITxRoboticLocationOperation> selectedVias)
         {
@@ -121,7 +122,7 @@ namespace PathOptimiser.DisplayGrid
                 this.Dispatcher.Invoke(() =>
                 {
                     result = 
-                stkOperations.Children.OfType<OperationsList.RobotOperationsListControl>().SelectMany(o => o.stkCollections.Children.OfType<OperationsList.CollectionOperationsDisplay>()).ToDictionary(x => x.CompoundOp, x => x.Data);
+                stkOperations.Children.OfType<RobotOperationsListControl>().SelectMany(o => o.stkCollections.Children.OfType<CollectionOperationsDisplay>()).ToDictionary(x => x.CompoundOp, x => x.Data);
                 }, System.Windows.Threading.DispatcherPriority.Normal
                 );
                 return result;

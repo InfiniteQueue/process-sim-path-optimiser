@@ -26,7 +26,7 @@ namespace PathOptimiser.DisplayGrid.OperationsList
             borderReset.Visibility = System.Windows.Visibility.Visible;
             ctrlStatusBorder.Visibility = System.Windows.Visibility.Visible;
             if (report.Success == PathSolver.Result.Success) {
-                lblStatus.Content = "Success";
+                lblStatus.Content = "Clear";
                 ctrlStatusBorder.Background = Brushes.LightGreen;
             }
             else if (report.Success == PathSolver.Result.CouldNotComplete) {
@@ -38,6 +38,7 @@ namespace PathOptimiser.DisplayGrid.OperationsList
                 ctrlStatusBorder.Background = Brushes.PaleVioletRed;
             }
             lblTime.Content = $"{report.originalTime:0.##} -> {report.optimisedTime:0.##} seconds";
+            lblTime.Foreground = report.optimisedTime > report.originalTime ? Brushes.DarkRed : SystemColors.ControlTextBrush;
         }
         public void SetGroup(IGrouping<ITxCompoundOperation, ITxRoboticLocationOperation> collectionGroup)
         {

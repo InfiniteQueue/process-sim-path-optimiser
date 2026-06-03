@@ -14,8 +14,8 @@
     Title="Path Optimiser"
     Background="GhostWhite"
     Topmost="True"
-    MinWidth="700"
     StatusVisible="Visible">
+    
     <Window.Resources>
         <debug:DebuggerAttachedConverter x:Key="DebuggerAttachedConverter"/>
 
@@ -55,6 +55,7 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
+    
     <Grid Background="GhostWhite">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

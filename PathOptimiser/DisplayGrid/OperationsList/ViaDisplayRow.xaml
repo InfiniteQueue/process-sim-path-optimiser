@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PathOptimiser" d:DataContext="{d:DesignInstance Type=local:DisplayGridRow}"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" MouseEnter="chkActivated_MouseEnter" BorderThickness="0,0,0,0.5" BorderBrush="Gray">
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:PathOptimiser" 
+             d:DataContext="{d:DesignInstance Type=local:DisplayGridRow}"
+             mc:Ignorable="d"  d:DesignWidth="900" MouseEnter="chkActivated_MouseEnter" BorderThickness="0,0,0,0.5" BorderBrush="Gray" d:Background="White">
     <UserControl.Resources>
         <local:IndexConverter x:Key="IndexConverter"/>
         <Style TargetType="{x:Type CheckBox}">
@@ -41,12 +42,12 @@
                                     Padding="2">
 
                                     <!-- The ContentPresenter will show the check mark -->
-                                <ContentPresenter x:Name="contentPresenter"
+                                    <ContentPresenter x:Name="contentPresenter"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               VerticalAlignment="Center"
                                               HorizontalAlignment="Center"/>
-                            </Border>
+                                </Border>
                             </Border>
 
                             <!-- Actual content text -->
@@ -65,7 +66,7 @@
                             </Trigger>
                             <Trigger Property="IsChecked" Value="False">
                                 <Setter TargetName="InsideBorder" Property="BorderThickness" Value="0"/>
-                                </Trigger>
+                            </Trigger>
 
                             <Trigger  Property="IsMouseOver" Value="True">
                                 <Setter TargetName="InsideBorder" Property="Background" Value="#E6E6E6"/>
@@ -81,26 +82,55 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    
+
     <Grid>
-        <DockPanel LastChildFill="True">
+        <DockPanel LastChildFill="True" Margin="0,0,10,0">
             <CheckBox x:Name="chkActivated" DockPanel.Dock="Left" Margin="0" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="" IsChecked="{Binding Path=Included, Mode=TwoWay}" IsEnabled="{Binding Path=CanBeActive,Mode=OneWay}" />
 
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"  Width="auto" DockPanel.Dock="Right">
-                <Label Content="CNT:" DockPanel.Dock="Left" VerticalAlignment="Stretch"/>
-                <Label MinWidth="90"  x:Name="lblCnt" DockPanel.Dock="Left" VerticalAlignment="Stretch" HorizontalContentAlignment="Left"/>
-            </StackPanel>
+            <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="auto">
+                    
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="NameCol"/>
+                    <ColumnDefinition Width="1*"/> <!--This allows the name to stay left-centred while also sharing the minimum width-->
 
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="auto" DockPanel.Dock="Right">
-                <Label Content="Speed:" VerticalAlignment="Stretch"/>
-                <Label  MinWidth="130" x:Name="lblSpeed"  VerticalAlignment="Stretch" HorizontalContentAlignment="Left"/>
-            </StackPanel>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="CNTCol"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="SpeedCol"/>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel x:Name="stkAcceptedClearance" HorizontalAlignment="Center" Orientation="Horizontal" Width="auto" DockPanel.Dock="Right" Visibility="Collapsed">
-                <Label Content="Permissable Clearance:" VerticalAlignment="Stretch"/>
-                <Label MinWidth="100" x:Name="lblAcceptedClearance" VerticalAlignment="Stretch" HorizontalContentAlignment="Left"/>
-            </StackPanel>
-            <Label x:Name="lblName" DockPanel.Dock="Left" VerticalAlignment="Stretch" Cursor="Hand" MouseDown="lblName_MouseDown"/>
+                <Label x:Name="lblName" d:Content="[Via Name]" VerticalAlignment="Center" Cursor="Hand" MouseDown="lblName_MouseDown" Margin="0,0,10,0"/>
+
+                    
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Column="1" VerticalScrollBarVisibility="Hidden" d:HorizontalScrollBarVisibility="Visible">
+                    <ScrollViewer.Resources>
+                        <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarHeightKey}">15</sys:Double>
+                    </ScrollViewer.Resources>
+
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                    <StackPanel x:Name="stkCollisionReport" HorizontalAlignment="Center" Orientation="Horizontal" Width="auto" Visibility="Collapsed" d:Visibility="Visible">
+                        <Label Content="Final Clearance:" VerticalAlignment="Center" Foreground="DarkRed"/>
+                            <Label x:Name="lblFinalClearance" VerticalAlignment="Center" HorizontalContentAlignment="Left" d:Content="[value]" Foreground="DarkRed"/>
+                    </StackPanel>
+                    
+                    <StackPanel x:Name="stkAcceptedClearance" HorizontalAlignment="Center" Orientation="Horizontal" Width="auto" Visibility="Collapsed" d:Visibility="Visible">
+                        <Label Content="Permissable Clearance:" VerticalAlignment="Center"/>
+                        <Label x:Name="lblAcceptedClearance" VerticalAlignment="Center" HorizontalContentAlignment="Left" d:Content="[value]"/>
+                    </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                    
+
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal"  Width="auto" Grid.Column="2" Margin="5,0,0,0">
+                    <Label Content="CNT:" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCnt" VerticalAlignment="Center" HorizontalContentAlignment="Left" d:Content="[value]"/>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Width="auto" Grid.Column="3" Margin="5,0,0,0">
+                    <Label Content="Speed:" VerticalAlignment="Center"/>
+                    <Label x:Name="lblSpeed"  VerticalAlignment="Center" HorizontalContentAlignment="Left" d:Content="[value]"/>
+                </StackPanel>
+
+            </Grid>
+            
         </DockPanel>
     </Grid>
 </UserControl>

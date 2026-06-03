@@ -76,6 +76,7 @@ namespace PathOptimiser.DisplayGrid.DebugEnvelopeDisplay
 
                 var rect = new Rectangle
                 {
+                    Opacity = 0.7,
                     Stroke = Brushes.Black,
                     StrokeThickness = 0.25,
                     Width = w,

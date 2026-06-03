@@ -76,7 +76,6 @@ namespace PathOptimiser.OptimisationSystem
 
         public MotionData MotionCalc;
 
-        //Todo: call this MotionCalculator. Make motion data a separate class
         public class MotionData
         {
             EnvelopeRecordingData data;

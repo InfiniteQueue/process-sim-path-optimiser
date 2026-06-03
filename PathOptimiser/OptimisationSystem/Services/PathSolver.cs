@@ -31,6 +31,7 @@ namespace PathOptimiser
 
         double OriginalTime;
         double OptimisedTime;
+        EnvelopeCollection FinalEnvelopeCollection;
         #endregion
         #region Init
         public PathSolver(SimPlayerTracker tracker)
@@ -57,7 +58,7 @@ namespace PathOptimiser
                 var result = OptimiseWithSubEnvelopes(pair);
 
                 results.Add(result);
-                OperationFinished?.Invoke(new OperationOptimisedReport() { Operation = pair.Key, Success = result, originalTime = OriginalTime, optimisedTime = OptimisedTime });
+                OperationFinished?.Invoke(new OperationOptimisedReport() { Operation = pair.Key, Success = result, originalTime = OriginalTime, optimisedTime = OptimisedTime, finalEnvelope = FinalEnvelopeCollection });
                 DeviceResetter.Reload();
             }
 
@@ -231,7 +232,7 @@ namespace PathOptimiser
             All vias but the first and last are active
             */
 
-            var ignoredVias = testEnv.ExtendBy(extension, extension).Except(testEnv.ExtendBy(1, 1)).Select(x => duplicate.OriginalToCopy(x));
+            var ignoredVias = testEnv.ExtendBy(extension, extension).Except(testEnv.ExtendBy(0, 0)).Select(x => duplicate.OriginalToCopy(x));
 
 
 
@@ -281,6 +282,7 @@ namespace PathOptimiser
             Debug.WriteLine($"Envelope Solved");
         }
 
+
         private void ClearSingleOperation()
         {
             using (var envelopeRecorder = new EnvelopeRecorder(tracker, ActiveDocument.CurrentOperation, solverParams) { SimPlayerTracker = tracker }) {
@@ -324,6 +326,8 @@ namespace PathOptimiser
                 }
 
                 OptimisedTime = remainingEnvelopes.FinalTime;
+                FinalEnvelopeCollection = remainingEnvelopes;
+
 
                 if (remainingEnvelopes.Envelopes.Count == 0) Debug.WriteLine("No collisions found");
             }
@@ -442,6 +446,10 @@ namespace PathOptimiser
             public Result Success;
             public double originalTime;
             public double optimisedTime;
+
+            //Todo: rename to finalEnvelopeCollection
+            public EnvelopeCollection finalEnvelope;
+
         }
 
     }
