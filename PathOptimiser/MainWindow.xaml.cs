@@ -68,7 +68,6 @@ namespace PathOptimiser
                 allOperationsCancel = new CancellationTokenSource();
                 var solver = new OptimisationOperation(new SimPlayerTracker() { SimPlayer = ActiveDocument.SimulationPlayer});
                 solver.Done += Solver_Done;
-                solver.solverParams.IgnoreExistingNearMisses = chkIgnoreNearMisses.IsChecked == true;
 
                 InRunMode = true;
 

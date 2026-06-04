@@ -10,7 +10,7 @@ using PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders;
 
 namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 {
-    public partial class PathSolver {
+    public partial class EnvelopeSolver {
         public class BestAdjustmentFinder
         {
 

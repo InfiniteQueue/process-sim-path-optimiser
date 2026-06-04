@@ -23,14 +23,10 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
         #region Data
         SimPlayerTracker tracker;
 
-        public SolverParams solverParams = new SolverParams();
-        public HashSet<LocOp> ActiveVias => solverParams.ActiveVias;
+        //public SolverParams solverParams = new SolverParams();
+        //public HashSet<LocOp> ActiveVias => solverParams.ActiveVias;
 
 
-        ITxCompoundOperation Operation { get; set; }
-
-        double OriginalTime;
-        double OptimisedTime;
         EnvelopeCollection FinalEnvelopeCollection;
         #endregion
         #region Init
@@ -43,25 +39,28 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
         #region Iteration
 
-        public void RunMain(IEnumerable<LocOp> IncludedVias, Dictionary<ITxCompoundOperation, CollectionOperationsDisplay.OperationData> OperationData)
+        public void RunMain(IEnumerable<LocOp> IncludedVias, Dictionary<CompoundOp, CollectionOperationsDisplay.OperationData> OperationData)
         {
             DeviceResetter.Store();
-            var operations = IncludedVias.GroupBy(x => x.Collection as ITxCompoundOperation);
+            var operations = IncludedVias.GroupBy(x => x.Collection as CompoundOp);
             var results = new List<Result>();
 
             foreach (var pair in operations) {
-                solverParams.NearMissDistance = OperationToNearMissRegistry.ContainsKey(pair.Key) ? OperationToNearMissRegistry.GetValue(pair.Key) : 5;
-                solverParams.LoadData(OperationData[pair.Key]);
 
-                Operation = pair.Key;
+                var newParams = new SolverParams() {
+                    ActiveVias = pair.ToHashSet(),
+                    Operation = pair.Key as CompoundOp
+                };
+                newParams.LoadData(OperationData[pair.Key]);
+
 
                 var tokenCreator = new CancellationTokenSource();
 
-                var envSolver = new PathSolver(tracker, solverParams, Operation);
+                var envSolver = new EnvelopeSolver(tracker, newParams);
                 var result = envSolver.OptimiseWithSubEnvelopes(pair, tokenCreator.Token);
 
                 results.Add(result);
-                ReportOperationFinished(new OperationOptimisedReport() { Operation = pair.Key, Success = result, originalTime = OriginalTime, optimisedTime = OptimisedTime, finalEnvelope = FinalEnvelopeCollection });
+                ReportOperationFinished(new OperationOptimisedReport() { Operation = pair.Key, Success = result, originalTime = envSolver.OriginalTime, optimisedTime = envSolver.OptimisedTime, finalEnvelopeCollection = FinalEnvelopeCollection });
                 DeviceResetter.Reload();
             }
 
@@ -127,13 +126,12 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
         public class OperationOptimisedReport
         {
-            public ITxCompoundOperation Operation;
+            public ITxRoboticOrderedCompoundOperation Operation;
             public Result Success;
             public double originalTime;
             public double optimisedTime;
 
-            //Todo: rename to finalEnvelopeCollection
-            public EnvelopeCollection finalEnvelope;
+            public EnvelopeCollection finalEnvelopeCollection;
 
         }
 

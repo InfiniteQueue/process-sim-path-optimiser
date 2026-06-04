@@ -117,9 +117,9 @@ namespace PathOptimiser.DisplayGrid
             }
         }
 
-        public Dictionary<ITxCompoundOperation, CollectionOperationsDisplay.OperationData> OperationsToData {
+        public Dictionary<ITxRoboticOrderedCompoundOperation, CollectionOperationsDisplay.OperationData> OperationsToData {
             get {
-                Dictionary < ITxCompoundOperation, CollectionOperationsDisplay.OperationData > result = null;
+                Dictionary <ITxRoboticOrderedCompoundOperation, CollectionOperationsDisplay.OperationData > result = null;
                 this.Dispatcher.Invoke(() =>
                 {
                     result = 

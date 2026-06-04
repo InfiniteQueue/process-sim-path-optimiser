@@ -107,11 +107,11 @@
     <Compile Include="OptimisationSystem\Services\EnvelopeRecorders\AcceptableClearanceRecorder.cs" />
     <Compile Include="OptimisationSystem\Services\EnvelopeRecorders\CurrentViaTrace.cs" />
     <Compile Include="OptimisationSystem\Services\EnvelopeRecorders\EnvelopeRecorder.cs" />
-    <Compile Include="OptimisationSystem\Services\PathSolver\PathSolver.cs" />
-    <Compile Include="OptimisationSystem\Services\PathSolver\OptimisationOperation.cs" />
-    <Compile Include="OptimisationSystem\Services\PathSolver\EnvelopeSolver.EnvelopeDuplicate.cs" />
-    <Compile Include="OptimisationSystem\Services\PathSolver\PathSolverStatics.cs" />
     <Compile Include="OptimisationSystem\Services\PathSolver\EnvelopeSolver.cs" />
+    <Compile Include="OptimisationSystem\Services\PathSolver\OptimisationOperation.cs" />
+    <Compile Include="OptimisationSystem\Services\PathSolver\PathSolver.EnvelopeDuplicate.cs" />
+    <Compile Include="OptimisationSystem\Services\PathSolver\PathSolverStatics.cs" />
+    <Compile Include="OptimisationSystem\Services\PathSolver\PathSolver.cs" />
     <Compile Include="OptimisationSystem\Services\Util\PlayToVia.cs" />
     <Compile Include="OptimisationSystem\Services\Util\ReadyToRunChecks.cs" />
     <Compile Include="TestWindow.xaml.cs">

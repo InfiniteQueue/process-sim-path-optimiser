@@ -49,12 +49,12 @@ namespace PathOptimiser.DisplayGrid.OperationsList
                 lblTime.Content = $"{report.originalTime:0.##} -> {report.optimisedTime:0.##} seconds";
             lblTime.Foreground = report.optimisedTime > report.originalTime ? Brushes.DarkRed : SystemColors.ControlTextBrush;
         }
-        public void SetGroup(IGrouping<ITxCompoundOperation, ITxRoboticLocationOperation> collectionGroup)
+        public void SetGroup(IGrouping<ITxRoboticOrderedCompoundOperation, ITxRoboticLocationOperation> collectionGroup)
         {
             SetGroup(collectionGroup.Key, collectionGroup);
         }
 
-        public void SetGroup(ITxCompoundOperation compOp, IEnumerable<ITxRoboticLocationOperation> Vias)
+        public void SetGroup(ITxRoboticOrderedCompoundOperation compOp, IEnumerable<ITxRoboticLocationOperation> Vias)
         {
             ResetControls();
 
@@ -91,8 +91,8 @@ namespace PathOptimiser.DisplayGrid.OperationsList
         public List<ITxRoboticLocationOperation> Vias = new List<ITxRoboticLocationOperation>();
 
 
-        ITxCompoundOperation compoundOp;
-        public ITxCompoundOperation CompoundOp => compoundOp;
+        ITxRoboticOrderedCompoundOperation compoundOp;
+        public ITxRoboticOrderedCompoundOperation CompoundOp => compoundOp;
 
         public List<ViaAdjustment> OriginalViaSpeeds = new List<ViaAdjustment>();
 
@@ -111,7 +111,7 @@ namespace PathOptimiser.DisplayGrid.OperationsList
         public OperationData Data { get; set; } = new OperationData();
         public class OperationData
         {
-            public ITxCompoundOperation compoundOp;
+            public ITxRoboticOrderedCompoundOperation compoundOp;
 
             private string clearance = "5";
             public string Clearance

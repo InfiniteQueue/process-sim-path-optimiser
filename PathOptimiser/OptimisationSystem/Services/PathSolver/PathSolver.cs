@@ -3,239 +3,131 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using PathOptimiser.OptimisationSystem.Models;
 using PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders;
 using Tecnomatix.Engineering;
+using static PathOptimiser.OptimisationSystem.Services.PathSolver.EnvelopeSolver;
 using static Tecnomatix.Engineering.TxApplication;
 using CompoundOp = Tecnomatix.Engineering.ITxRoboticOrderedCompoundOperation;
 using LocOp = Tecnomatix.Engineering.ITxRoboticLocationOperation;
-using static  PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
-using static PathOptimiser.OptimisationSystem.Services.PathSolver.EnvelopeSolver;
-using PathOptimiser.OptimisationSystem.Services.PathSolver;
 using static PathOptimiser.OptimisationSystem.Services.PathSolver.PathSolverStatics;
 
 namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 {
     public partial class PathSolver
     {
-        public PathSolver(SimPlayerTracker tracker, SolverParams solverParams, ITxCompoundOperation operation)
+        public PathSolver(SimPlayerTracker tracker, SolverParams solverParams)
         {
             this.tracker = tracker;
             this.solverParams = solverParams;
-            Operation = operation;
         }
 
-        public double OriginalTime;
-        public double OptimisedTime;
         SimPlayerTracker tracker;
+
         public SolverParams solverParams;
         public HashSet<LocOp> ActiveVias => solverParams.ActiveVias;
 
-        ITxCompoundOperation Operation { get; set; }
+        public double OriginalTime;
+        public double OptimisedTime;
+        public EnvelopeCollection FinalEnvelopeCollection;
 
-        #region SubEnvelopes
-        public Result OptimiseWithSubEnvelopes(IEnumerable<LocOp> IncludedVias, CancellationToken operationToken)
+
+
+        public void Run(IEnumerable<LocOp> InputVias, bool resetToMaxSpeed = true)
         {
-            #region Setup
-            Result result = Result.Success;
-            OriginalTime = 0;
-            OptimisedTime = 0;
-
-            var op = Operation as CompoundOp;
-            //Set first and last cnt to fine to ensure path runs properly
-            (op.GetChildAt(0) as ITxLocationOperation).SetCNT(null);
-            (op.GetChildAt(op.Count - 1) as ITxLocationOperation).SetCNT(null);
-
-            //if (IsCancelRequested) { result = Result.Cancelled; return result; }
-
-            solverParams.ActiveVias = IncludedVias.ToHashSet();
-
-            var acceptableClearanceRecorder = new AcceptableClearanceRecorder(tracker, IncludedVias.First().Collection as ITxOperation, solverParams);
-            var initialCollection = acceptableClearanceRecorder.Run(tracker);
-
-            ReportOriginalClearancesFound(solverParams.acceptedClearances);
-            OriginalTime = initialCollection.FinalTime;
+            InputVias = InputVias.Where(x => x is TxWeldLocationOperation == false);
+            this.solverParams.ActiveVias = new HashSet<LocOp>(InputVias);
 
 
-            //if (IsCancelRequested) {
-            //result = Result.Cancelled; return result;
-            //}
+            if (this.ActiveVias.Count == 0) { Debug.WriteLine($"{this}: No operation set"); return; }
 
-            //Exclude all welds from the input vias
-            IncludedVias = IncludedVias.Where(x => x is TxWeldLocationOperation == false);
-            this.solverParams.ActiveVias = new HashSet<LocOp>(IncludedVias);
-
-            //Require input vias to run
-            if (solverParams.ActiveVias.Count == 0) {
-                Debug.WriteLine($"{this}: No operation set");
-                return Result.CouldNotComplete;
-            }
-
-            //Reset current operation
             tracker.SimPlayer.AskUserForReset(false);
-            tracker.SimPlayer.SetOperation(op);
-            ActiveDocument.CurrentOperation = op;
-            #endregion
+            tracker.SimPlayer.SetOperation((ITxOperation)this.ActiveVias.First().Collection);
+            tracker.SimPlayer.AskUserForReset(false);
+            ActiveDocument.CurrentOperation = (ITxOperation)this.ActiveVias.First().Collection;
 
-            //Debug.WriteLine("---------\n---DEBUG skip maximise speeds---\n---------");
-            SetInitialViaSpeeds(op, solverParams.ResetToMax);
-
-
-            ClearAllSubEnvelopes(IncludedVias);
+            var op = ActiveDocument.CurrentOperation as CompoundOp;
 
 
-            //if (!IsCancelRequested) {
-            //DebugLog();
-            Debug.WriteLine($"\n - - - - Begin final pass - - - - \n");
-
-            var finalSolver = new EnvelopeSolver(tracker, this.solverParams);
-            finalSolver.Run(ActiveVias, false);
-            this.OptimisedTime = finalSolver.OptimisedTime;
-            //Final pass to clean up any remaining collisions with the original method
-            //}
-
+            ClearSingleOperation();
 
             tracker.SimPlayer?.Stop();
-
-            Debug.WriteLine($"{nameof(Services.PathSolver)}: Done");
-
-            //if (IsCancelRequested) result = Result.Cancelled;
-
-            if (OptimisedTime < tracker.SimPlayer.TimeInterval * 2) result = Result.RobotControllerFailed;
-
-            return result;
-            //Done?.Invoke(result);
+            Debug.WriteLine($"Envelope Solved");
         }
 
-        private void SetInitialViaSpeeds(CompoundOp op, bool setMaxSpeeds)
+
+        private void ClearSingleOperation()
         {
-            if (setMaxSpeeds) {
-                foreach (var item in ActiveVias) {
-                    if (item.IsFine() == false) ApplyAdjustment(item.MaxSpeedAndCnt());
+            using (var envelopeRecorder = new EnvelopeRecorder(tracker, ActiveDocument.CurrentOperation, solverParams) { SimPlayerTracker = tracker }) {
+
+                var remainingEnvelopes = envelopeRecorder.Run(tracker);
+
+                while (remainingEnvelopes.Envelopes.Count > 0) {
+
+                    if (remainingEnvelopes.totalPenalty == 0) { Debug.WriteLine($"{nameof(OptimisationOperation)}: Breaking, no collisions found"); break; }
+
+                    var finder = new BestAdjustmentFinder(envelopeRecorder, remainingEnvelopes);
+                    finder.Run();
+
+
+                    if (finder.bestAdjustment is ViaAdjustment adjustment == false) {
+                        Debug.WriteLine("No possible adjustments remaining"); break;
+                    }
+
                     else {
-                        ApplyAdjustment(new ViaAdjustment(item, new ViaParameters() { Speed = item.MaxSpeedAndCnt().newParams.Speed, CNT = item.GetCNT() }, false));
-                    }
-                }
 
-                Debug.WriteLine("Max speeds set");
-            }
-        }
+                        var bestAdjustment = finder.bestAdjustment.Value;
 
-        void ClearAllSubEnvelopes(IEnumerable<LocOp> InputVias)
-        {
-            using (var envelopeGetter = new EnvelopeRecorder(tracker, ActiveDocument.CurrentOperation, solverParams) { SimPlayerTracker = tracker }) {
 
-                //Avoids repeating the same envelope by creating a hashset of the first via per envelope and checking if it is already present
-                var StudiedVias = new HashSet<ITxLocationOperation>();
+                        ApplyAdjustment(solverParams, bestAdjustment, finder);
 
-                EnvelopeCollection currentEnvCollection;
-                //Build a collection of collision envelopes, take the first envelope found and optimise a copied version of the suboperation
-                for (currentEnvCollection = envelopeGetter.Run(tracker); currentEnvCollection.Count > 0; currentEnvCollection = envelopeGetter.Run(tracker)) {
 
-                    if (OriginalTime == 0) OriginalTime = currentEnvCollection.FinalTime;
+                        if (bestAdjustment.AdjustmentType.HasFlag(ViaAdjustment.AdjustmentTypes.Speed) && bestAdjustment.original.Speed == bestAdjustment.Via.MaxSpeedAndCnt().newParams.Speed) {
+                            DoSpeedSkip(finder.bestEnvCollection, bestAdjustment.Via);
+                        }
 
-                    if (currentEnvCollection.totalPenalty == 0) {
-                        OptimisedTime = currentEnvCollection.FinalTime;
-                        Debug.WriteLine($"{nameof(Services.PathSolver)}: Breaking, no collisions found");
-                        break; //No collisions, stop iterating
+                        foreach (var via in ActiveVias) Debug.Write($"{new ViaAdjustment(via, new ViaParameters(via), false)} ");
+                        Debug.WriteLine(" ");
+
+
+                        remainingEnvelopes = finder.bestEnvCollection;
+
                     }
 
-
-                    //Get the first envelope...
-                    var testEnv = currentEnvCollection.FirstOrDefault(x =>
-
-                    !StudiedVias.Contains(x.CollidingVias.First()) //Not starting with the same via as a previous envelope (avoids infinite loops)
-                    && (x.CollidingVias.Any(y => InputVias.Contains(y)) //Must include an active via, or at least be a weld bordering one
-                    || x.CollidingVias.FirstOrDefault() is TxWeldLocationOperation && x.ExtendBy(1, 1).Any(y => InputVias.Contains(y))))
-                    ;
-                    if (testEnv == null) break;
-
-
-                    envelopeGetter.paused = true;
-                    PathSolveOnEnvelopeDuplicateOperation(InputVias, testEnv);
-
-                    envelopeGetter.paused = false;
-                    StudiedVias.Add(testEnv.CollidingVias.First());
-
-                    RefreshDisplay();
-
-
-                    tracker.SimPlayer = new TxSimulationPlayer(false, true);
-                    tracker.SimPlayer.SetOperation(Operation);
                     //if (IsCancelRequested) break;
                 }
+
+                OptimisedTime = remainingEnvelopes.FinalTime;
+                FinalEnvelopeCollection = remainingEnvelopes;
+
+
+                if (remainingEnvelopes.Envelopes.Count == 0) Debug.WriteLine("No collisions found");
             }
         }
 
-        #region DuplicateSetup
-        private void PathSolveOnEnvelopeDuplicateOperation(IEnumerable<LocOp> InputVias, CollisionEnvelope testEnv)
+        /// <summary> Repeatedly applies speed step downs to this via until it creates a significant time impact </summary>
+        void DoSpeedSkip(EnvelopeCollection bestAdjustment, LocOp locOp)
         {
+            Debug.WriteLine($"Speed skip on {locOp.Name}");
+            var originalTime = bestAdjustment.FinalTime;
 
-            using (var duplicate = new EnvelopeDuplicate(testEnv, (CompoundOp)Operation)) {
+            ViaAdjustment? adjust;
+            for (adjust = locOp.StandardSpeedStepDown(1); adjust != null; adjust = locOp.StandardSpeedStepDown(1)) {
 
-                var firstVia = duplicate.EnvCopyOperation.Vias().First() as ITxRoboticLocationOperation;
-                if (firstVia != Operation.Vias().First()) new PlayToVia().Run(firstVia, tracker.SimPlayer);
+                adjust?.Apply();
+                var getter = new EnvelopeRecorder(tracker, ActiveDocument.CurrentOperation, solverParams);
+                var collection = getter.Run(tracker);
 
-                var newParams = new SolverParams()
-                {
-                    acceptedClearances = solverParams.acceptedClearances.GetEnvelopeDuplicateClone(duplicate),
-                    thisEnvelopeDuplicate = duplicate,
-                    NearMissDistance = solverParams.NearMissDistance
-                };
-
-                var solver = new EnvelopeSolver(tracker, newParams);
-
-
-                GetViaRolesForDuplicate(InputVias, testEnv, duplicate, solver.solverParams);
-
-
-                solver.Run(solver.solverParams.ActiveVias, false);
+                if (collection.FinalTime - originalTime >= 0.02) {
+                    adjust = new ViaAdjustment(adjust?.Via, adjust?.original, false);
+                    break;
+                }
             }
 
-            DeviceResetter.Reload();
+            if (adjust != null) ApplyAdjustment(adjust.Value);
+            Debug.WriteLine($"Stepped down to {locOp.GetSpeed()}");
         }
-
-        private static void GetViaRolesForDuplicate(IEnumerable<LocOp> inputActiveVias, CollisionEnvelope testEnv, EnvelopeDuplicate duplicate, SolverParams duplicateSolverParams)
-        {
-            var duplicateVias = duplicate.EnvCopyOperation.Vias().OfType<LocOp>();
-
-            var extension = EnvelopeDuplicate.EnvelopeViaExtensionCount;
-
-
-            /*Explanation:
-            Active vias are considered for speed adjustments
-            Ignored vias do not report collisions
-
-            All vias but the colliding vias, and their neighbours, are ignored
-            All vias but the first and last are active
-            */
-
-            var ignoredVias = testEnv.ExtendBy(extension, extension).Except(testEnv.ExtendBy(0, 0)).Select(x => duplicate.OriginalToCopy(x));
-
-
-
-            duplicateSolverParams.IgnoredVias = ignoredVias.OfType<LocOp>().ToHashSet();
-
-
-
-            var duplicateActiveVias = testEnv.ExtendBy(EnvelopeDuplicate.EnvelopeViaExtensionCount - 1, EnvelopeDuplicate.EnvelopeViaExtensionCount - 1);
-
-            //Active vias should not include the first and last vias of the duplicate, unless they themselves are involved in the collision
-            //duplicateActiveVias = duplicateActiveVias.Append(testEnv.CollidingVias.First()).Append(testEnv.CollidingVias.Last()).Distinct();
-
-            duplicateActiveVias = duplicateActiveVias.Intersect(inputActiveVias);
-
-            duplicateActiveVias = duplicateActiveVias.Select(x => duplicate.OriginalToCopy(x)).OfType<LocOp>();
-
-
-            duplicateSolverParams.ActiveVias = duplicateActiveVias.ToHashSet();
-        }
-
-        #endregion
-
-        #endregion
 
     }
 }

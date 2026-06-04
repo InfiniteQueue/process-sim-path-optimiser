@@ -10,67 +10,67 @@ namespace PathOptimiser.Models
 {
     internal class OperationToNearMissRegistry
     {
-        private static Dictionary<ITxCompoundOperation, double> keyValuePairs = new Dictionary<ITxCompoundOperation, double>();
+        private static Dictionary<ITxRoboticOrderedCompoundOperation, double> keyValuePairs = new Dictionary<ITxRoboticOrderedCompoundOperation, double>();
 
-        public static double GetValue(ITxCompoundOperation key)  => keyValuePairs[key];
-        public static double SetValue(ITxCompoundOperation key, double value) => keyValuePairs[key] = value;
+        public static double GetValue(ITxRoboticOrderedCompoundOperation key)  => keyValuePairs[key];
+        public static double SetValue(ITxRoboticOrderedCompoundOperation key, double value) => keyValuePairs[key] = value;
 
-        public static ICollection<ITxCompoundOperation> Keys => ((IDictionary<ITxCompoundOperation, double>)keyValuePairs).Keys;
+        public static ICollection<ITxRoboticOrderedCompoundOperation> Keys => ((IDictionary<ITxRoboticOrderedCompoundOperation, double>)keyValuePairs).Keys;
 
-        public static ICollection<double> Values => ((IDictionary<ITxCompoundOperation, double>)keyValuePairs).Values;
+        public static ICollection<double> Values => ((IDictionary<ITxRoboticOrderedCompoundOperation, double>)keyValuePairs).Values;
 
-        public static int Count => ((ICollection<KeyValuePair<ITxCompoundOperation, double>>)keyValuePairs).Count;
+        public static int Count => ((ICollection<KeyValuePair<ITxRoboticOrderedCompoundOperation, double>>)keyValuePairs).Count;
 
-        public static bool IsReadOnly => ((ICollection<KeyValuePair<ITxCompoundOperation, double>>)keyValuePairs).IsReadOnly;
+        public static bool IsReadOnly => ((ICollection<KeyValuePair<ITxRoboticOrderedCompoundOperation, double>>)keyValuePairs).IsReadOnly;
 
-        public static void Add(ITxCompoundOperation key, double value)
+        public static void Add(ITxRoboticOrderedCompoundOperation key, double value)
         {
-            ((IDictionary<ITxCompoundOperation, double>)keyValuePairs).Add(key, value);
+            ((IDictionary<ITxRoboticOrderedCompoundOperation, double>)keyValuePairs).Add(key, value);
         }
 
-        public static void Add(KeyValuePair<ITxCompoundOperation, double> item)
+        public static void Add(KeyValuePair<ITxRoboticOrderedCompoundOperation, double> item)
         {
-            ((ICollection<KeyValuePair<ITxCompoundOperation, double>>)keyValuePairs).Add(item);
+            ((ICollection<KeyValuePair<ITxRoboticOrderedCompoundOperation, double>>)keyValuePairs).Add(item);
         }
 
         public static void Clear()
         {
-            ((ICollection<KeyValuePair<ITxCompoundOperation, double>>)keyValuePairs).Clear();
+            ((ICollection<KeyValuePair<ITxRoboticOrderedCompoundOperation, double>>)keyValuePairs).Clear();
         }
 
-        public static bool Contains(KeyValuePair<ITxCompoundOperation, double> item)
+        public static bool Contains(KeyValuePair<ITxRoboticOrderedCompoundOperation, double> item)
         {
-            return ((ICollection<KeyValuePair<ITxCompoundOperation, double>>)keyValuePairs).Contains(item);
+            return ((ICollection<KeyValuePair<ITxRoboticOrderedCompoundOperation, double>>)keyValuePairs).Contains(item);
         }
 
-        public static bool ContainsKey(ITxCompoundOperation key)
+        public static bool ContainsKey(ITxRoboticOrderedCompoundOperation key)
         {
-            return ((IDictionary<ITxCompoundOperation, double>)keyValuePairs).ContainsKey(key);
+            return ((IDictionary<ITxRoboticOrderedCompoundOperation, double>)keyValuePairs).ContainsKey(key);
         }
 
-        public static void CopyTo(KeyValuePair<ITxCompoundOperation, double>[] array, int arrayIndex)
+        public static void CopyTo(KeyValuePair<ITxRoboticOrderedCompoundOperation, double>[] array, int arrayIndex)
         {
-            ((ICollection<KeyValuePair<ITxCompoundOperation, double>>)keyValuePairs).CopyTo(array, arrayIndex);
+            ((ICollection<KeyValuePair<ITxRoboticOrderedCompoundOperation, double>>)keyValuePairs).CopyTo(array, arrayIndex);
         }
 
-        public IEnumerator<KeyValuePair<ITxCompoundOperation, double>> GetEnumerator()
+        public IEnumerator<KeyValuePair<ITxRoboticOrderedCompoundOperation, double>> GetEnumerator()
         {
-            return ((IEnumerable<KeyValuePair<ITxCompoundOperation, double>>)keyValuePairs).GetEnumerator();
+            return ((IEnumerable<KeyValuePair<ITxRoboticOrderedCompoundOperation, double>>)keyValuePairs).GetEnumerator();
         }
 
-        public bool Remove(ITxCompoundOperation key)
+        public bool Remove(ITxRoboticOrderedCompoundOperation key)
         {
-            return ((IDictionary<ITxCompoundOperation, double>)keyValuePairs).Remove(key);
+            return ((IDictionary<ITxRoboticOrderedCompoundOperation, double>)keyValuePairs).Remove(key);
         }
 
-        public bool Remove(KeyValuePair<ITxCompoundOperation, double> item)
+        public bool Remove(KeyValuePair<ITxRoboticOrderedCompoundOperation, double> item)
         {
-            return ((ICollection<KeyValuePair<ITxCompoundOperation, double>>)keyValuePairs).Remove(item);
+            return ((ICollection<KeyValuePair<ITxRoboticOrderedCompoundOperation, double>>)keyValuePairs).Remove(item);
         }
 
-        public bool TryGetValue(ITxCompoundOperation key, out double value)
+        public bool TryGetValue(ITxRoboticOrderedCompoundOperation key, out double value)
         {
-            return ((IDictionary<ITxCompoundOperation, double>)keyValuePairs).TryGetValue(key, out value);
+            return ((IDictionary<ITxRoboticOrderedCompoundOperation, double>)keyValuePairs).TryGetValue(key, out value);
         }
 
     }

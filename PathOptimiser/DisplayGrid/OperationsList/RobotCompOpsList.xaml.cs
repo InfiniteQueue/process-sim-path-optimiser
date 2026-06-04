@@ -23,7 +23,7 @@ namespace PathOptimiser.DisplayGrid.OperationsList
             stkCollections.Children.Clear();
             Vias = robotGroup.ToList();
 
-            var byCollection = robotGroup.GroupBy(v => v.Collection as ITxCompoundOperation);
+            var byCollection = robotGroup.GroupBy(v => v.Collection as ITxRoboticOrderedCompoundOperation);
             foreach (var collectionGroup in byCollection) {
                 var display = new CollectionOperationsDisplay();
                 display.SetGroup(collectionGroup);

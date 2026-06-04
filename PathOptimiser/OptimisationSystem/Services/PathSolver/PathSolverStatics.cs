@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PathOptimiser.OptimisationSystem.Models;
+using Tecnomatix.Engineering;
 using static PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
 using LocOp = Tecnomatix.Engineering.ITxRoboticLocationOperation;
 
@@ -13,7 +14,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
     public static class PathSolverStatics
     {
 
-        public static void ApplyAdjustment(SolverParams solverParams, ViaAdjustment bestAdjustment, PathSolver.BestAdjustmentFinder finder = null)
+        public static void ApplyAdjustment(SolverParams solverParams, ViaAdjustment bestAdjustment, EnvelopeSolver.BestAdjustmentFinder finder = null)
         {
             if (finder != null) {
                 Debug.WriteLine($"\nApplied {finder.bestAdjustment}, \nscore: {finder.bestEnvCollection.totalPenalty}, time: {finder.bestEnvCollection.FinalTime}, intersecting frames: {finder.bestEnvCollection.Envelopes.Sum(x => x.CollidingFrameCount)}");
@@ -26,23 +27,24 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
             AdjustmentApplied?.Invoke(new ViaAdjustment(originalVia, bestAdjustment.newParams, false));
         }
-        public static void SetInitialViaSpeeds(SolverParams param, bool setMaxSpeeds)
-        {
-            if (setMaxSpeeds) {
-                foreach (var item in param.ActiveVias) {
-                    if (item.IsFine() == false) ApplyAdjustment(item.MaxSpeedAndCnt());
-                    else {
-                        ApplyAdjustment(new ViaAdjustment(item, new ViaParameters() { Speed = item.MaxSpeedAndCnt().newParams.Speed, CNT = item.GetCNT() }, false));
-                    }
-                }
 
-                Debug.WriteLine("Max speeds set");
+
+        public static void RequestCancel()
+        {
+            CancelRequestedChanged?.Invoke(null, true);
+        }
+
+        public static void ReportSimError(SolverParams param)
+        {
+            if (param.thisEnvelopeDuplicate is PathSolver.EnvelopeDuplicate duplicate) {
+                SimErrorReported?.Invoke(duplicate.OriginalOperation);
+            }
+            else {
+                SimErrorReported?.Invoke(param.Operation);
             }
         }
 
-        public static void CancelRequest()
-        {
-        }
+        public static Action<ITxRoboticOrderedCompoundOperation> SimErrorReported;
 
         public static void ApplyAdjustment(ViaAdjustment adjustment) => AdjustmentApplied?.Invoke(adjustment);
         public static void ReportOperationFinished(OperationOptimisedReport report) => OperationFinished?.Invoke(report);

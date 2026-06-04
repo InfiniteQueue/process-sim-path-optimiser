@@ -101,7 +101,8 @@ namespace PathOptimiser
         /// </summary>
         public void SetFinalClearance(OptimisationOperation.OperationOptimisedReport report)
         {
-            var myFrameDatas = report.finalEnvelope.SelectMany(x => x.FrameDataList.Where(y => y.CurrentVia == locOp));
+            if (report.finalEnvelopeCollection == null) return;
+            var myFrameDatas = report.finalEnvelopeCollection.SelectMany(x => x.FrameDataList.Where(y => y.CurrentVia == locOp));
             var myCollidingFrames = myFrameDatas.Select(x => x.CollisionState != CollisionEnvelope.FrameData.State.Clear);
 
             if (myFrameDatas.Count() > 0) {

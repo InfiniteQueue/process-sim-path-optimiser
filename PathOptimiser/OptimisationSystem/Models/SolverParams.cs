@@ -7,8 +7,9 @@ using PathOptimiser.DisplayGrid.OperationsList;
 using PathOptimiser.OptimisationSystem.Services.PathSolver;
 using Tecnomatix.Engineering;
 using static PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
-using static PathOptimiser.OptimisationSystem.Services.PathSolver.EnvelopeSolver;
+using static PathOptimiser.OptimisationSystem.Services.PathSolver.PathSolver;
 using static PathOptimiser.TecnomatixStatics;
+using System.Security.Policy;
 
 namespace PathOptimiser.OptimisationSystem.Models
 {
@@ -18,13 +19,13 @@ namespace PathOptimiser.OptimisationSystem.Models
             this.acceptedClearances = new AcceptedClearancesCollection(this); 
         }
 
+        public ITxRoboticOrderedCompoundOperation Operation { get; set; }
+
         public bool IgnoreExistingNearMisses { get; set; } = true;
         public bool IgnoreExistingCollisions { get; set; } = true;
 
         public bool ResetToMax { get; set; } = true;
 
-        public double OriginalTime;
-        public double OptimisedTime;
 
         /// <summary> Vias to be considered for adjustment </summary>
         public HashSet<ITxRoboticLocationOperation> ActiveVias { get; set; } = new HashSet<ITxRoboticLocationOperation>();
@@ -45,6 +46,7 @@ namespace PathOptimiser.OptimisationSystem.Models
             IgnoreExistingNearMisses = data.IgnoreNearMisses;
             IgnoreExistingCollisions = data.IgnoreCollisions;
             ResetToMax = data.SetToMax;
+            Operation = data.compoundOp as ITxRoboticOrderedCompoundOperation;
         }
 
         public class AcceptedClearancesCollection : Dictionary<ITxLocationOperation,  AcceptedClearance>

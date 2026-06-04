@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Windows.Markup;
 using PathOptimiser.OptimisationSystem;
+using PathOptimiser.OptimisationSystem.Services.PathSolver;
 using Tecnomatix.Engineering;
 using static Tecnomatix.Engineering.TxApplication;
 
@@ -170,7 +172,7 @@ namespace PathOptimiser
 
 
         #region SimPlayer
-        public static void SafePlaySim(TxSimulationPlayer SimPlayer, ITxOperation operation, bool rewindWhenDone,  EnvelopeRecordingData Data = null)
+        public static void SafePlaySim(TxSimulationPlayer SimPlayer, ITxOperation operation, bool rewindWhenDone,  EnvelopeRecordingData Data = null, CancellationTokenSource cancelSource = null)
         {
             if (ActiveDocument.CurrentOperation != operation) {
                 SimPlayer.AskUserForReset(false);
@@ -204,6 +206,9 @@ namespace PathOptimiser
             var errors = SimPlayer.GetErrorsAndTraces().Where(x => x.Contains("[Error]"));
             if (errors.Count() > 0) {
                 Debug.WriteLine( $"\n--\n--\n--\nSIM PLAYER ERROR: {string.Join("\n", errors)}\n--\n--\n--\n");
+                if (cancelSource != null) {
+                    cancelSource.Cancel();
+                }
                 //PathSolver.IsCancelRequested = true;
             }
 

@@ -9,7 +9,7 @@ using LocOp = Tecnomatix.Engineering.ITxRoboticLocationOperation;
 
 namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 {
-    public partial class EnvelopeSolver
+    public partial class PathSolver
     {
         public class EnvelopeDuplicate : IDisposable
         {
