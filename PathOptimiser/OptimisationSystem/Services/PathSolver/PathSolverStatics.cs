@@ -46,7 +46,11 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
         public static Action<ITxRoboticOrderedCompoundOperation> SimErrorReported;
 
-        public static void ApplyAdjustment(ViaAdjustment adjustment) => AdjustmentApplied?.Invoke(adjustment);
+        public static void ApplyAdjustment(ViaAdjustment adjustment)
+        {
+            adjustment.Apply();
+            AdjustmentApplied?.Invoke(adjustment);
+        }
         public static void ReportOperationFinished(OperationOptimisedReport report) => OperationFinished?.Invoke(report);
         public static void ReportOriginalClearancesFound(SolverParams.AcceptedClearancesCollection clearances) => OriginalClearancesFound?.Invoke(clearances);
 
