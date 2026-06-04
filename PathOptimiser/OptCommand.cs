@@ -19,9 +19,11 @@ namespace PathOptimiser
 
         public static Thread UIThread;
 
-        public static Window DummyWindow;
+        static Window DummyWindow;
 
         public static bool IsRunning;
+
+        public static Dispatcher TxDispatcher => DummyWindow.Dispatcher;
 
         public static Dispatcher UiDispatcher;
 

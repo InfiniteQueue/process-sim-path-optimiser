@@ -68,7 +68,7 @@ namespace PathOptimiser
                 var getTrackedVias = ctrlAllOperations.ActiveVias;
 
                 DebugStartTime = DateTime.Now;
-                OptCommand.DummyWindow.Dispatcher.InvokeAsync(() => { solver.RunMain(getTrackedVias, ctrlAllOperations.OperationsToData); });
+                OptCommand.TxDispatcher.InvokeAsync(() => { solver.RunMain(getTrackedVias, ctrlAllOperations.OperationsToData); });
             }
             catch { }
         }
@@ -184,7 +184,7 @@ namespace PathOptimiser
         private void btnDebug_Click(object sender, RoutedEventArgs e)
         {
 
-            OptCommand.DummyWindow.Dispatcher.InvokeAsync(() =>
+            OptCommand.TxDispatcher.InvokeAsync(() =>
             {
                 if (ActiveDocument.CurrentOperation == null) { Debugger.Break(); return; }
 

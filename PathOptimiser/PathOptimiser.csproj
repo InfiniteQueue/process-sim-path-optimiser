@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="Models\OperationToNearMissRegistry.cs" />
     <Compile Include="Models\DeviceResetter.cs" />
+    <Compile Include="MyDispatchers.cs" />
     <Compile Include="OptCommand.cs" />
     <Compile Include="OptimisationSystem\Models\CollisionEnvelope.cs" />
     <Compile Include="OptimisationSystem\Models\EnvelopeCollection.cs" />
