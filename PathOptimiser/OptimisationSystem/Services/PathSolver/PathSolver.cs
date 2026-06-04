@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using PathOptimiser.OptimisationSystem.Models;
 using PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders;
 using Tecnomatix.Engineering;
 using static PathOptimiser.OptimisationSystem.Services.PathSolver.EnvelopeSolver;
+using static PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
+using static PathOptimiser.OptimisationSystem.Services.PathSolver.PathSolverStatics;
 using static Tecnomatix.Engineering.TxApplication;
 using CompoundOp = Tecnomatix.Engineering.ITxRoboticOrderedCompoundOperation;
 using LocOp = Tecnomatix.Engineering.ITxRoboticLocationOperation;
-using static PathOptimiser.OptimisationSystem.Services.PathSolver.PathSolverStatics;
 
 namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 {
@@ -36,6 +38,8 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
         public void Run(IEnumerable<LocOp> InputVias, bool resetToMaxSpeed = true)
         {
+            if (solverParams.token.IsCancellationRequested) return;
+
             InputVias = InputVias.Where(x => x is TxWeldLocationOperation == false);
             this.solverParams.ActiveVias = new HashSet<LocOp>(InputVias);
 
@@ -64,6 +68,8 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                 var remainingEnvelopes = envelopeRecorder.Run(tracker);
 
                 while (remainingEnvelopes.Envelopes.Count > 0) {
+
+                    if (solverParams.token.IsCancellationRequested) return;
 
                     if (remainingEnvelopes.totalPenalty == 0) { Debug.WriteLine($"{nameof(OptimisationOperation)}: Breaking, no collisions found"); break; }
 

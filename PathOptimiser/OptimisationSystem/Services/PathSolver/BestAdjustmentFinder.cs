@@ -7,6 +7,7 @@ using PathOptimiser.OptimisationSystem.Models;
 using Tecnomatix.Engineering;
 using PathOptimiser;
 using PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders;
+using System.Threading;
 
 namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 {
@@ -62,11 +63,14 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                 }
 
                 this.bestAdjustment = bestAdjustmentPair?.Key ?? null;
+
             }
 
             private void ConsiderAdjustments(Dictionary<ViaAdjustment, EnvelopeCollection> envCollections, IEnumerable<ViaAdjustment> adjustments)
             {
                 foreach (var adjustment in adjustments) {
+
+                    if (solverParams.token.IsCancellationRequested) { Debug.WriteLine("Cancellation requested, stopping adjustment consideration"); break; }
 
                     if (!solverParams.ActiveVias.Contains(adjustment.Via)) { continue; } //We're not editing this via
                     if (consideredAdjustments.Contains(adjustment)) { Debug.WriteLine("Repeat adjustment skipped"); continue; } //Already considered this adjustment, so skip

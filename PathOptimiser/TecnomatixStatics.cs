@@ -171,8 +171,9 @@ namespace PathOptimiser
         public static double MinDistance(this TxCollisionQueryResults collisionQueryResults) => collisionQueryResults.States.Count == 0 ? double.MaxValue : collisionQueryResults.States.OfType<TxCollisionState>().Min(state => state.Distance);
 
 
+
         #region SimPlayer
-        public static void SafePlaySim(TxSimulationPlayer SimPlayer, ITxOperation operation, bool rewindWhenDone,  EnvelopeRecordingData Data = null, CancellationTokenSource cancelSource = null)
+        public static void SafePlaySim(TxSimulationPlayer SimPlayer, ITxOperation operation, bool rewindWhenDone,  EnvelopeRecordingData Data = null)
         {
             if (ActiveDocument.CurrentOperation != operation) {
                 SimPlayer.AskUserForReset(false);
@@ -206,13 +207,14 @@ namespace PathOptimiser
             var errors = SimPlayer.GetErrorsAndTraces().Where(x => x.Contains("[Error]"));
             if (errors.Count() > 0) {
                 Debug.WriteLine( $"\n--\n--\n--\nSIM PLAYER ERROR: {string.Join("\n", errors)}\n--\n--\n--\n");
-                if (cancelSource != null) {
-                    cancelSource.Cancel();
-                }
+
+                SimulationError?.Invoke(operation);
                 //PathSolver.IsCancelRequested = true;
             }
 
         }
+
+        public static event Action<ITxOperation> SimulationError;
         #endregion
         //RRS_JOINT_SPEED
     }

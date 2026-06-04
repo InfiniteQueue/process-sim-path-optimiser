@@ -22,17 +22,18 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
         #region Data
         SimPlayerTracker tracker;
+        CancellationToken allOpsToken;
 
         //public SolverParams solverParams = new SolverParams();
         //public HashSet<LocOp> ActiveVias => solverParams.ActiveVias;
 
 
-        EnvelopeCollection FinalEnvelopeCollection;
         #endregion
         #region Init
-        public OptimisationOperation(SimPlayerTracker tracker)
+        public OptimisationOperation(SimPlayerTracker tracker, CancellationToken allOpsToken)
         {
             this.tracker = tracker;
+            this.allOpsToken = allOpsToken;
         }
         #endregion
 
@@ -54,13 +55,10 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                 newParams.LoadData(OperationData[pair.Key]);
 
 
-                var tokenCreator = new CancellationTokenSource();
-
                 var envSolver = new EnvelopeSolver(tracker, newParams);
-                var result = envSolver.OptimiseWithSubEnvelopes(pair, tokenCreator.Token);
+                var result = envSolver.OptimiseWithSubEnvelopes(pair,  allOpsToken);
 
                 results.Add(result);
-                ReportOperationFinished(new OperationOptimisedReport() { Operation = pair.Key, Success = result, originalTime = envSolver.OriginalTime, optimisedTime = envSolver.OptimisedTime, finalEnvelopeCollection = FinalEnvelopeCollection });
                 DeviceResetter.Reload();
             }
 

@@ -37,9 +37,17 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
         public double OriginalTime;
         public double OptimisedTime;
 
+        public bool errorEncountered = false;
+
         #region SubEnvelopes
-        public Result OptimiseWithSubEnvelopes(IEnumerable<LocOp> IncludedVias, CancellationToken operationToken)
+        public Result OptimiseWithSubEnvelopes(IEnumerable<LocOp> IncludedVias, CancellationToken allOpsToken)
         {
+            solverParams.token = CancellationTokenSource.CreateLinkedTokenSource(allOpsToken, solverParams.tokenSource.Token).Token;
+
+            if (solverParams.token.IsCancellationRequested) return Result.Cancelled;
+
+            TecnomatixStatics.SimulationError += TecnomatixStatics_SimulationError;
+
             #region Setup
             Result result = Result.Success;
             OriginalTime = 0;
@@ -102,10 +110,12 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
             Debug.WriteLine($"{nameof(Services.PathSolver)}: Done");
 
-            //if (IsCancelRequested) result = Result.Cancelled;
 
+            if (solverParams.token.IsCancellationRequested) result = Result.Cancelled;
             if (OptimisedTime < tracker.SimPlayer.TimeInterval * 2) result = Result.RobotControllerFailed;
+            if (errorEncountered) result = Result.RobotControllerFailed;
 
+            ReportOperationFinished(new OperationOptimisedReport() { Operation = solverParams.Operation, Success = result, originalTime = OriginalTime, optimisedTime = OptimisedTime, finalEnvelopeCollection = finalSolver.FinalEnvelopeCollection });
             return result;
             //Done?.Invoke(result);
         }
@@ -126,6 +136,8 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
         void ClearAllSubEnvelopes(IEnumerable<LocOp> InputVias)
         {
+            if (solverParams.token.IsCancellationRequested) return;
+
             using (var envelopeGetter = new EnvelopeRecorder(tracker, ActiveDocument.CurrentOperation, solverParams) { SimPlayerTracker = tracker }) {
 
                 //Avoids repeating the same envelope by creating a hashset of the first via per envelope and checking if it is already present
@@ -134,6 +146,8 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                 EnvelopeCollection currentEnvCollection;
                 //Build a collection of collision envelopes, take the first envelope found and optimise a copied version of the suboperation
                 for (currentEnvCollection = envelopeGetter.Run(tracker); currentEnvCollection.Count > 0; currentEnvCollection = envelopeGetter.Run(tracker)) {
+
+                    if (solverParams.token.IsCancellationRequested) return;
 
                     if (OriginalTime == 0) OriginalTime = currentEnvCollection.FinalTime;
 
@@ -183,6 +197,8 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                 var newParams = new SolverParams()
                 {
                     Operation = duplicate.EnvCopyOperation,
+                    tokenSource = solverParams.tokenSource,
+                    token = solverParams.token,
                     IgnoreExistingNearMisses = solverParams.IgnoreExistingNearMisses,
                     IgnoreExistingCollisions = solverParams.IgnoreExistingCollisions,
                     ResetToMax = solverParams.ResetToMax,
@@ -191,8 +207,8 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                     NearMissDistance = solverParams.NearMissDistance,
                 };
 
-                GetViaRolesForDuplicate(InputVias, testEnv, duplicate, newParams);
 
+                GetViaRolesForDuplicate(InputVias, testEnv, duplicate, newParams);
 
 
                 var solver = new PathSolver(tracker, newParams);
@@ -242,6 +258,13 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
         #endregion
 
+
+        private void TecnomatixStatics_SimulationError(ITxOperation obj)
+        {
+            Debug.WriteLine($"Simulation error on {obj.Name}, cancelling optimisation");
+            solverParams.tokenSource?.Cancel();
+            errorEncountered = true;
+        }
         #endregion
 
     }

@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shell;
 using PathOptimiser.OptimisationSystem.Services;
-using OptimisationOperation = PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
+using PathOptimiser.OptimisationSystem.Services.PathSolver;
 using static PathOptimiser.OptimisationSystem.Services.PathSolver.PathSolverStatics;
 using Tecnomatix.Engineering;
 using static Tecnomatix.Engineering.TxApplication;
@@ -66,7 +66,7 @@ namespace PathOptimiser
 
                 //PathSolver.IsCancelRequested = false;
                 allOperationsCancel = new CancellationTokenSource();
-                var solver = new OptimisationOperation(new SimPlayerTracker() { SimPlayer = ActiveDocument.SimulationPlayer});
+                var solver = new OptimisationOperation(new SimPlayerTracker() { SimPlayer = ActiveDocument.SimulationPlayer}, allOperationsCancel.Token);
                 solver.Done += Solver_Done;
 
                 InRunMode = true;
@@ -128,8 +128,11 @@ namespace PathOptimiser
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            allOperationsCancel?.Cancel();
-            InRunMode = false;
+            this.Dispatcher.Invoke(() =>
+            { 
+                btnCancel.Content = "Cancelling...";
+                allOperationsCancel?.Cancel();
+            }, System.Windows.Threading.DispatcherPriority.Render);
         }
         #endregion
 
@@ -149,6 +152,7 @@ namespace PathOptimiser
                 foreach (var ctrl in DisabledInRunMode) ctrl.IsEnabled = !value;
                 btnCancel.IsEnabled = value;
                 RunModeChanged?.Invoke(this, value);
+                if (value == false) btnCancel.Content = "Cancel";
             }
         }
 

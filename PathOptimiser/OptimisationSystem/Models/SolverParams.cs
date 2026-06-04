@@ -10,16 +10,21 @@ using static PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOp
 using static PathOptimiser.OptimisationSystem.Services.PathSolver.PathSolver;
 using static PathOptimiser.TecnomatixStatics;
 using System.Security.Policy;
+using System.Threading;
 
 namespace PathOptimiser.OptimisationSystem.Models
 {
     public class SolverParams
     {
         public SolverParams() { 
-            this.acceptedClearances = new AcceptedClearancesCollection(this); 
+            this.acceptedClearances = new AcceptedClearancesCollection(this);
+            token = tokenSource.Token;
         }
 
         public ITxRoboticOrderedCompoundOperation Operation { get; set; }
+
+        public CancellationTokenSource tokenSource { get; set; } = new CancellationTokenSource();
+        public CancellationToken token { get; set; }
 
         public bool IgnoreExistingNearMisses { get; set; } = true;
         public bool IgnoreExistingCollisions { get; set; } = true;
