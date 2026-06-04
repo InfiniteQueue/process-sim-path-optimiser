@@ -20,14 +20,11 @@ namespace PathOptimiser
 
         public static Thread UIThread;
 
-        static Window DummyWindow;
-
         static bool Setup = false;
 
         public override void Execute(object cmdParams)
         {
-            DummyWindow?.Close();
-            DummyWindow = new Window();
+            TxDispatcher = Dispatcher.CurrentDispatcher;
 
             if (!Setup) {
                 var ready = new ManualResetEventSlim();
