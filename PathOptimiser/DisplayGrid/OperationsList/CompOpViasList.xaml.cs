@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using PathOptimiser.Models;
 using Tecnomatix.Engineering;
+using static PathOptimiser.MyDispatchers;
 
 namespace PathOptimiser.DisplayGrid.OperationsList
 {
@@ -137,7 +138,7 @@ namespace PathOptimiser.DisplayGrid.OperationsList
         {
             if (MessageBox.Show($"Reset all optimisation on {CompoundOp.Name}?", "Confirm", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
                 foreach (var adjust in OriginalViaSpeeds.ToList()) {
-                    OptCommand.TxDispatcher.InvokeAsync(() =>
+                    TxDispatcher.InvokeAsync(() =>
                     {
                         adjust.Apply();
                     });

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using Tecnomatix.Engineering;
+using static PathOptimiser.MyDispatchers;
 
 namespace PathOptimiser
 {
@@ -21,17 +22,10 @@ namespace PathOptimiser
 
         static Window DummyWindow;
 
-        public static bool IsRunning;
-
-        public static Dispatcher TxDispatcher => DummyWindow.Dispatcher;
-
-        public static Dispatcher UiDispatcher;
-
         static bool Setup = false;
 
         public override void Execute(object cmdParams)
         {
-
             DummyWindow?.Close();
             DummyWindow = new Window();
 
@@ -40,14 +34,14 @@ namespace PathOptimiser
 
                 UIThread = new Thread(() =>
                 {
-                    // Capture the dispatcher from *inside* the thread,
+                    // Capture the dispatcher from inside the thread,
                     // because Dispatcher.CurrentDispatcher is thread-local
                     UiDispatcher = Dispatcher.CurrentDispatcher;
 
                     // Signal the calling thread that _uiDispatcher is now set
                     ready.Set();
 
-                    // Pump the message loop — this keeps the thread alive indefinitely
+                    // Pump the message loop. This keeps the thread alive indefinitely
                     Dispatcher.Run();
                 });
 
@@ -70,6 +64,9 @@ namespace PathOptimiser
                 UiDispatcher.Invoke(() =>
                 {
                     mainWindow = new MainWindow();
+
+                    //Don't actually close the window, just hide it.
+                    //This prevents threading issues
                     mainWindow.Closing += (s, e) => { e.Cancel = true; mainWindow.Hide(); };
                     mainWindow.Show();
                 });

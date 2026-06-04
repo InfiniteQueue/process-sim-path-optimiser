@@ -9,6 +9,7 @@ using PathOptimiser.OptimisationSystem.Services;
 using PathOptimiser.OptimisationSystem.Services.EnvelopeRecorder;
 using Tecnomatix.Engineering;
 using static Tecnomatix.Engineering.TxApplication;
+using static PathOptimiser.MyDispatchers;
 
 namespace PathOptimiser
 {
@@ -68,7 +69,7 @@ namespace PathOptimiser
                 var getTrackedVias = ctrlAllOperations.ActiveVias;
 
                 DebugStartTime = DateTime.Now;
-                OptCommand.TxDispatcher.InvokeAsync(() => { solver.RunMain(getTrackedVias, ctrlAllOperations.OperationsToData); });
+                TxDispatcher.InvokeAsync(() => { solver.RunMain(getTrackedVias, ctrlAllOperations.OperationsToData); });
             }
             catch { }
         }
@@ -184,7 +185,7 @@ namespace PathOptimiser
         private void btnDebug_Click(object sender, RoutedEventArgs e)
         {
 
-            OptCommand.TxDispatcher.InvokeAsync(() =>
+            TxDispatcher.InvokeAsync(() =>
             {
                 if (ActiveDocument.CurrentOperation == null) { Debugger.Break(); return; }
 
