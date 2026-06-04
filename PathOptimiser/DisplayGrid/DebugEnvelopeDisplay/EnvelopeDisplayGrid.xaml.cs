@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using PathOptimiser.OptimisationSystem;
+using PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders;
 
 namespace PathOptimiser.DisplayGrid.DebugEnvelopeDisplay
 {

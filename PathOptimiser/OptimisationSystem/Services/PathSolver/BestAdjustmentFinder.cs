@@ -5,19 +5,20 @@ using System.Linq;
 using PathOptimiser.OptimisationSystem;
 using PathOptimiser.OptimisationSystem.Models;
 using Tecnomatix.Engineering;
+using PathOptimiser;
+using PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders;
 
-namespace PathOptimiser
+namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 {
-    public partial class PathSolver
-    {
-        private class BestAdjustmentFinder
+    public partial class PathSolver {
+        public class BestAdjustmentFinder
         {
 
             public EnvelopeRecorder envelopeRecorder { get; }
             public SimPlayerTracker tracker => envelopeRecorder?.SimPlayerTracker;
             public SolverParams solverParams => envelopeRecorder.Data.solverParams;
 
-            public BestAdjustmentFinder(EnvelopeRecorder envelopeGetter,  EnvelopeCollection currentEnvCollection)
+            public BestAdjustmentFinder(EnvelopeRecorder envelopeGetter, EnvelopeCollection currentEnvCollection)
             {
                 this.envelopeRecorder = envelopeGetter;
                 this.currentEnvCollection = currentEnvCollection;
@@ -31,7 +32,7 @@ namespace PathOptimiser
                 Debug.WriteLine($"Considering adjustments from {solverParams.ActiveVias.FirstOrDefault()?.Name} to {solverParams.ActiveVias.LastOrDefault()?.Name}");
                 Debug.WriteLine($"Collisions ignored on {string.Join(",", solverParams.IgnoredVias.Select(x => x.Name)) ?? "None"}");
 
-                var adjustments =  new AdjustmentGenerator(solverParams.ActiveVias).GetAllStandardAdjustments();
+                var adjustments = new AdjustmentGenerator(solverParams.ActiveVias).GetAllStandardAdjustments();
 
                 ConsiderAdjustments(envCollections, adjustments);
 
@@ -83,7 +84,7 @@ namespace PathOptimiser
 
                     if (bestRelativeScore == double.PositiveInfinity) break;
 
-                    if (IsCancelRequested) break;
+                    //if (IsCancelRequested) break;
                 }
             }
 
@@ -131,10 +132,7 @@ namespace PathOptimiser
 
 
             }
-
-
-
-
         }
+
     }
 }

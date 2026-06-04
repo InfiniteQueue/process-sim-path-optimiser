@@ -4,6 +4,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using PathOptimiser.Models;
+using PathOptimiser.OptimisationSystem.Services.PathSolver;
+using OptimisationOperation= PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
 using Tecnomatix.Engineering;
 using static PathOptimiser.MyDispatchers;
 
@@ -22,24 +24,24 @@ namespace PathOptimiser.DisplayGrid.OperationsList
         }
 
 
-        public void SetCompletionState(PathSolver.OperationOptimisedReport report)
+        public void SetCompletionState(OptimisationOperation.OperationOptimisedReport report)
         {
             borderReset.Visibility = System.Windows.Visibility.Visible;
             ctrlStatusBorder.Visibility = System.Windows.Visibility.Visible;
             switch (report.Success) {
-                case PathSolver.Result.Success:
+                case OptimisationOperation.Result.Success:
                     lblStatus.Content = "Clear";
                     ctrlStatusBorder.Background = Brushes.LightGreen;
                     break;
-                case PathSolver.Result.CouldNotComplete:
+                case OptimisationOperation.Result.CouldNotComplete:
                     lblStatus.Content = "Failed";
                     ctrlStatusBorder.Background = Brushes.PaleVioletRed;
                     break;
-                case PathSolver.Result.RobotControllerFailed:
+                case OptimisationOperation.Result.RobotControllerFailed:
                     lblStatus.Content = "Robot Controller Error";
                     ctrlStatusBorder.Background = Brushes.PaleVioletRed;
                     break;
-                case PathSolver.Result.Cancelled:
+                case OptimisationOperation.Result.Cancelled:
                     lblStatus.Content = "Aborted";
                     ctrlStatusBorder.Background = Brushes.Orange;
                     break;

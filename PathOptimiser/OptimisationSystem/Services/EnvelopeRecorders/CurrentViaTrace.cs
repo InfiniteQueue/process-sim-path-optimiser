@@ -4,9 +4,9 @@ using System.Diagnostics;
 using PathOptimiser.OptimisationSystem.Models;
 using Tecnomatix.Engineering;
 
-namespace PathOptimiser.OptimisationSystem.Services.EnvelopeRecorder
+namespace PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders
 {
-    internal class CurrentViaTrace : PathOptimiser.EnvelopeRecorder
+    internal class CurrentViaTrace : EnvelopeRecorder
     {
         SolverParams solverParams;
 

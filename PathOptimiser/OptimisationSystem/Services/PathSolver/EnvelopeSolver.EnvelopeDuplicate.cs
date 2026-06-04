@@ -7,9 +7,9 @@ using Tecnomatix.Engineering;
 using CompoundOp = Tecnomatix.Engineering.ITxRoboticOrderedCompoundOperation;
 using LocOp = Tecnomatix.Engineering.ITxRoboticLocationOperation;
 
-namespace PathOptimiser
+namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 {
-    public partial class PathSolver
+    public partial class EnvelopeSolver
     {
         public class EnvelopeDuplicate : IDisposable
         {

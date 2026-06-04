@@ -204,7 +204,7 @@ namespace PathOptimiser
             var errors = SimPlayer.GetErrorsAndTraces().Where(x => x.Contains("[Error]"));
             if (errors.Count() > 0) {
                 Debug.WriteLine( $"\n--\n--\n--\nSIM PLAYER ERROR: {string.Join("\n", errors)}\n--\n--\n--\n");
-                PathSolver.IsCancelRequested = true;
+                //PathSolver.IsCancelRequested = true;
             }
 
         }

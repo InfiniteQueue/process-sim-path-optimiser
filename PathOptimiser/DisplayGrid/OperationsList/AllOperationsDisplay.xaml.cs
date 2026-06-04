@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PathOptimiser.DisplayGrid.OperationsList;
 using PathOptimiser.OptimisationSystem.Models;
+using PathOptimiser.OptimisationSystem.Services.PathSolver;
 using Tecnomatix.Engineering;
 
 namespace PathOptimiser.DisplayGrid
@@ -37,7 +38,7 @@ namespace PathOptimiser.DisplayGrid
             }
         }
 
-        public void SetOperationClearStatus(PathSolver.OperationOptimisedReport report)
+        public void SetOperationClearStatus(OptimisationOperation.OperationOptimisedReport report)
         {
             stkOperations.Children.OfType<RobotOperationsListControl>().SelectMany(o => o.stkCollections.Children.OfType<CollectionOperationsDisplay>()).FirstOrDefault(x => x.CompoundOp == report.Operation)?.SetCompletionState(report);
         }

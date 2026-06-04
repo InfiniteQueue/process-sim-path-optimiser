@@ -8,7 +8,7 @@ using Tecnomatix.Engineering;
 using static PathOptimiser.TecnomatixStatics;
 using static Tecnomatix.Engineering.TxApplication;
 
-namespace PathOptimiser
+namespace PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders
 {
     public class EnvelopeRecorder : IDisposable
     {

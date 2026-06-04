@@ -6,10 +6,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shell;
 using PathOptimiser.OptimisationSystem.Services;
-using PathOptimiser.OptimisationSystem.Services.EnvelopeRecorder;
+using OptimisationOperation = PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
+using static PathOptimiser.OptimisationSystem.Services.PathSolver.PathSolverStatics;
 using Tecnomatix.Engineering;
 using static Tecnomatix.Engineering.TxApplication;
 using static PathOptimiser.MyDispatchers;
+using System.Threading;
+using PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders;
 
 namespace PathOptimiser
 {
@@ -18,6 +21,7 @@ namespace PathOptimiser
     /// </summary>
     public partial class MainWindow : SMC_Form_Library.SMC_Form_WPF
     {
+        static CancellationTokenSource allOperationsCancel;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,10 +34,10 @@ namespace PathOptimiser
             this.Activated += (s, e) => TaskBarClear();
             this.MouseDown += (s, e) => TaskBarClear();
 
-            PathSolver.CancelRequestedChanged += PathSolver_CancelRequestedChanged;
-            PathSolver.OriginalClearancesFound += (s) => this.Dispatcher.Invoke(() =>  ctrlAllOperations.SetAcceptedClearances(s), System.Windows.Threading.DispatcherPriority.Render);
-            PathSolver.AdjustmentApplied += (s) => this.Dispatcher.Invoke(() => PathSolver_AdjustmentApplied(s), System.Windows.Threading.DispatcherPriority.Render);
-            PathSolver.OperationFinished += (s) => this.Dispatcher.Invoke(() => ctrlAllOperations.SetOperationClearStatus(s), System.Windows.Threading.DispatcherPriority.Render);
+            CancelRequestedChanged += PathSolver_CancelRequestedChanged;
+            OriginalClearancesFound += (s) => this.Dispatcher.Invoke(() =>  ctrlAllOperations.SetAcceptedClearances(s), System.Windows.Threading.DispatcherPriority.Render);
+            AdjustmentApplied += (s) => this.Dispatcher.Invoke(() => PathSolver_AdjustmentApplied(s), System.Windows.Threading.DispatcherPriority.Render);
+            OperationFinished += (s) => this.Dispatcher.Invoke(() => ctrlAllOperations.SetOperationClearStatus(s), System.Windows.Threading.DispatcherPriority.Render);
         }
 
 
@@ -59,8 +63,10 @@ namespace PathOptimiser
 
                 BlankCables();
 
-                PathSolver.IsCancelRequested = false;
-                var solver = new PathSolver(new SimPlayerTracker() { SimPlayer = ActiveDocument.SimulationPlayer});
+
+                //PathSolver.IsCancelRequested = false;
+                allOperationsCancel = new CancellationTokenSource();
+                var solver = new OptimisationOperation(new SimPlayerTracker() { SimPlayer = ActiveDocument.SimulationPlayer});
                 solver.Done += Solver_Done;
                 solver.solverParams.IgnoreExistingNearMisses = chkIgnoreNearMisses.IsChecked == true;
 
@@ -85,13 +91,13 @@ namespace PathOptimiser
 
 
         #region Events
-        private void Solver_Done(PathSolver.Result result)
+        private void Solver_Done(OptimisationOperation.Result result)
         {
             this.Dispatcher.Invoke(() =>
             {
-                if (result == PathSolver.Result.Success) Log("Path Optimised", SMC_Form_Library.FormStatusLog.LogState.Success);
-                if (result == PathSolver.Result.CouldNotComplete) Log("Path Could Not Be Optimised", SMC_Form_Library.FormStatusLog.LogState.Error);
-                if (result == PathSolver.Result.Cancelled) Log("Path Cancelled", SMC_Form_Library.FormStatusLog.LogState.Warning);
+                if (result == OptimisationOperation.Result.Success) Log("Path Optimised", SMC_Form_Library.FormStatusLog.LogState.Success);
+                if (result == OptimisationOperation.Result.CouldNotComplete) Log("Path Could Not Be Optimised", SMC_Form_Library.FormStatusLog.LogState.Error);
+                if (result == OptimisationOperation.Result.Cancelled) Log("Path Cancelled", SMC_Form_Library.FormStatusLog.LogState.Warning);
 
                 InRunMode = false;
                 this.TaskbarItemInfo = new TaskbarItemInfo();
@@ -121,7 +127,11 @@ namespace PathOptimiser
 
         private void btnAddSelected_Click(object sender, RoutedEventArgs e) => ctrlAllOperations.AssignSelectedVias();
 
-        private void Cancel_Click(object sender, RoutedEventArgs e) => PathSolver.IsCancelRequested = true;
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            allOperationsCancel?.Cancel();
+            InRunMode = false;
+        }
         #endregion
 
         #region UI
@@ -139,7 +149,6 @@ namespace PathOptimiser
                 _inRunMode = value;
                 foreach (var ctrl in DisabledInRunMode) ctrl.IsEnabled = !value;
                 btnCancel.IsEnabled = value;
-                if (!value) PathSolver.IsCancelRequested = false;
                 RunModeChanged?.Invoke(this, value);
             }
         }

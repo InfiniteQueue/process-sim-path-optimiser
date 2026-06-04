@@ -8,9 +8,9 @@ using Tecnomatix.Engineering;
 using static PathOptimiser.TecnomatixStatics;
 using static Tecnomatix.Engineering.TxApplication;
 
-namespace PathOptimiser.OptimisationSystem.Services.EnvelopeRecorder
+namespace PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders
 {
-    internal class AcceptableClearanceRecorder : PathOptimiser.EnvelopeRecorder
+    internal class AcceptableClearanceRecorder : EnvelopeRecorder
     {
         SolverParams solverParams;
 

@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using PathOptimiser.DisplayGrid.OperationsList;
 using Tecnomatix.Engineering;
+using static PathOptimiser.OptimisationSystem.Services.PathSolver.PathSolverStatics;
+using OptimisationOperation = PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
 
 namespace PathOptimiser
 {
@@ -25,7 +27,7 @@ namespace PathOptimiser
             this.DataContext = this;
             this.data = data;
 
-            PathSolver.OperationFinished += SetFinalClearance;
+            OperationFinished += SetFinalClearance;
         }
 
         private ViaParameters OriginalValues;
@@ -97,7 +99,7 @@ namespace PathOptimiser
         /// Does nothing if the path completed doesn't concern this via. 
         /// Does nothing if collisions were properly cleared for this via
         /// </summary>
-        public void SetFinalClearance(PathSolver.OperationOptimisedReport report)
+        public void SetFinalClearance(OptimisationOperation.OperationOptimisedReport report)
         {
             var myFrameDatas = report.finalEnvelope.SelectMany(x => x.FrameDataList.Where(y => y.CurrentVia == locOp));
             var myCollidingFrames = myFrameDatas.Select(x => x.CollisionState != CollisionEnvelope.FrameData.State.Clear);

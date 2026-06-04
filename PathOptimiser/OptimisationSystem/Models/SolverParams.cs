@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PathOptimiser.DisplayGrid.OperationsList;
+using PathOptimiser.OptimisationSystem.Services.PathSolver;
 using Tecnomatix.Engineering;
+using static PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
+using static PathOptimiser.OptimisationSystem.Services.PathSolver.EnvelopeSolver;
 using static PathOptimiser.TecnomatixStatics;
 
 namespace PathOptimiser.OptimisationSystem.Models
@@ -31,7 +34,7 @@ namespace PathOptimiser.OptimisationSystem.Models
 
         public AcceptedClearancesCollection acceptedClearances;
 
-        public PathSolver.EnvelopeDuplicate thisEnvelopeDuplicate;
+        public EnvelopeDuplicate thisEnvelopeDuplicate;
 
         public double NearMissDistance;
 
@@ -67,7 +70,7 @@ namespace PathOptimiser.OptimisationSystem.Models
                 }
             }
 
-            public AcceptedClearancesCollection GetEnvelopeDuplicateClone(PathSolver.EnvelopeDuplicate duplicate)
+            public AcceptedClearancesCollection GetEnvelopeDuplicateClone(EnvelopeDuplicate duplicate)
             {
                 var newCollection = new AcceptedClearancesCollection(SolverParams);
                 foreach(var item in this.Keys) {
