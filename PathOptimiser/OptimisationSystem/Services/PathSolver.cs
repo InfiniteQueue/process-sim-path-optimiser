@@ -95,9 +95,6 @@ namespace PathOptimiser
                 result = Result.Cancelled; return result;
             }
 
-            //This is handled by separate code in the enveloperecorder now
-            //if (!solverParams.IgnoreExistingNearMisses && !solverParams.IgnoreExistingCollisions) { solverParams.acceptedClearances.Clear(); }
-
             //Exclude all welds from the input vias
             IncludedVias = IncludedVias.Where(x => x is TxWeldLocationOperation == false);
             this.solverParams.ActiveVias = new HashSet<LocOp>(IncludedVias);
@@ -137,6 +134,8 @@ namespace PathOptimiser
             Debug.WriteLine($"{nameof(PathSolver)}: Done");
 
             if (IsCancelRequested) result = Result.Cancelled;
+
+            if (OptimisedTime < tracker.SimPlayer.TimeInterval * 2) result = Result.RobotControllerFailed;
 
             return result;
             //Done?.Invoke(result);
@@ -437,6 +436,7 @@ namespace PathOptimiser
         {
             Success,
             Cancelled,
+            RobotControllerFailed,
             CouldNotComplete
         }
 

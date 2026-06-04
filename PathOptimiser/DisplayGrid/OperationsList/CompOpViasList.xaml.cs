@@ -25,19 +25,25 @@ namespace PathOptimiser.DisplayGrid.OperationsList
         {
             borderReset.Visibility = System.Windows.Visibility.Visible;
             ctrlStatusBorder.Visibility = System.Windows.Visibility.Visible;
-            if (report.Success == PathSolver.Result.Success) {
-                lblStatus.Content = "Clear";
-                ctrlStatusBorder.Background = Brushes.LightGreen;
+            switch (report.Success) {
+                case PathSolver.Result.Success:
+                    lblStatus.Content = "Clear";
+                    ctrlStatusBorder.Background = Brushes.LightGreen;
+                    break;
+                case PathSolver.Result.CouldNotComplete:
+                    lblStatus.Content = "Failed";
+                    ctrlStatusBorder.Background = Brushes.PaleVioletRed;
+                    break;
+                case PathSolver.Result.RobotControllerFailed:
+                    lblStatus.Content = "Robot Controller Error";
+                    ctrlStatusBorder.Background = Brushes.PaleVioletRed;
+                    break;
+                case PathSolver.Result.Cancelled:
+                    lblStatus.Content = "Aborted";
+                    ctrlStatusBorder.Background = Brushes.Orange;
+                    break;
             }
-            else if (report.Success == PathSolver.Result.CouldNotComplete) {
-                lblStatus.Content = "Failed";
-                ctrlStatusBorder.Background = Brushes.PaleVioletRed;
-            }
-            else if (report.Success == PathSolver.Result.Cancelled) {
-                lblStatus.Content = "Aborted";
-                ctrlStatusBorder.Background = Brushes.PaleVioletRed;
-            }
-            lblTime.Content = $"{report.originalTime:0.##} -> {report.optimisedTime:0.##} seconds";
+                lblTime.Content = $"{report.originalTime:0.##} -> {report.optimisedTime:0.##} seconds";
             lblTime.Foreground = report.optimisedTime > report.originalTime ? Brushes.DarkRed : SystemColors.ControlTextBrush;
         }
         public void SetGroup(IGrouping<ITxCompoundOperation, ITxRoboticLocationOperation> collectionGroup)
@@ -131,7 +137,7 @@ namespace PathOptimiser.DisplayGrid.OperationsList
         {
             if (MessageBox.Show($"Reset all optimisation on {CompoundOp.Name}?", "Confirm", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
                 foreach (var adjust in OriginalViaSpeeds.ToList()) {
-                    OptCommand.DummyWindow.Dispatcher.InvokeAsync(() =>
+                    OptCommand.TxDispatcher.InvokeAsync(() =>
                     {
                         adjust.Apply();
                     });
