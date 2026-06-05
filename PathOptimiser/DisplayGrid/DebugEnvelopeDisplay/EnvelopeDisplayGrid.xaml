@@ -14,7 +14,7 @@
         </StackPanel>
         <local:CollisionTimelineControl Height="30" x:Name="ctrlTimeLine" Margin="15,0,15,0"/>
         <StackPanel Orientation="Vertical" x:Name="stkRows">
-            
+        
     </StackPanel>
     </StackPanel>
 </UserControl>

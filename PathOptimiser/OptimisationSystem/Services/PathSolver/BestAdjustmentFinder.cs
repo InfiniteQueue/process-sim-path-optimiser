@@ -22,7 +22,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
             public BestAdjustmentFinder(EnvelopeRecorder envelopeGetter, EnvelopeCollection currentEnvCollection)
             {
                 this.envelopeRecorder = envelopeGetter;
-                this.currentEnvCollection = currentEnvCollection;
+                this.originalEnvCollection = currentEnvCollection;
                 this.bestEnvCollection = currentEnvCollection;
             }
 
@@ -30,35 +30,35 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
             {
                 var envCollections = new Dictionary<ViaAdjustment, EnvelopeCollection>();
 
-                Debug.WriteLine($"Considering adjustments from {solverParams.ActiveVias.FirstOrDefault()?.Name} to {solverParams.ActiveVias.LastOrDefault()?.Name}");
-                Debug.WriteLine($"Collisions ignored on {string.Join(",", solverParams.IgnoredVias.Select(x => x.Name)) ?? "None"}");
+                for (var multiplier = 1; envCollections.Where(x => x.Value.totalPenalty < originalEnvCollection.totalPenalty).Count() == 0 && multiplier <= 2; multiplier++) {
 
-                var adjustments = new AdjustmentGenerator(solverParams.ActiveVias).GetAllStandardAdjustments();
+                    Debug.WriteLine($"Considering adjustments from {solverParams.ActiveVias.FirstOrDefault()?.Name} to {solverParams.ActiveVias.LastOrDefault()?.Name}");
+                    Debug.WriteLine($"Collisions ignored on {string.Join(",", solverParams.IgnoredVias.Select(x => x.Name)) ?? "None"}");
 
-                ConsiderAdjustments(envCollections, adjustments);
+                    var adjustments = new AdjustmentGenerator(solverParams.ActiveVias, multiplier).GetAllStandardAdjustments();
+
+                    ConsiderAdjustments(envCollections, adjustments);
+                }
 
 
-
-
-                var improvingAdjustments = envCollections.Where(x => x.Value.totalPenalty < currentEnvCollection.totalPenalty);
+                IEnumerable<KeyValuePair<ViaAdjustment, EnvelopeCollection>> improvingAdjustments = envCollections.Where(x => x.Value.totalPenalty < originalEnvCollection.totalPenalty);
                 var worseningAdjustments = envCollections.Except(improvingAdjustments);
 
                 KeyValuePair<ViaAdjustment, EnvelopeCollection>? bestAdjustmentPair = null;
 
                 if (improvingAdjustments.Count() > 0) {
-                    bestAdjustmentPair = improvingAdjustments.OrderByDescending(x => currentEnvCollection.GetRelativeScore(x.Value)).First();
+                    bestAdjustmentPair = improvingAdjustments.OrderByDescending(x => originalEnvCollection.GetRelativeScore(x.Value).scoreLossPerSecond).First();
                 }
                 else {
                     if (worseningAdjustments.Count() > 0) {
+                        //Pick the adjustment that changes the collisions the most
+                        //It's very rare that all adjustments increase the collision score, and implies a local maximum. Picking the highest score increases chances of escaping this maximum
                         Debug.WriteLine("Forced score increase");
                         bestAdjustmentPair = worseningAdjustments.OrderBy(x => x.Value.totalPenalty).Last();
-                        //Pick the adjustment that changes the collisions the most
-                        //It's very rare that all adjustments increase the collision score. Picking the highest at least ensures that meaningful changes are being made
                     }
                 }
 
                 if (bestAdjustmentPair != null) {
-                    bestRelativeScore = currentEnvCollection.GetRelativeScore(bestAdjustmentPair.Value.Value);
                     bestEnvCollection = bestAdjustmentPair.Value.Value;
                 }
 
@@ -86,8 +86,6 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
                     consideredAdjustments.Add(adjustment);
 
-                    if (bestRelativeScore == double.PositiveInfinity) break;
-
                     //if (IsCancelRequested) break;
                 }
             }
@@ -95,8 +93,8 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
             public event EventHandler<EnvelopeCollection> BestAdjustmentFound;
             HashSet<ViaAdjustment> consideredAdjustments = new HashSet<ViaAdjustment>();
             public EnvelopeCollection bestEnvCollection;
-            EnvelopeCollection currentEnvCollection;
-            public double bestRelativeScore = double.NegativeInfinity;
+            EnvelopeCollection originalEnvCollection;
+
             public ViaAdjustment? bestAdjustment = null;
 
 

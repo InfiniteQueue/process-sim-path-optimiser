@@ -31,7 +31,7 @@
             </StackPanel>
         <!--StackPanel Orientation="Vertical" HorizontalAlignment="Right"-->
 
-            <Expander Header="Options" ExpandDirection="Left" HorizontalAlignment="Right" >
+            <Expander Header="Options" IsExpanded="True" ExpandDirection="Left" HorizontalAlignment="Right" >
                 <Border BorderBrush="Gray" BorderThickness="1" Margin="0,0,3,0" VerticalAlignment="Stretch">
                     <WrapPanel Orientation="Horizontal" Background="#FFEBF4FF">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="3,0,5,0">

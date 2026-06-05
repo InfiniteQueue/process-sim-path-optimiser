@@ -24,18 +24,38 @@ namespace PathOptimiser.OptimisationSystem
 
         public double FinalTime;
 
-        public double GetRelativeScore(EnvelopeCollection newEnvelopeCollection)
+
+        //Todo: Clean up the old implementation
+        //public double GetRelativeScore(EnvelopeCollection newEnvelopeCollection)
+        //{
+
+        //    if (newEnvelopeCollection.totalPenalty > totalPenalty && newEnvelopeCollection.FinalTime > FinalTime) return double.NegativeInfinity; //Everything is worse, reject
+
+        //    var scoreIncrease = totalPenalty - newEnvelopeCollection.totalPenalty;
+        //    var timeIncrease = newEnvelopeCollection.FinalTime - FinalTime;
+
+        //    return (scoreIncrease) / (timeIncrease); //Decrease in penalty over increase in time, higher is better
+        //}
+
+        public RelativeScore GetRelativeScore(EnvelopeCollection originalCollection)
         {
-            //if (newEnvelopeCollection.FinalTime - this.FinalTime <= 0.01 && newEnvelopeCollection.totalPenalty - totalPenalty <= 0.01) return double.PositiveInfinity; //If decreasing speed/cnt somehow decreased or did not affect the total path length, and didn't create more penalties, always use this adjustment
-            //else 
-            //Disabled. An equal relative score is accepted as a valid step, so this isn't necessary
+            return new RelativeScore(originalCollection, this);
+        }
 
-            if (newEnvelopeCollection.totalPenalty > totalPenalty && newEnvelopeCollection.FinalTime > FinalTime) return double.NegativeInfinity; //Everything is worse, reject
+        public struct RelativeScore
+        {
+            public RelativeScore(EnvelopeCollection original, EnvelopeCollection newEnvelope)
+            {
+                collisionScoreChange = newEnvelope.totalPenalty - original.totalPenalty;
+                timeChange = newEnvelope.FinalTime - original.FinalTime;
+                improving = collisionScoreChange < 0;
+                    scoreLossPerSecond = -collisionScoreChange / timeChange;
+            }
 
-            var scoreIncrease = totalPenalty - newEnvelopeCollection.totalPenalty;
-            var timePenalty = newEnvelopeCollection.FinalTime * 1 - FinalTime;
-
-            return (scoreIncrease) / (timePenalty); //Decrease in penalty over increase in time, higher is better
+            public bool improving;
+            public double scoreLossPerSecond;
+            public double collisionScoreChange;
+            public double timeChange;
         }
 
         #region Interface
