@@ -44,6 +44,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
             }
         }
 
+
         public static Action<ITxRoboticOrderedCompoundOperation> SimErrorReported;
 
         public static void ApplyAdjustment(ViaAdjustment adjustment)
@@ -51,6 +52,12 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
             adjustment.Apply();
             AdjustmentApplied?.Invoke(adjustment);
         }
+
+        public static void Log(string log)
+        {
+            ProgressLog?.Invoke(log);
+        }
+
         public static void ReportOperationFinished(OperationOptimisedReport report) => OperationFinished?.Invoke(report);
         public static void ReportOriginalClearancesFound(SolverParams.AcceptedClearancesCollection clearances) => OriginalClearancesFound?.Invoke(clearances);
 
@@ -58,6 +65,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
         public static event Action<ViaAdjustment> AdjustmentApplied;
         public static event Action<OperationOptimisedReport> OperationFinished;
         public static event Action<SolverParams.AcceptedClearancesCollection> OriginalClearancesFound;
+        public static event Action<string> ProgressLog;
 
     }
 }

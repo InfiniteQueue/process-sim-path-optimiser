@@ -33,6 +33,7 @@ namespace PathOptimiser
             this.GotFocus += (s, e) => TaskBarClear();
             this.Activated += (s, e) => TaskBarClear();
             this.MouseDown += (s, e) => TaskBarClear();
+            PathSolverStatics.ProgressLog += PathSolverStatics_ProgressLog;
 
             CancelRequestedChanged += PathSolver_CancelRequestedChanged;
             OriginalClearancesFound += (s) => this.Dispatcher.Invoke(() =>  ctrlAllOperations.SetAcceptedClearances(s), System.Windows.Threading.DispatcherPriority.Render);
@@ -40,6 +41,10 @@ namespace PathOptimiser
             OperationFinished += (s) => this.Dispatcher.Invoke(() => ctrlAllOperations.SetOperationClearStatus(s), System.Windows.Threading.DispatcherPriority.Render);
         }
 
+        private void PathSolverStatics_ProgressLog(string obj)
+        {
+            StatusLog.Log(obj, SMC_Form_Library.FormStatusLog.LogState.Neutral);
+        }
 
         private void PathSolver_AdjustmentApplied(ViaAdjustment adjustment)
         {

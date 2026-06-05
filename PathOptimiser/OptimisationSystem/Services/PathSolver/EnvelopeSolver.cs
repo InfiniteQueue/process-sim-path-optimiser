@@ -61,6 +61,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
             solverParams.ActiveVias = IncludedVias.ToHashSet();
 
+            PathSolverStatics.Log($"Recording original clearances for {op.Name}");
             var acceptableClearanceRecorder = new AcceptableClearanceRecorder(tracker, IncludedVias.First().Collection as ITxOperation, solverParams);
             var initialCollection = acceptableClearanceRecorder.Run(tracker);
 
@@ -88,6 +89,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
             ActiveDocument.CurrentOperation = op;
             #endregion
 
+            PathSolverStatics.Log($"Optimising {op.Name}");
             //Debug.WriteLine("---------\n---DEBUG skip maximise speeds---\n---------");
             SetInitialViaSpeeds(op, solverParams.ResetToMax);
 
