@@ -11,7 +11,7 @@
         <DockPanel LastChildFill="True">
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="0,0,20,0">
             
-        <Label x:Name="lblCollectionName" d:Content="Collection Name" VerticalAlignment="Center" BorderBrush="Gray" BorderThickness="1" Cursor="Hand">
+        <Label x:Name="lblCollectionName" d:Content="Collection Name" VerticalAlignment="Center" BorderBrush="Gray" BorderThickness="1" Cursor="Hand" MouseDown="lblCollectionName_MouseDown">
                     <Label.ContextMenu>
                         <ContextMenu>
                             <MenuItem Header="Remove" Click="RemoveButtonClick"/>
@@ -26,7 +26,7 @@
             <Label x:Name="lblTime" d:Content="Time Info" VerticalContentAlignment="Center"/>
 
                 <Border x:Name="borderReset" Margin="6,0,0,0" CornerRadius="6" BorderThickness="1" d:Background="LightBlue" ClipToBounds="True" VerticalAlignment="Center">
-                <Button x:Name="btnUndo" Content="Undo" Click="btnReset_Click"/>
+                <Button x:Name="btnUndo" Content="Revert" Click="btnReset_Click"/>
                 </Border>
             </StackPanel>
         <!--StackPanel Orientation="Vertical" HorizontalAlignment="Right"-->

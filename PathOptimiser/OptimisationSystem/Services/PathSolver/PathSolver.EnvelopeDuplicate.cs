@@ -24,6 +24,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
             public static int EnvelopeViaExtensionCount => 3;
 
+            //Todo: Welds should cut off envelopes
             public EnvelopeDuplicate(CollisionEnvelope env, CompoundOp OriginalOperation)
             {
                 this.OriginalOperation = OriginalOperation;
@@ -36,6 +37,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                 Debug.WriteLine($"Opened duplicate for {OriginalOperation.Name}, {copyPasteHash.Keys.OfType<ITxLocationOperation>().Count()} items");
                 Debug.WriteLine($"{EnvCopyOperation.Vias().First().Name} to {EnvCopyOperation.Vias().Last().Name}");
             }
+
             TxObjectList GetObjectsToCopyList(CompoundOp originalOperation)
             {
                 var viaList = env.ExtendBy(EnvelopeViaExtensionCount, EnvelopeViaExtensionCount);
@@ -130,6 +132,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                     }
                 }
             }
+
             string _viaIndexesNameExtension;
             string ViaIndexesNameExtension
             {

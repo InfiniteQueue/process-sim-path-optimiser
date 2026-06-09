@@ -71,8 +71,6 @@ namespace PathOptimiser
 
         public List<FrameData> FrameDataList = new List<FrameData>();
 
-
-
         public double StartTime => FrameDataList.First().Time;
         public double? EndTime => FrameDataList.Last().Time + FrameDataList.Last().Duration;
 

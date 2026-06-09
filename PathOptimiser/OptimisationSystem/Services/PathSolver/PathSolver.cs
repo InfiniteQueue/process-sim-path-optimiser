@@ -67,6 +67,11 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
                 var remainingEnvelopes = envelopeRecorder.Run(tracker);
 
+
+                Debug.WriteLine($"Considering adjustments from {solverParams.ActiveVias.FirstOrDefault()?.Name} to {solverParams.ActiveVias.LastOrDefault()?.Name}");
+                Debug.WriteLine($"Collisions ignored on {string.Join(",", solverParams.IgnoredVias.Select(x => x.Name)) ?? "None"}");
+                Debug.WriteLine("");
+
                 while (remainingEnvelopes.Envelopes.Count > 0) {
 
                     if (solverParams.token.IsCancellationRequested) return;
@@ -117,6 +122,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
         {
             Debug.WriteLine($"Speed skip on {locOp.Name}");
             var originalTime = bestAdjustment.FinalTime;
+            double finalTime = originalTime;
 
             ViaAdjustment? adjust;
             for (adjust = locOp.StandardSpeedStepDown(1); adjust != null; adjust = locOp.StandardSpeedStepDown(1)) {
@@ -124,6 +130,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                 adjust?.Apply();
                 var getter = new EnvelopeRecorder(tracker, ActiveDocument.CurrentOperation, solverParams);
                 var collection = getter.Run(tracker);
+                finalTime = collection.FinalTime;
 
                 if (collection.FinalTime - originalTime >= 0.02) {
                     adjust = new ViaAdjustment(adjust?.Via, adjust?.original, false);
@@ -132,7 +139,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
             }
 
             if (adjust != null) ApplyAdjustment(adjust.Value);
-            Debug.WriteLine($"Stepped down to {locOp.GetSpeed()}");
+            Debug.WriteLine($"Stepped down to {locOp.GetSpeed()}, {finalTime}");
         }
 
     }

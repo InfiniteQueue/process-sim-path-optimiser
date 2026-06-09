@@ -26,13 +26,13 @@ namespace PathOptimiser
         {
             InitializeComponent();
 
-            if (Debugger.IsAttached) HandleDebug();
+            if (Debugger.IsAttached) EnableDebugUI();
 
             this.Closing += MainWindow_Closing;
             ActiveDocument.Unloading += (s, e) => { this.Dispatcher.Invoke(() => this.Close()); };
-            this.GotFocus += (s, e) => TaskBarClear();
-            this.Activated += (s, e) => TaskBarClear();
-            this.MouseDown += (s, e) => TaskBarClear();
+            this.GotFocus += (s, e) => TaskBarHighlightClear();
+            this.Activated += (s, e) => TaskBarHighlightClear();
+            this.MouseDown += (s, e) => TaskBarHighlightClear();
             PathSolverStatics.ProgressLog += PathSolverStatics_ProgressLog;
 
             CancelRequestedChanged += PathSolver_CancelRequestedChanged;
@@ -143,7 +143,7 @@ namespace PathOptimiser
 
         #region UI
 
-        void TaskBarClear()
+        void TaskBarHighlightClear()
         {
             if (this.TaskbarItemInfo is TaskbarItemInfo itemInfo) itemInfo.ProgressState = TaskbarItemProgressState.None;
         }
@@ -190,7 +190,7 @@ namespace PathOptimiser
             foreach (var item in states.PenetrationRegions.SelectMany(x => x.IntersectionCurve)) { }
         }
 
-        void HandleDebug()
+        void EnableDebugUI()
         {
             btnDebug.Visibility = Visibility.Visible;
         }

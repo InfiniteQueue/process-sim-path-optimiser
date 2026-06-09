@@ -30,10 +30,13 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
             {
                 var envCollections = new Dictionary<ViaAdjustment, EnvelopeCollection>();
 
+                //Debug.WriteLine($"Considering adjustments from {solverParams.ActiveVias.FirstOrDefault()?.Name} to {solverParams.ActiveVias.LastOrDefault()?.Name}");
+                //Debug.WriteLine($"Collisions ignored on {string.Join(",", solverParams.IgnoredVias.Select(x => x.Name)) ?? "None"}");
+                //Debug.WriteLine("");
+
                 for (var multiplier = 1; envCollections.Where(x => x.Value.totalPenalty < originalEnvCollection.totalPenalty).Count() == 0 && multiplier <= 2; multiplier++) {
 
-                    Debug.WriteLine($"Considering adjustments from {solverParams.ActiveVias.FirstOrDefault()?.Name} to {solverParams.ActiveVias.LastOrDefault()?.Name}");
-                    Debug.WriteLine($"Collisions ignored on {string.Join(",", solverParams.IgnoredVias.Select(x => x.Name)) ?? "None"}");
+                    Debug.Write($"considered adjustment multiplier {multiplier},  ");
 
                     var adjustments = new AdjustmentGenerator(solverParams.ActiveVias, multiplier).GetAllStandardAdjustments();
 

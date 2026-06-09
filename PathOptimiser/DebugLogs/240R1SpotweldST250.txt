@@ -1,0 +1,1079 @@
+16:29:31:080	C:\Users\christopherf\AppData\Local\TechSmith\SnagIt\DataStore
+16:29:31:344	Layout
+16:29:46:158	System.Windows.Data Error: 2 : Cannot find governing FrameworkElement or FrameworkContentElement for target element. BindingExpression:Path=DataTypeString; DataItem=null; target element is 'DataGridComboBoxColumn' (HashCode=56478042); target property is 'DisplayMemberPath' (type 'String')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=42759282)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=42759282); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=42759282)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=42759282); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=42759282)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=42759282); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=19867487)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=19867487); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=19867487)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=19867487); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=19867487)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=19867487); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=4323748)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=4323748); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=4323748)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=4323748); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=4323748)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=4323748); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=47821519)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=47821519); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=47821519)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=47821519); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=47821519)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=47821519); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=25056856)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=25056856); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=25056856)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=25056856); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=25056856)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=25056856); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=43689923)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=43689923); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=43689923)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=43689923); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=43689923)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=43689923); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=17161430)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=17161430); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=17161430)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=17161430); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=17161430)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=17161430); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=57733603)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=57733603); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=57733603)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=57733603); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=57733603)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=57733603); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=45600217)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=45600217); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=45600217)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=45600217); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:643	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=45600217)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=45600217); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:913	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=46215595)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=46215595); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:913	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=46215595)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=46215595); target element is 'Image' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:29:46:913	System.Windows.Data Error: 40 : BindingExpression path error: 'IsPD' property not found on 'object' ''CApLPFile' (HashCode=46215595)'. BindingExpression:Path=IsPD; DataItem='CApLPFile' (HashCode=46215595); target element is 'TextBlock' (Name=''); target property is 'Visibility' (type 'Visibility')
+16:33:08:487	
+16:33:08:487	
+16:33:08:487	PathSolver Start
+16:33:08:487	Cables blanked
+16:33:08:986	Device positions stored
+16:33:08:986	Get Acceptable Clearances
+16:34:27:799	0 clearances found
+16:34:28:059	Max speeds set
+16:34:59:335	Opened duplicate for 240R1_OLP_SPOTWELD1ST250, 6 items
+16:34:59:335	via104 to via106
+16:34:59:335	Running to via via104 before envelope duplication
+16:35:17:880	Considering adjustments from via104 to via105
+16:35:17:880	Collisions ignored on via104,via105,via106
+16:36:30:117	
+16:36:30:117	Applied via105: Speed100, CNT90, 
+16:36:30:117	score: 24733.9092430313, time: 4.328, intersecting frames: 4
+16:36:30:117	via104: Speed100, CNT via103: Speed100, CNT100 via105: Speed100, CNT90  
+16:36:30:117	Considering adjustments from via104 to via105
+16:36:30:117	Collisions ignored on via104,via105,via106
+16:37:42:813	
+16:37:42:813	Applied via103: Speed100, CNT90, 
+16:37:42:813	score: 15235.9670366484, time: 4.336, intersecting frames: 3
+16:37:42:813	via104: Speed100, CNT via103: Speed100, CNT90 via105: Speed100, CNT90  
+16:37:42:813	Considering adjustments from via104 to via105
+16:37:42:813	Collisions ignored on via104,via105,via106
+16:38:55:725	
+16:38:55:725	Applied via105: Speed100, CNT80, 
+16:38:55:725	score: 4282.4949926838, time: 4.352, intersecting frames: 2
+16:38:55:725	via104: Speed100, CNT via103: Speed100, CNT90 via105: Speed100, CNT80  
+16:38:55:725	Considering adjustments from via104 to via105
+16:38:55:725	Collisions ignored on via104,via105,via106
+16:40:09:360	
+16:40:09:360	Applied via105: Speed100, CNT70, 
+16:40:09:360	score: 0, time: 4.376, intersecting frames: 0
+16:40:09:360	via104: Speed100, CNT via103: Speed100, CNT90 via105: Speed100, CNT70  
+16:40:09:360	No collisions found
+16:40:09:360	Envelope Solved
+16:40:09:360	Closed duplicate for 240R1_OLP_SPOTWELD1ST250, via104 to via106
+16:40:09:606	Device positions reloaded
+16:40:41:426	Opened duplicate for 240R1_OLP_SPOTWELD1ST250, 8 items
+16:40:41:426	via104 to via107
+16:40:41:426	Running to via via104 before envelope duplication
+16:41:05:229	Considering adjustments from via103 to via106
+16:41:05:229	Collisions ignored on via104,via103,73064-01-R_2t,via107
+16:42:49:870	
+16:42:49:870	Applied via105: Speed100, CNT60, 
+16:42:49:870	score: 0, time: 6.308, intersecting frames: 0
+16:42:49:870	via103: Speed100, CNT90 via105: Speed100, CNT60 via106: Speed100, CNT100  
+16:42:49:870	No collisions found
+16:42:49:870	Envelope Solved
+16:42:49:870	Closed duplicate for 240R1_OLP_SPOTWELD1ST250, via104 to via107
+16:42:50:124	Device positions reloaded
+16:43:18:682	Opened duplicate for 240R1_OLP_SPOTWELD1ST250, 8 items
+16:43:18:682	73064-01-R_2t to via111
+16:43:18:682	Running to via 73064-01-R_2t before envelope duplication
+16:43:41:731	Considering adjustments from via107 to via111
+16:43:41:731	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+16:46:28:127	
+16:46:28:127	Applied via109: Speed3000, CNT90, 
+16:46:28:127	score: 2600896.26097431, time: 6.708, intersecting frames: 12
+16:46:28:127	via107: Speed3000, CNT100 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT90 via111: Speed3000, CNT100  
+16:46:28:127	Considering adjustments from via107 to via111
+16:46:28:127	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+16:49:16:208	
+16:49:16:208	Applied via107: Speed3000, CNT90, 
+16:49:16:208	score: 2526126.28200966, time: 6.724, intersecting frames: 12
+16:49:16:208	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT90 via111: Speed3000, CNT100  
+16:49:16:208	Considering adjustments from via107 to via111
+16:49:16:208	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+16:52:06:080	
+16:52:06:080	Applied via109: Speed3000, CNT80, 
+16:52:06:080	score: 2284695.86811336, time: 6.748, intersecting frames: 11
+16:52:06:080	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT80 via111: Speed3000, CNT100  
+16:52:06:080	Considering adjustments from via107 to via111
+16:52:06:080	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+16:54:59:533	
+16:54:59:533	Applied via109: Speed3000, CNT70, 
+16:54:59:533	score: 2068510.04862264, time: 6.772, intersecting frames: 9
+16:54:59:533	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT70 via111: Speed3000, CNT100  
+16:54:59:533	Considering adjustments from via107 to via111
+16:54:59:533	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+16:57:53:336	
+16:57:53:336	Applied via109: Speed3000, CNT60, 
+16:57:53:336	score: 1705143.89853461, time: 6.804, intersecting frames: 6
+16:57:53:336	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT60 via111: Speed3000, CNT100  
+16:57:53:336	Considering adjustments from via107 to via111
+16:57:53:336	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:00:48:669	
+17:00:48:669	Applied via111: Speed3000, CNT90, 
+17:00:48:669	score: 1705143.89853236, time: 6.82, intersecting frames: 6
+17:00:48:669	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT60 via111: Speed3000, CNT90  
+17:00:48:669	Considering adjustments from via107 to via111
+17:00:48:669	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:03:46:423	
+17:03:46:423	Applied via109: Speed3000, CNT50, 
+17:03:46:423	score: 1705143.89853008, time: 6.844, intersecting frames: 6
+17:03:46:423	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT90  
+17:03:46:423	Considering adjustments from via107 to via111
+17:03:46:423	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:06:44:287	
+17:06:44:287	Applied via111: Speed3000, CNT80, 
+17:06:44:287	score: 1705143.89852883, time: 6.868, intersecting frames: 6
+17:06:44:287	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT80  
+17:06:44:287	Considering adjustments from via107 to via111
+17:06:44:287	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:09:43:431	
+17:09:43:431	Applied via111: Speed3000, CNT70, 
+17:09:43:431	score: 1705143.89852656, time: 6.892, intersecting frames: 6
+17:09:43:431	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT70  
+17:09:43:431	Considering adjustments from via107 to via111
+17:09:43:431	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:12:44:127	
+17:12:44:127	Applied via111: Speed3000, CNT60, 
+17:12:44:127	score: 1705143.89852358, time: 6.924, intersecting frames: 6
+17:12:44:127	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT60  
+17:12:44:127	Considering adjustments from via107 to via111
+17:12:44:127	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:15:47:695	
+17:15:47:695	Applied via111: Speed3000, CNT50, 
+17:15:47:695	score: 1705143.89852199, time: 6.948, intersecting frames: 6
+17:15:47:695	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT50  
+17:15:47:695	Considering adjustments from via107 to via111
+17:15:47:695	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:18:51:601	
+17:18:51:601	Applied via111: Speed3000, CNT40, 
+17:18:51:601	score: 1705143.89852012, time: 6.988, intersecting frames: 6
+17:18:51:601	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT40  
+17:18:51:601	Considering adjustments from via107 to via111
+17:18:51:601	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:21:56:665	
+17:21:56:665	Applied via111: Speed3000, CNT30, 
+17:21:56:665	score: 1705143.89851875, time: 7.02, intersecting frames: 6
+17:21:56:665	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT30  
+17:21:56:665	Considering adjustments from via107 to via111
+17:21:56:665	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:25:03:490	
+17:25:03:490	Applied via111: Speed3000, CNT20, 
+17:25:03:490	score: 1705143.8985174, time: 7.068, intersecting frames: 6
+17:25:03:490	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT20  
+17:25:03:490	Considering adjustments from via107 to via111
+17:25:03:490	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:28:11:291	
+17:28:11:291	Applied via111: Speed3000, CNT10, 
+17:28:11:291	score: 1705143.89851474, time: 7.124, intersecting frames: 6
+17:28:11:291	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT10  
+17:28:11:291	Considering adjustments from via107 to via111
+17:28:11:291	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:31:21:144	
+17:31:21:144	Applied via111: Speed3000, CNT0, 
+17:31:21:144	score: 1705143.89851379, time: 7.14000000000001, intersecting frames: 6
+17:31:21:144	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT50 via111: Speed3000, CNT0  
+17:31:21:144	Considering adjustments from via107 to via111
+17:31:21:144	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:34:14:012	
+17:34:14:012	Applied via109: Speed3000, CNT40, 
+17:34:14:012	score: 1705143.8985118, time: 7.18000000000001, intersecting frames: 6
+17:34:14:012	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT40 via111: Speed3000, CNT0  
+17:34:14:012	Considering adjustments from via107 to via111
+17:34:14:012	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:36:50:607	
+17:36:50:607	Applied via109: Speed3000, CNT30, 
+17:36:50:607	score: 1705143.89851146, time: 7.21200000000001, intersecting frames: 6
+17:36:50:607	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT30 via111: Speed3000, CNT0  
+17:36:50:607	Considering adjustments from via107 to via111
+17:36:50:607	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:39:26:704	
+17:39:26:704	Applied via109: Speed3000, CNT20, 
+17:39:26:704	score: 1705143.89851013, time: 7.26000000000001, intersecting frames: 6
+17:39:26:704	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT20 via111: Speed3000, CNT0  
+17:39:26:704	Considering adjustments from via107 to via111
+17:39:26:704	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:42:03:763	
+17:42:03:763	Applied via109: Speed3000, CNT10, 
+17:42:03:763	score: 1705143.89850859, time: 7.31600000000001, intersecting frames: 6
+17:42:03:763	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT10 via111: Speed3000, CNT0  
+17:42:03:763	Considering adjustments from via107 to via111
+17:42:03:763	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:44:43:591	
+17:44:43:591	Applied via109: Speed3000, CNT0, 
+17:44:43:591	score: 1705143.89850833, time: 7.39600000000001, intersecting frames: 6
+17:44:43:591	via107: Speed3000, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT0 via111: Speed3000, CNT0  
+17:44:43:591	Considering adjustments from via107 to via111
+17:44:43:591	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:47:05:635	
+17:47:05:635	Applied via107: Speed2800, CNT90, 
+17:47:05:635	score: 1705143.89850536, time: 7.39600000000001, intersecting frames: 6
+17:47:05:635	Speed skip on via107
+17:49:09:363	Stepped down to 1600
+17:49:09:363	via107: Speed1600, CNT90 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT0 via111: Speed3000, CNT0  
+17:49:09:363	Considering adjustments from via107 to via111
+17:49:09:363	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:51:31:648	
+17:51:31:648	Applied via107: Speed1600, CNT80, 
+17:51:31:648	score: 1704677.58897241, time: 7.43600000000001, intersecting frames: 6
+17:51:31:648	via107: Speed1600, CNT80 via137: Speed3000, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT0 via111: Speed3000, CNT0  
+17:51:31:648	Considering adjustments from via107 to via111
+17:51:31:648	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:53:55:280	
+17:53:55:280	Applied via137: Speed2800, CNT100, 
+17:53:55:280	score: 1704677.58896928, time: 7.43600000000001, intersecting frames: 6
+17:53:55:280	Speed skip on via137
+17:55:06:407	Stepped down to 2200
+17:55:06:407	via107: Speed1600, CNT80 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT0 via111: Speed3000, CNT0  
+17:55:06:407	Considering adjustments from via107 to via111
+17:55:06:407	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:57:29:145	Considering adjustments from via107 to via111
+17:57:29:145	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+17:59:52:606	Forced score increase
+17:59:52:606	
+17:59:52:606	Applied via107: Speed1600, CNT60, 
+17:59:52:606	score: 2073686.39802293, time: 7.50800000000001, intersecting frames: 7
+17:59:52:606	via107: Speed1600, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT0 via111: Speed3000, CNT0  
+17:59:52:606	Considering adjustments from via107 to via111
+17:59:52:606	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:02:16:323	
+18:02:16:323	Applied via107: Speed1400, CNT60, 
+18:02:16:323	score: 1708883.00470918, time: 7.51600000000001, intersecting frames: 6
+18:02:16:323	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed3000, CNT0 via111: Speed3000, CNT0  
+18:02:16:323	Considering adjustments from via107 to via111
+18:02:16:323	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:04:41:676	
+18:04:41:676	Applied via109: Speed2800, CNT0, 
+18:04:41:676	score: 1708883.00470431, time: 7.51600000000001, intersecting frames: 6
+18:04:41:676	Speed skip on via109
+18:08:18:069	Stepped down to 600
+18:08:18:069	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed600, CNT0 via111: Speed3000, CNT0  
+18:08:18:069	Considering adjustments from via107 to via111
+18:08:18:069	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:10:42:502	
+18:10:42:502	Applied via109: Speed400, CNT0, 
+18:10:42:502	score: 1708883.00469602, time: 7.70800000000001, intersecting frames: 6
+18:10:42:502	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed400, CNT0 via111: Speed3000, CNT0  
+18:10:42:502	Considering adjustments from via107 to via111
+18:10:42:502	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:13:10:142	
+18:13:10:142	Applied via109: Speed200, CNT0, 
+18:13:10:142	score: 1708883.00469327, time: 8.33200000000001, intersecting frames: 6
+18:13:10:142	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed200, CNT0 via111: Speed3000, CNT0  
+18:13:10:142	Considering adjustments from via107 to via111
+18:13:10:142	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:15:26:593	
+18:15:26:593	Applied via111: Speed2800, CNT0, 
+18:15:26:593	score: 1708883.00469148, time: 8.33200000000001, intersecting frames: 6
+18:15:26:593	Speed skip on via111
+18:18:01:095	Stepped down to 1400
+18:18:01:095	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed200, CNT0 via111: Speed1400, CNT0  
+18:18:01:095	Considering adjustments from via107 to via111
+18:18:01:095	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:20:16:325	
+18:20:16:325	Applied via111: Speed1200, CNT0, 
+18:20:16:325	score: 1708883.00468821, time: 8.41200000000001, intersecting frames: 6
+18:20:16:325	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed200, CNT0 via111: Speed1200, CNT0  
+18:20:16:325	Considering adjustments from via107 to via111
+18:20:16:325	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:22:32:966	
+18:22:32:966	Applied via111: Speed1000, CNT0, 
+18:22:32:966	score: 1708883.00468723, time: 8.57200000000001, intersecting frames: 6
+18:22:32:966	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed200, CNT0 via111: Speed1000, CNT0  
+18:22:32:966	Considering adjustments from via107 to via111
+18:22:32:966	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:24:52:366	
+18:24:52:366	Applied via111: Speed800, CNT0, 
+18:24:52:366	score: 1708883.00468531, time: 8.81200000000001, intersecting frames: 6
+18:24:52:366	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed200, CNT0 via111: Speed800, CNT0  
+18:24:52:366	Considering adjustments from via107 to via111
+18:24:52:366	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:27:13:189	
+18:27:13:189	Applied via111: Speed600, CNT0, 
+18:27:13:189	score: 1708883.00468358, time: 9.02800000000001, intersecting frames: 6
+18:27:13:189	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed200, CNT0 via111: Speed600, CNT0  
+18:27:13:189	Considering adjustments from via107 to via111
+18:27:13:189	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:29:37:177	
+18:29:37:177	Applied via111: Speed400, CNT0, 
+18:29:37:177	score: 1708883.004682, time: 9.42800000000001, intersecting frames: 6
+18:29:37:177	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed200, CNT0 via111: Speed400, CNT0  
+18:29:37:177	Considering adjustments from via107 to via111
+18:29:37:177	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:32:06:409	
+18:32:06:409	Applied via111: Speed200, CNT0, 
+18:32:06:409	score: 1708883.00467846, time: 10.612, intersecting frames: 6
+18:32:06:409	via107: Speed1400, CNT60 via137: Speed2200, CNT100 via108: Speed100, CNT100 via109: Speed200, CNT0 via111: Speed200, CNT0  
+18:32:06:409	Considering adjustments from via107 to via111
+18:32:06:409	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:34:25:225	Considering adjustments from via107 to via111
+18:34:25:225	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:36:43:086	
+18:36:43:086	Applied via137: Speed1800, CNT100, 
+18:36:43:086	score: 1667849.80372974, time: 10.652, intersecting frames: 6
+18:36:43:086	via107: Speed1400, CNT60 via137: Speed1800, CNT100 via108: Speed100, CNT100 via109: Speed200, CNT0 via111: Speed200, CNT0  
+18:36:43:086	Considering adjustments from via107 to via111
+18:36:43:086	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:39:01:038	Considering adjustments from via107 to via111
+18:39:01:293	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:41:19:388	
+18:41:19:388	Applied via108: Speed80, CNT100, 
+18:41:19:388	score: 1618465.30865323, time: 10.788, intersecting frames: 8
+18:41:19:388	Speed skip on via108
+18:41:42:650	Stepped down to 80
+18:41:42:650	via107: Speed1400, CNT60 via137: Speed1800, CNT100 via108: Speed80, CNT100 via109: Speed200, CNT0 via111: Speed200, CNT0  
+18:41:42:650	Considering adjustments from via107 to via111
+18:41:42:650	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:44:03:594	
+18:44:03:594	Applied via108: Speed70, CNT100, 
+18:44:03:594	score: 1559735.12544386, time: 10.876, intersecting frames: 7
+18:44:03:594	via107: Speed1400, CNT60 via137: Speed1800, CNT100 via108: Speed70, CNT100 via109: Speed200, CNT0 via111: Speed200, CNT0  
+18:44:03:594	Considering adjustments from via107 to via111
+18:44:03:594	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:46:23:927	
+18:46:23:927	Applied via108: Speed70, CNT90, 
+18:46:23:927	score: 1481099.83527064, time: 10.892, intersecting frames: 8
+18:46:23:927	via107: Speed1400, CNT60 via137: Speed1800, CNT100 via108: Speed70, CNT90 via109: Speed200, CNT0 via111: Speed200, CNT0  
+18:46:23:927	Considering adjustments from via107 to via111
+18:46:23:927	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:48:44:638	
+18:48:44:638	Applied via108: Speed70, CNT80, 
+18:48:44:638	score: 1336849.7070792, time: 10.908, intersecting frames: 8
+18:48:44:638	via107: Speed1400, CNT60 via137: Speed1800, CNT100 via108: Speed70, CNT80 via109: Speed200, CNT0 via111: Speed200, CNT0  
+18:48:44:638	Considering adjustments from via107 to via111
+18:48:44:638	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:51:05:557	
+18:51:05:557	Applied via108: Speed70, CNT70, 
+18:51:05:557	score: 661359.98574686, time: 10.94, intersecting frames: 5
+18:51:05:557	via107: Speed1400, CNT60 via137: Speed1800, CNT100 via108: Speed70, CNT70 via109: Speed200, CNT0 via111: Speed200, CNT0  
+18:51:05:557	Considering adjustments from via107 to via111
+18:51:05:557	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:53:28:053	
+18:53:28:053	Applied via108: Speed70, CNT60, 
+18:53:28:053	score: 31707.4587796527, time: 10.972, intersecting frames: 1
+18:53:28:053	via107: Speed1400, CNT60 via137: Speed1800, CNT100 via108: Speed70, CNT60 via109: Speed200, CNT0 via111: Speed200, CNT0  
+18:53:28:053	Considering adjustments from via107 to via111
+18:53:28:053	Collisions ignored on 73064-01-R_2t,via107,via111,via111
+18:55:50:106	
+18:55:50:106	Applied via108: Speed70, CNT50, 
+18:55:50:106	score: 0, time: 11.004, intersecting frames: 0
+18:55:50:106	via107: Speed1400, CNT60 via137: Speed1800, CNT100 via108: Speed70, CNT50 via109: Speed200, CNT0 via111: Speed200, CNT0  
+18:55:50:106	No collisions found
+18:55:50:106	Envelope Solved
+18:55:50:106	Closed duplicate for 240R1_OLP_SPOTWELD1ST250, 73064-01-R_2t to via111
+18:55:50:357	Device positions reloaded
+18:56:25:404	
+18:56:25:404	 - - - - Begin final pass - - - - 
+18:56:25:404	
+18:57:00:454	No collisions found
+18:57:00:454	Envelope Solved
+18:57:00:454	PathSolver: Done
+18:57:00:454	Device positions reloaded
+18:57:00:454	Get Acceptable Clearances
+18:57:37:529	1 clearances found
+18:57:37:529	Max speeds set
+18:58:10:300	Opened duplicate for 240R1_OLP_SPOTWELD1ST240, 6 items
+18:58:10:300	via112 to via90
+18:58:10:554	Running to via via112 before envelope duplication
+18:58:25:078	Considering adjustments from via112 to via91
+18:58:25:078	Collisions ignored on via91,via90
+18:59:39:765	
+18:59:39:765	Applied via88: Speed90, CNT100, 
+18:59:39:765	score: 5120676.19959417, time: 3.044, intersecting frames: 7
+18:59:39:765	Speed skip on via88
+19:00:11:831	Stepped down to 70
+19:00:11:831	via112: Speed100, CNT via89: Speed100, CNT100 via88: Speed70, CNT100 via91: Speed3000, CNT100  
+19:00:11:831	Considering adjustments from via112 to via91
+19:00:11:831	Collisions ignored on via91,via90
+19:01:26:953	
+19:01:26:953	Applied via88: Speed60, CNT100, 
+19:01:26:953	score: 3248146.88168122, time: 3.076, intersecting frames: 6
+19:01:26:953	via112: Speed100, CNT via89: Speed100, CNT100 via88: Speed60, CNT100 via91: Speed3000, CNT100  
+19:01:26:953	Considering adjustments from via112 to via91
+19:01:26:953	Collisions ignored on via91,via90
+19:02:42:147	
+19:02:42:147	Applied via88: Speed50, CNT100, 
+19:02:42:147	score: 3119929.87246983, time: 3.084, intersecting frames: 5
+19:02:42:147	via112: Speed100, CNT via89: Speed100, CNT100 via88: Speed50, CNT100 via91: Speed3000, CNT100  
+19:02:42:147	Considering adjustments from via112 to via91
+19:02:42:147	Collisions ignored on via91,via90
+19:03:58:895	
+19:03:58:895	Applied via88: Speed40, CNT100, 
+19:03:58:895	score: 2769287.7497023, time: 3.1, intersecting frames: 5
+19:03:58:895	via112: Speed100, CNT via89: Speed100, CNT100 via88: Speed40, CNT100 via91: Speed3000, CNT100  
+19:03:58:895	Considering adjustments from via112 to via91
+19:03:58:895	Collisions ignored on via91,via90
+19:05:14:754	
+19:05:14:754	Applied via89: Speed100, CNT90, 
+19:05:14:754	score: 2018512.07125494, time: 3.116, intersecting frames: 5
+19:05:14:754	via112: Speed100, CNT via89: Speed100, CNT90 via88: Speed40, CNT100 via91: Speed3000, CNT100  
+19:05:14:754	Considering adjustments from via112 to via91
+19:05:14:754	Collisions ignored on via91,via90
+19:06:30:809	
+19:06:30:809	Applied via89: Speed100, CNT80, 
+19:06:30:809	score: 931673.214197628, time: 3.14, intersecting frames: 4
+19:06:30:809	via112: Speed100, CNT via89: Speed100, CNT80 via88: Speed40, CNT100 via91: Speed3000, CNT100  
+19:06:30:809	Considering adjustments from via112 to via91
+19:06:30:809	Collisions ignored on via91,via90
+19:07:47:430	
+19:07:47:430	Applied via89: Speed100, CNT70, 
+19:07:47:430	score: 105285.040619604, time: 3.164, intersecting frames: 1
+19:07:47:430	via112: Speed100, CNT via89: Speed100, CNT70 via88: Speed40, CNT100 via91: Speed3000, CNT100  
+19:07:47:430	Considering adjustments from via112 to via91
+19:07:47:430	Collisions ignored on via91,via90
+19:09:04:363	
+19:09:04:363	Applied via89: Speed100, CNT60, 
+19:09:04:363	score: 0, time: 3.188, intersecting frames: 0
+19:09:04:363	via112: Speed100, CNT via89: Speed100, CNT60 via88: Speed40, CNT100 via91: Speed3000, CNT100  
+19:09:04:363	No collisions found
+19:09:04:363	Envelope Solved
+19:09:04:363	Closed duplicate for 240R1_OLP_SPOTWELD1ST240, via112 to via90
+19:09:04:600	Device positions reloaded
+19:09:37:903	Opened duplicate for 240R1_OLP_SPOTWELD1ST240, 7 items
+19:09:37:903	via89 to 73075-02-R_2t
+19:09:37:903	Running to via via89 before envelope duplication
+19:09:55:408	Considering adjustments from via88 to via92
+19:09:55:408	Collisions ignored on via89,via88,via92,73075-02-R_2t
+19:11:38:565	
+19:11:38:565	Applied via88: Speed40, CNT90, 
+19:11:38:565	score: 455529.275607929, time: 4.212, intersecting frames: 11
+19:11:38:565	via88: Speed40, CNT90 via91: Speed3000, CNT100 via90: Speed3000, CNT100 via92: Speed3000, CNT100  
+19:11:38:565	Considering adjustments from via88 to via92
+19:11:38:565	Collisions ignored on via89,via88,via92,73075-02-R_2t
+19:13:23:509	
+19:13:23:509	Applied via92: Speed2800, CNT100, 
+19:13:23:509	score: 455529.275284909, time: 4.212, intersecting frames: 11
+19:13:23:509	Speed skip on via92
+19:15:06:760	Stepped down to 1400
+19:15:06:760	via88: Speed40, CNT90 via91: Speed3000, CNT100 via90: Speed3000, CNT100 via92: Speed1400, CNT100  
+19:15:07:017	Considering adjustments from via88 to via92
+19:15:07:017	Collisions ignored on via89,via88,via92,73075-02-R_2t
+19:16:50:582	
+19:16:50:582	Applied via90: Speed3000, CNT90, 
+19:16:50:582	score: 350139.509637761, time: 4.244, intersecting frames: 7
+19:16:50:582	via88: Speed40, CNT90 via91: Speed3000, CNT100 via90: Speed3000, CNT90 via92: Speed1400, CNT100  
+19:16:50:582	Considering adjustments from via88 to via92
+19:16:50:582	Collisions ignored on via89,via88,via92,73075-02-R_2t
+19:18:34:799	
+19:18:34:799	Applied via90: Speed3000, CNT80, 
+19:18:34:799	score: 321005.758420929, time: 4.268, intersecting frames: 7
+19:18:34:799	via88: Speed40, CNT90 via91: Speed3000, CNT100 via90: Speed3000, CNT80 via92: Speed1400, CNT100  
+19:18:34:799	Considering adjustments from via88 to via92
+19:18:34:799	Collisions ignored on via89,via88,via92,73075-02-R_2t
+19:20:19:178	
+19:20:19:178	Applied via90: Speed3000, CNT70, 
+19:20:19:178	score: 191643.475125497, time: 4.292, intersecting frames: 7
+19:20:19:178	via88: Speed40, CNT90 via91: Speed3000, CNT100 via90: Speed3000, CNT70 via92: Speed1400, CNT100  
+19:20:19:178	Considering adjustments from via88 to via92
+19:20:19:178	Collisions ignored on via89,via88,via92,73075-02-R_2t
+19:22:04:349	
+19:22:04:349	Applied via92: Speed1200, CNT100, 
+19:22:04:349	score: 69029.0156287484, time: 4.308, intersecting frames: 4
+19:22:04:349	via88: Speed40, CNT90 via91: Speed3000, CNT100 via90: Speed3000, CNT70 via92: Speed1200, CNT100  
+19:22:04:349	Considering adjustments from via88 to via92
+19:22:04:349	Collisions ignored on via89,via88,via92,73075-02-R_2t
+19:23:50:777	
+19:23:50:777	Applied via92: Speed1000, CNT100, 
+19:23:50:777	score: 19950.8183781281, time: 4.324, intersecting frames: 1
+19:23:50:777	via88: Speed40, CNT90 via91: Speed3000, CNT100 via90: Speed3000, CNT70 via92: Speed1000, CNT100  
+19:23:50:777	Considering adjustments from via88 to via92
+19:23:50:777	Collisions ignored on via89,via88,via92,73075-02-R_2t
+19:25:36:495	
+19:25:36:495	Applied via92: Speed800, CNT100, 
+19:25:36:495	score: 0, time: 4.348, intersecting frames: 0
+19:25:36:495	via88: Speed40, CNT90 via91: Speed3000, CNT100 via90: Speed3000, CNT70 via92: Speed800, CNT100  
+19:25:36:495	No collisions found
+19:25:36:495	Envelope Solved
+19:25:36:495	Closed duplicate for 240R1_OLP_SPOTWELD1ST240, via89 to 73075-02-R_2t
+19:25:36:745	Device positions reloaded
+19:26:10:580	Opened duplicate for 240R1_OLP_SPOTWELD1ST240, 7 items
+19:26:10:580	73075-01-R_2t to 73075-04-R_2t
+19:26:10:580	Running to via 73075-01-R_2t before envelope duplication
+19:26:34:072	Considering adjustments from via91 to via93
+19:26:34:072	Collisions ignored on 73075-01-R_2t,via91,via93,73075-04-R_2t
+19:28:37:016	
+19:28:37:016	Applied via92: Speed800, CNT90, 
+19:28:37:016	score: 0, time: 5.692, intersecting frames: 0
+19:28:37:016	via91: Speed3000, CNT100 via90: Speed3000, CNT70 via92: Speed800, CNT90 via93: Speed100, CNT100  
+19:28:37:016	No collisions found
+19:28:37:016	Envelope Solved
+19:28:37:016	Closed duplicate for 240R1_OLP_SPOTWELD1ST240, 73075-01-R_2t to 73075-04-R_2t
+19:28:37:278	Device positions reloaded
+19:29:11:050	Opened duplicate for 240R1_OLP_SPOTWELD1ST240, 7 items
+19:29:11:050	via93 to via95
+19:29:11:050	Running to via via93 before envelope duplication
+19:29:30:829	Considering adjustments from via94 to via98
+19:29:30:829	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:31:02:022	
+19:31:02:022	Applied via94: Speed3000, CNT90, 
+19:31:02:022	score: 1147610.55106451, time: 5.112, intersecting frames: 4
+19:31:02:022	via94: Speed3000, CNT90 via97: Speed3000, CNT100 via98: Speed3000, CNT100  
+19:31:02:022	Considering adjustments from via94 to via98
+19:31:02:022	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:32:33:611	
+19:32:33:611	Applied via94: Speed2800, CNT90, 
+19:32:33:611	score: 742836.538089501, time: 5.12, intersecting frames: 3
+19:32:33:611	Speed skip on via94
+19:34:21:802	Stepped down to 1600
+19:34:21:802	via94: Speed1600, CNT90 via97: Speed3000, CNT100 via98: Speed3000, CNT100  
+19:34:21:802	Considering adjustments from via94 to via98
+19:34:21:802	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:35:53:474	
+19:35:53:474	Applied via94: Speed1600, CNT80, 
+19:35:53:474	score: 374383.335127721, time: 5.16, intersecting frames: 1
+19:35:53:474	via94: Speed1600, CNT80 via97: Speed3000, CNT100 via98: Speed3000, CNT100  
+19:35:53:474	Considering adjustments from via94 to via98
+19:35:53:474	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:37:25:684	Considering adjustments from via94 to via98
+19:37:25:684	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:38:58:294	Forced score increase
+19:38:58:294	
+19:38:58:294	Applied via98: Speed3000, CNT80, 
+19:38:58:294	score: 993414.479936467, time: 5.216, intersecting frames: 2
+19:38:58:294	via94: Speed1600, CNT80 via97: Speed3000, CNT100 via98: Speed3000, CNT80  
+19:38:58:294	Considering adjustments from via94 to via98
+19:38:58:294	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:40:30:970	
+19:40:30:970	Applied via97: Speed3000, CNT90, 
+19:40:30:970	score: 757475.082313668, time: 5.232, intersecting frames: 2
+19:40:30:970	via94: Speed1600, CNT80 via97: Speed3000, CNT90 via98: Speed3000, CNT80  
+19:40:30:970	Considering adjustments from via94 to via98
+19:40:30:970	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:42:03:978	Considering adjustments from via94 to via98
+19:42:03:978	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:43:38:670	
+19:43:38:670	Applied via97: Speed3000, CNT70, 
+19:43:38:670	score: 477763.625853624, time: 5.296, intersecting frames: 2
+19:43:38:670	via94: Speed1600, CNT80 via97: Speed3000, CNT70 via98: Speed3000, CNT80  
+19:43:38:670	Considering adjustments from via94 to via98
+19:43:38:670	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:45:12:416	
+19:45:12:416	Applied via97: Speed3000, CNT60, 
+19:45:12:416	score: 372636.264995255, time: 5.336, intersecting frames: 1
+19:45:12:416	via94: Speed1600, CNT80 via97: Speed3000, CNT60 via98: Speed3000, CNT80  
+19:45:12:416	Considering adjustments from via94 to via98
+19:45:12:416	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:46:46:703	
+19:46:46:703	Applied via98: Speed3000, CNT70, 
+19:46:46:703	score: 52493.5530388508, time: 5.368, intersecting frames: 1
+19:46:46:703	via94: Speed1600, CNT80 via97: Speed3000, CNT60 via98: Speed3000, CNT70  
+19:46:46:703	Considering adjustments from via94 to via98
+19:46:46:703	Collisions ignored on via93,73075-04-R_2t,via98,via95
+19:48:21:349	
+19:48:21:349	Applied via98: Speed3000, CNT60, 
+19:48:21:349	score: 0, time: 5.4, intersecting frames: 0
+19:48:21:349	via94: Speed1600, CNT80 via97: Speed3000, CNT60 via98: Speed3000, CNT60  
+19:48:21:349	No collisions found
+19:48:21:349	Envelope Solved
+19:48:21:349	Closed duplicate for 240R1_OLP_SPOTWELD1ST240, via93 to via95
+19:48:21:587	Device positions reloaded
+19:48:56:430	Opened duplicate for 240R1_OLP_SPOTWELD1ST240, 7 items
+19:48:56:430	73075-05-R_2t to via99
+19:48:56:430	Running to via 73075-05-R_2t before envelope duplication
+19:49:17:685	Considering adjustments from via94 to via95
+19:49:17:685	Collisions ignored on 73075-05-R_2t,via94,73075-03-R_2t,via99
+19:51:11:084	
+19:51:11:084	Applied via98: Speed3000, CNT50, 
+19:51:11:084	score: 0, time: 4.828, intersecting frames: 0
+19:51:11:084	via94: Speed1600, CNT80 via97: Speed3000, CNT60 via98: Speed3000, CNT50 via95: Speed3000, CNT100  
+19:51:11:084	No collisions found
+19:51:11:084	Envelope Solved
+19:51:11:084	Closed duplicate for 240R1_OLP_SPOTWELD1ST240, 73075-05-R_2t to via99
+19:51:11:596	Device positions reloaded
+19:51:46:415	Opened duplicate for 240R1_OLP_SPOTWELD1ST240, 7 items
+19:51:46:415	via97 to via102
+19:51:46:665	Running to via via97 before envelope duplication
+19:52:04:667	Considering adjustments from via98 to via100
+19:52:04:667	Collisions ignored on via97,via98,via100,via102
+19:53:52:747	
+19:53:52:747	Applied via95: Speed3000, CNT90, 
+19:53:52:747	score: 53567.0196866028, time: 4.196, intersecting frames: 2
+19:53:52:747	via98: Speed3000, CNT50 via95: Speed3000, CNT90 via99: Speed100, CNT100 via100: Speed100, CNT100  
+19:53:52:747	Considering adjustments from via98 to via100
+19:53:52:747	Collisions ignored on via97,via98,via100,via102
+19:55:39:949	
+19:55:39:949	Applied via95: Speed3000, CNT80, 
+19:55:39:949	score: 2735.09583214256, time: 4.212, intersecting frames: 1
+19:55:39:949	via98: Speed3000, CNT50 via95: Speed3000, CNT80 via99: Speed100, CNT100 via100: Speed100, CNT100  
+19:55:39:949	Considering adjustments from via98 to via100
+19:55:39:949	Collisions ignored on via97,via98,via100,via102
+19:57:27:620	
+19:57:27:620	Applied via95: Speed2800, CNT80, 
+19:57:27:620	score: 0, time: 4.228, intersecting frames: 0
+19:57:27:620	Speed skip on via95
+19:57:54:682	Stepped down to 2600
+19:57:54:682	via98: Speed3000, CNT50 via95: Speed2600, CNT80 via99: Speed100, CNT100 via100: Speed100, CNT100  
+19:57:54:682	No collisions found
+19:57:54:682	Envelope Solved
+19:57:54:682	Closed duplicate for 240R1_OLP_SPOTWELD1ST240, via97 to via102
+19:57:54:937	Device positions reloaded
+19:58:29:735	
+19:58:29:735	 - - - - Begin final pass - - - - 
+19:58:29:735	
+19:59:04:814	No collisions found
+19:59:04:814	Envelope Solved
+19:59:04:814	PathSolver: Done
+19:59:04:814	Device positions reloaded
+19:59:05:066	Get Acceptable Clearances
+20:00:19:689	0 clearances found
+20:00:19:942	Max speeds set
+20:01:08:786	Opened duplicate for 210R1_STUDWELD1ST212, 7 items
+20:01:08:786	wp_studweld_9 to via87
+20:01:09:039	Running to via wp_studweld_9 before envelope duplication
+20:01:37:049	Considering adjustments from via87 to via87
+20:01:37:049	Collisions ignored on wp_studweld_9,via87,via87
+20:04:10:405	
+20:04:10:405	Applied via87: Speed100, CNT90, 
+20:04:10:405	score: 5076076.34839492, time: 7.77033147735479, intersecting frames: 5
+20:04:10:405	via87: Speed3000, CNT100 via87: Speed3000, CNT100 via87: Speed100, CNT90 via87: Speed100, CNT100 via87: Speed100, CNT  
+20:04:10:405	Considering adjustments from via87 to via87
+20:04:10:405	Collisions ignored on wp_studweld_9,via87,via87
+20:06:44:654	
+20:06:44:654	Applied via87: Speed100, CNT80, 
+20:06:44:654	score: 2997466.92281189, time: 7.83433147735479, intersecting frames: 4
+20:06:44:912	via87: Speed100, CNT  
+20:06:44:912	Considering adjustments from via87 to via87
+20:06:44:912	Collisions ignored on wp_studweld_9,via87,via87
+20:09:06:658	
+20:09:06:658	Applied via87: Speed100, CNT70, 
+20:09:06:658	score: 1096989.67041069, time: 7.90633147735479, intersecting frames: 2
+20:09:06:658	via87: Speed3000, CNT100 via87: Speed3000, CNT100 via87: Speed100, CNT70 via87: Speed100, CNT100 via87: Speed100, CNT  
+20:09:06:658	Considering adjustments from via87 to via87
+20:09:06:658	Collisions ignored on wp_studweld_9,via87,via87
+20:11:25:652	
+20:11:25:652	Applied via87: Speed100, CNT60, 
+20:11:25:652	score: 0, time: 7.97833147735479, intersecting frames: 0
+20:11:25:652	via87: Speed3000, CNT100 via87: Speed3000, CNT100 via87: Speed100, CNT60 via87: Speed100, CNT100 via87: Speed100, CNT  
+20:11:25:652	No collisions found
+20:11:25:652	Envelope Solved
+20:11:25:652	Closed duplicate for 210R1_STUDWELD1ST212, wp_studweld_9 to via87
+20:11:25:901	Device positions reloaded
+20:12:10:448	
+20:12:10:448	 - - - - Begin final pass - - - - 
+20:12:10:448	
+20:12:54:767	No collisions found
+20:12:54:767	Envelope Solved
+20:12:54:767	PathSolver: Done
+20:12:55:028	Device positions reloaded
+20:12:55:028	Get Acceptable Clearances
+20:14:23:461	6 clearances found
+20:14:23:461	Max speeds set
+20:15:14:105	Opened duplicate for 200R2_OLP_SPOTWELD1ST200, 7 items
+20:15:14:105	73052-05-R_2t to via128
+20:15:14:344	Running to via 73052-05-R_2t before envelope duplication
+20:15:40:669	Considering adjustments from via125 to via127
+20:15:40:669	Collisions ignored on 73052-05-R_2t,via125,via127,via128
+20:17:59:169	
+20:17:59:169	Applied via123: Speed3000, CNT90, 
+20:17:59:169	score: 657856.63419247, time: 5.268, intersecting frames: 5
+20:17:59:169	via125: Speed3000, CNT100 via124: Speed3000, CNT100 via123: Speed3000, CNT90 via127: Speed3000, CNT100  
+20:17:59:169	Considering adjustments from via125 to via127
+20:17:59:169	Collisions ignored on 73052-05-R_2t,via125,via127,via128
+20:20:18:665	
+20:20:18:665	Applied via123: Speed3000, CNT80, 
+20:20:18:665	score: 617262.962688103, time: 5.284, intersecting frames: 4
+20:20:18:665	via125: Speed3000, CNT100 via124: Speed3000, CNT100 via123: Speed3000, CNT80 via127: Speed3000, CNT100  
+20:20:18:665	Considering adjustments from via125 to via127
+20:20:18:665	Collisions ignored on 73052-05-R_2t,via125,via127,via128
+20:22:28:591	
+20:22:28:591	Applied via123: Speed3000, CNT70, 
+20:22:28:591	score: 592557.72962768, time: 5.308, intersecting frames: 5
+20:22:28:591	via125: Speed3000, CNT100 via124: Speed3000, CNT100 via123: Speed3000, CNT70 via127: Speed3000, CNT100  
+20:22:28:591	Considering adjustments from via125 to via127
+20:22:28:591	Collisions ignored on 73052-05-R_2t,via125,via127,via128
+20:24:33:874	
+20:24:33:874	Applied via123: Speed3000, CNT60, 
+20:24:33:874	score: 371111.847119373, time: 5.34, intersecting frames: 5
+20:24:33:874	via125: Speed3000, CNT100 via124: Speed3000, CNT100 via123: Speed3000, CNT60 via127: Speed3000, CNT100  
+20:24:33:874	Considering adjustments from via125 to via127
+20:24:33:874	Collisions ignored on 73052-05-R_2t,via125,via127,via128
+20:26:38:615	
+20:26:38:615	Applied via123: Speed3000, CNT50, 
+20:26:38:615	score: 65124.8494627901, time: 5.364, intersecting frames: 3
+20:26:38:615	via125: Speed3000, CNT100 via124: Speed3000, CNT100 via123: Speed3000, CNT50 via127: Speed3000, CNT100  
+20:26:38:615	Considering adjustments from via125 to via127
+20:26:38:615	Collisions ignored on 73052-05-R_2t,via125,via127,via128
+20:28:44:877	
+20:28:44:877	Applied via123: Speed3000, CNT40, 
+20:28:44:877	score: 0, time: 5.388, intersecting frames: 0
+20:28:44:877	via125: Speed3000, CNT100 via124: Speed3000, CNT100 via123: Speed3000, CNT40 via127: Speed3000, CNT100  
+20:28:44:877	No collisions found
+20:28:44:877	Envelope Solved
+20:28:44:877	Closed duplicate for 200R2_OLP_SPOTWELD1ST200, 73052-05-R_2t to via128
+20:28:45:127	Device positions reloaded
+20:29:30:759	Opened duplicate for 200R2_OLP_SPOTWELD1ST200, 7 items
+20:29:30:759	via124 to via130
+20:29:31:009	Running to via via124 before envelope duplication
+20:29:49:833	Considering adjustments from via123 to via129
+20:29:49:833	Collisions ignored on via124,via123,via129,via130
+20:31:42:935	
+20:31:42:935	Applied via127: Speed3000, CNT90, 
+20:31:42:935	score: 0, time: 4.156, intersecting frames: 0
+20:31:42:935	via123: Speed3000, CNT40 via127: Speed3000, CNT90 via128: Speed3000, CNT100 via129: Speed3000, CNT100  
+20:31:42:935	No collisions found
+20:31:42:935	Envelope Solved
+20:31:42:935	Closed duplicate for 200R2_OLP_SPOTWELD1ST200, via124 to via130
+20:31:43:187	Device positions reloaded
+20:32:29:349	Opened duplicate for 200R2_OLP_SPOTWELD1ST200, 8 items
+20:32:29:349	via127 to via132
+20:32:29:349	Running to via via127 before envelope duplication
+20:32:49:639	Considering adjustments from via128 to via133
+20:32:49:639	Collisions ignored on via127,via128,via133,via132
+20:35:25:518	
+20:35:25:518	Applied via126: Speed2800, CNT100, 
+20:35:25:518	score: 767889.97992993, time: 4.7, intersecting frames: 11
+20:35:25:518	Speed skip on via126
+20:37:14:733	Stepped down to 1600
+20:37:14:733	via128: Speed3000, CNT100 via129: Speed3000, CNT100 via130: Speed3000, CNT100 via126: Speed1600, CNT100 via133: Speed3000, CNT100  
+20:37:14:733	Considering adjustments from via128 to via133
+20:37:14:733	Collisions ignored on via127,via128,via133,via132
+20:39:52:317	
+20:39:52:317	Applied via130: Speed3000, CNT90, 
+20:39:52:317	score: 453599.22556988, time: 4.708, intersecting frames: 7
+20:39:52:317	via128: Speed3000, CNT100 via129: Speed3000, CNT100 via130: Speed3000, CNT90 via126: Speed1600, CNT100 via133: Speed3000, CNT100  
+20:39:52:317	Considering adjustments from via128 to via133
+20:39:52:317	Collisions ignored on via127,via128,via133,via132
+20:42:30:687	
+20:42:30:687	Applied via130: Speed2800, CNT90, 
+20:42:30:687	score: 370887.172194973, time: 4.724, intersecting frames: 7
+20:42:30:687	Speed skip on via130
+20:42:46:462	Stepped down to 2800
+20:42:46:462	via128: Speed3000, CNT100 via129: Speed3000, CNT100 via130: Speed2800, CNT90 via126: Speed1600, CNT100 via133: Speed3000, CNT100  
+20:42:46:462	Considering adjustments from via128 to via133
+20:42:46:462	Collisions ignored on via127,via128,via133,via132
+20:45:27:845	
+20:45:27:845	Applied via126: Speed1400, CNT100, 
+20:45:27:845	score: 325959.272397882, time: 4.732, intersecting frames: 7
+20:45:27:845	via128: Speed3000, CNT100 via129: Speed3000, CNT100 via130: Speed2800, CNT90 via126: Speed1400, CNT100 via133: Speed3000, CNT100  
+20:45:27:845	Considering adjustments from via128 to via133
+20:45:27:845	Collisions ignored on via127,via128,via133,via132
+20:48:09:182	
+20:48:09:182	Applied via126: Speed1200, CNT100, 
+20:48:09:182	score: 1551.25807122491, time: 4.74, intersecting frames: 6
+20:48:09:182	via128: Speed3000, CNT100 via129: Speed3000, CNT100 via130: Speed2800, CNT90 via126: Speed1200, CNT100 via133: Speed3000, CNT100  
+20:48:09:182	Considering adjustments from via128 to via133
+20:48:09:182	Collisions ignored on via127,via128,via133,via132
+20:50:51:405	
+20:50:51:405	Applied via130: Speed2600, CNT90, 
+20:50:51:405	score: 1514.22377436062, time: 4.764, intersecting frames: 5
+20:50:51:405	via128: Speed3000, CNT100 via129: Speed3000, CNT100 via130: Speed2600, CNT90 via126: Speed1200, CNT100 via133: Speed3000, CNT100  
+20:50:51:405	Considering adjustments from via128 to via133
+20:50:51:405	Collisions ignored on via127,via128,via133,via132
+20:53:36:471	
+20:53:36:471	Applied via129: Speed3000, CNT90, 
+20:53:36:471	score: 1485.18960090919, time: 4.772, intersecting frames: 5
+20:53:36:471	via128: Speed3000, CNT100 via129: Speed3000, CNT90 via130: Speed2600, CNT90 via126: Speed1200, CNT100 via133: Speed3000, CNT100  
+20:53:36:471	Considering adjustments from via128 to via133
+20:53:36:471	Collisions ignored on via127,via128,via133,via132
+20:56:22:088	
+20:56:22:088	Applied via126: Speed1200, CNT90, 
+20:56:22:088	score: 1476.49743919113, time: 4.788, intersecting frames: 5
+20:56:22:088	via128: Speed3000, CNT100 via129: Speed3000, CNT90 via130: Speed2600, CNT90 via126: Speed1200, CNT90 via133: Speed3000, CNT100  
+20:56:22:088	Considering adjustments from via128 to via133
+20:56:22:088	Collisions ignored on via127,via128,via133,via132
+20:59:07:678	
+20:59:07:678	Applied via133: Speed3000, CNT90, 
+20:59:07:678	score: 0, time: 4.78, intersecting frames: 0
+20:59:07:678	via128: Speed3000, CNT100 via129: Speed3000, CNT90 via130: Speed2600, CNT90 via126: Speed1200, CNT90 via133: Speed3000, CNT90  
+20:59:07:678	No collisions found
+20:59:07:678	Envelope Solved
+20:59:07:678	Closed duplicate for 200R2_OLP_SPOTWELD1ST200, via127 to via132
+20:59:07:928	Device positions reloaded
+20:59:56:970	Opened duplicate for 200R2_OLP_SPOTWELD1ST200, 7 items
+20:59:56:970	via129 to via131
+20:59:56:970	Running to via via129 before envelope duplication
+21:00:17:272	Considering adjustments from via130 to via132
+21:00:17:272	Collisions ignored on via129,via130,via132,via131
+21:02:20:415	
+21:02:20:415	Applied via133: Speed3000, CNT80, 
+21:02:20:415	score: 0, time: 4.284, intersecting frames: 0
+21:02:20:415	via130: Speed2600, CNT90 via126: Speed1200, CNT90 via133: Speed3000, CNT80 via132: Speed3000, CNT100  
+21:02:20:415	No collisions found
+21:02:20:415	Envelope Solved
+21:02:20:415	Closed duplicate for 200R2_OLP_SPOTWELD1ST200, via129 to via131
+21:02:20:657	Device positions reloaded
+21:03:10:042	Opened duplicate for 200R2_OLP_SPOTWELD1ST200, 7 items
+21:03:10:042	via126 to via134
+21:03:10:042	Running to via via126 before envelope duplication
+21:03:38:615	Considering adjustments from via133 to via131
+21:03:38:615	Collisions ignored on via126,73052-06-R_2t,73052-14-R_2t,via134
+21:05:43:152	
+21:05:43:152	Applied via131: Speed3000, CNT90, 
+21:05:43:152	score: 1749091.33874052, time: 7.22400000000001, intersecting frames: 8
+21:05:43:152	via133: Speed3000, CNT80 via132: Speed3000, CNT100 via131: Speed3000, CNT90  
+21:05:43:152	Considering adjustments from via133 to via131
+21:05:43:152	Collisions ignored on via126,73052-06-R_2t,73052-14-R_2t,via134
+21:07:48:648	
+21:07:48:648	Applied via131: Speed3000, CNT80, 
+21:07:48:648	score: 1712270.19706061, time: 7.24800000000001, intersecting frames: 6
+21:07:48:648	via133: Speed3000, CNT80 via132: Speed3000, CNT100 via131: Speed3000, CNT80  
+21:07:48:648	Considering adjustments from via133 to via131
+21:07:48:648	Collisions ignored on via126,73052-06-R_2t,73052-14-R_2t,via134
+21:09:54:751	
+21:09:54:751	Applied via132: Speed3000, CNT90, 
+21:09:54:751	score: 1484904.09044976, time: 7.24800000000001, intersecting frames: 6
+21:09:54:751	via133: Speed3000, CNT80 via132: Speed3000, CNT90 via131: Speed3000, CNT80  
+21:09:54:751	Considering adjustments from via133 to via131
+21:09:54:751	Collisions ignored on via126,73052-06-R_2t,73052-14-R_2t,via134
+21:11:48:564	
+21:11:48:564	Applied via132: Speed3000, CNT80, 
+21:11:48:564	score: 1089769.46891173, time: 7.25600000000001, intersecting frames: 5
+21:11:48:564	via133: Speed3000, CNT80 via132: Speed3000, CNT80 via131: Speed3000, CNT80  
+21:11:48:564	Considering adjustments from via133 to via131
+21:11:48:564	Collisions ignored on via126,73052-06-R_2t,73052-14-R_2t,via134
+21:13:42:287	
+21:13:42:287	Applied via132: Speed3000, CNT70, 
+21:13:42:287	score: 487200.017753995, time: 7.27200000000001, intersecting frames: 3
+21:13:42:287	via133: Speed3000, CNT80 via132: Speed3000, CNT70 via131: Speed3000, CNT80  
+21:13:42:287	Considering adjustments from via133 to via131
+21:13:42:287	Collisions ignored on via126,73052-06-R_2t,73052-14-R_2t,via134
+21:15:35:012	
+21:15:35:012	Applied via132: Speed3000, CNT60, 
+21:15:35:012	score: 3495.26137106148, time: 7.30400000000001, intersecting frames: 1
+21:15:35:012	via133: Speed3000, CNT80 via132: Speed3000, CNT60 via131: Speed3000, CNT80  
+21:15:35:012	Considering adjustments from via133 to via131
+21:15:35:012	Collisions ignored on via126,73052-06-R_2t,73052-14-R_2t,via134
+21:17:28:750	
+21:17:28:750	Applied via133: Speed3000, CNT70, 
+21:17:28:750	score: 0, time: 7.32000000000001, intersecting frames: 0
+21:17:28:750	via133: Speed3000, CNT70 via132: Speed3000, CNT60 via131: Speed3000, CNT80  
+21:17:28:750	No collisions found
+21:17:28:750	Envelope Solved
+21:17:28:750	Closed duplicate for 200R2_OLP_SPOTWELD1ST200, via126 to via134
+21:17:28:997	Device positions reloaded
+21:18:14:122	Opened duplicate for 200R2_OLP_SPOTWELD1ST200, 6 items
+21:18:14:122	via132 to via136
+21:18:14:122	Running to via via132 before envelope duplication
+21:18:32:936	Considering adjustments from via131 to via136
+21:18:32:936	Collisions ignored on via132,via131,via136
+21:20:08:117	
+21:20:08:117	Applied via131: Speed3000, CNT70, 
+21:20:08:117	score: 553428.404651872, time: 4.54, intersecting frames: 2
+21:20:08:117	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT100 via136: Speed100, CNT  
+21:20:08:117	Considering adjustments from via131 to via136
+21:20:08:117	Collisions ignored on via132,via131,via136
+21:21:43:607	
+21:21:43:607	Applied via135: Speed100, CNT90, 
+21:21:43:607	score: 553428.404651704, time: 4.548, intersecting frames: 2
+21:21:43:607	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT90 via136: Speed100, CNT  
+21:21:43:607	Considering adjustments from via131 to via136
+21:21:43:607	Collisions ignored on via132,via131,via136
+21:23:20:300	
+21:23:20:300	Applied via135: Speed100, CNT80, 
+21:23:20:300	score: 553428.40465017, time: 4.572, intersecting frames: 2
+21:23:20:300	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT80 via136: Speed100, CNT  
+21:23:20:300	Considering adjustments from via131 to via136
+21:23:20:300	Collisions ignored on via132,via131,via136
+21:24:56:049	
+21:24:56:049	Applied via135: Speed100, CNT70, 
+21:24:56:049	score: 553428.404650114, time: 4.604, intersecting frames: 2
+21:24:56:049	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT70 via136: Speed100, CNT  
+21:24:56:049	Considering adjustments from via131 to via136
+21:24:56:049	Collisions ignored on via132,via131,via136
+21:26:32:294	
+21:26:32:294	Applied via135: Speed100, CNT60, 
+21:26:32:294	score: 553428.40464928, time: 4.636, intersecting frames: 2
+21:26:32:294	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT60 via136: Speed100, CNT  
+21:26:32:294	Considering adjustments from via131 to via136
+21:26:32:294	Collisions ignored on via132,via131,via136
+21:28:08:900	
+21:28:08:900	Applied via135: Speed100, CNT50, 
+21:28:08:900	score: 553428.404647904, time: 4.668, intersecting frames: 2
+21:28:08:900	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT50 via136: Speed100, CNT  
+21:28:08:900	Considering adjustments from via131 to via136
+21:28:08:900	Collisions ignored on via132,via131,via136
+21:29:45:833	
+21:29:45:833	Applied via135: Speed100, CNT40, 
+21:29:45:833	score: 553428.404646872, time: 4.7, intersecting frames: 2
+21:29:45:833	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT40 via136: Speed100, CNT  
+21:29:45:833	Considering adjustments from via131 to via136
+21:29:45:833	Collisions ignored on via132,via131,via136
+21:31:23:385	
+21:31:23:385	Applied via135: Speed100, CNT30, 
+21:31:23:385	score: 553428.40464516, time: 4.74, intersecting frames: 2
+21:31:23:385	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT30 via136: Speed100, CNT  
+21:31:23:385	Considering adjustments from via131 to via136
+21:31:23:385	Collisions ignored on via132,via131,via136
+21:33:01:584	
+21:33:01:584	Applied via135: Speed100, CNT20, 
+21:33:01:584	score: 553428.38192491, time: 4.788, intersecting frames: 2
+21:33:01:584	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT20 via136: Speed100, CNT  
+21:33:01:584	Considering adjustments from via131 to via136
+21:33:01:584	Collisions ignored on via132,via131,via136
+21:34:41:404	
+21:34:41:404	Applied via135: Speed100, CNT10, 
+21:34:41:404	score: 553428.381923506, time: 4.852, intersecting frames: 2
+21:34:41:404	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT10 via136: Speed100, CNT  
+21:34:41:404	Considering adjustments from via131 to via136
+21:34:41:404	Collisions ignored on via132,via131,via136
+21:36:21:068	
+21:36:21:068	Applied via135: Speed100, CNT0, 
+21:36:21:068	score: 553428.381922918, time: 4.948, intersecting frames: 2
+21:36:21:068	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed100, CNT0 via136: Speed100, CNT  
+21:36:21:068	Considering adjustments from via131 to via136
+21:36:21:068	Collisions ignored on via132,via131,via136
+21:37:47:209	
+21:37:47:209	Applied via135: Speed90, CNT0, 
+21:37:47:209	score: 539340.77790374, time: 4.94, intersecting frames: 2
+21:37:47:209	Speed skip on via135
+21:38:44:586	Stepped down to 60
+21:38:44:586	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed60, CNT0 via136: Speed100, CNT  
+21:38:44:586	Considering adjustments from via131 to via136
+21:38:44:586	Collisions ignored on via132,via131,via136
+21:40:10:621	
+21:40:10:621	Applied via135: Speed50, CNT0, 
+21:40:10:621	score: 480946.588080297, time: 4.98, intersecting frames: 2
+21:40:10:621	via131: Speed3000, CNT70 via134: Speed3000, CNT100 via135: Speed50, CNT0 via136: Speed100, CNT  
+21:40:10:621	Considering adjustments from via131 to via136
+21:40:10:621	Collisions ignored on via132,via131,via136
+21:41:37:295	
+21:41:37:295	Applied via134: Speed3000, CNT90, 
+21:41:37:295	score: 241455.886315843, time: 4.996, intersecting frames: 1
+21:41:37:295	via131: Speed3000, CNT70 via134: Speed3000, CNT90 via135: Speed50, CNT0 via136: Speed100, CNT  
+21:41:37:295	Considering adjustments from via131 to via136
+21:41:37:295	Collisions ignored on via132,via131,via136
+21:43:03:977	
+21:43:03:977	Applied via134: Speed3000, CNT80, 
+21:43:03:977	score: 109453.487913009, time: 5.02, intersecting frames: 1
+21:43:03:977	via131: Speed3000, CNT70 via134: Speed3000, CNT80 via135: Speed50, CNT0 via136: Speed100, CNT  
+21:43:03:977	Considering adjustments from via131 to via136
+21:43:03:977	Collisions ignored on via132,via131,via136
+21:44:32:392	
+21:44:32:392	Applied via134: Speed3000, CNT70, 
+21:44:32:392	score: 34332.8300241144, time: 5.044, intersecting frames: 1
+21:44:32:392	via131: Speed3000, CNT70 via134: Speed3000, CNT70 via135: Speed50, CNT0 via136: Speed100, CNT  
+21:44:32:392	Considering adjustments from via131 to via136
+21:44:32:392	Collisions ignored on via132,via131,via136
+21:45:59:808	
+21:45:59:808	Applied via134: Speed3000, CNT60, 
+21:45:59:808	score: 7866.75795519339, time: 5.076, intersecting frames: 1
+21:45:59:808	via131: Speed3000, CNT70 via134: Speed3000, CNT60 via135: Speed50, CNT0 via136: Speed100, CNT  
+21:45:59:808	Considering adjustments from via131 to via136
+21:45:59:808	Collisions ignored on via132,via131,via136
+21:47:27:821	
+21:47:27:821	Applied via134: Speed3000, CNT50, 
+21:47:27:821	score: 0, time: 5.108, intersecting frames: 0
+21:47:27:821	via131: Speed3000, CNT70 via134: Speed3000, CNT50 via135: Speed50, CNT0 via136: Speed100, CNT  
+21:47:27:821	No collisions found
+21:47:27:821	Envelope Solved
+21:47:27:821	Closed duplicate for 200R2_OLP_SPOTWELD1ST200, via132 to via136
+21:47:28:074	Device positions reloaded
+21:48:14:665	
+21:48:14:665	 - - - - Begin final pass - - - - 
+21:48:14:665	
+21:49:00:984	Considering adjustments from via114 to via136
+21:49:00:984	Collisions ignored on 
+22:17:48:811	
+22:17:48:811	Applied via115: Speed3000, CNT90, 
+22:17:48:811	score: 0, time: 18.2879999999998, intersecting frames: 0
+22:17:49:072	via116: Speed3000, CNT100 via118: Speed100, CNT100 via125: Speed3000, CNT100 via124: Speed3000, CNT100 via123: Speed3000, CNT40 via127: Speed3000, CNT90 via128: Speed3000, CNT100 via129: Speed3000, CNT90 via130: Speed2600, CNT90 via126: Speed1200, CNT90 via133: Speed3000, CNT70 via132: Speed3000, CNT60 via131: Speed3000, CNT70 via134: Speed3000, CNT50 via135: Speed50, CNT0 via136: Speed100, CNT  
+22:17:49:072	No collisions found
+22:17:49:072	Envelope Solved
+22:17:49:072	PathSolver: Done
+22:17:49:072	Device positions reloaded
+22:17:49:072	Get Acceptable Clearances
+22:19:38:881	0 clearances found
+22:19:38:881	Max speeds set
+22:20:56:348	Opened duplicate for 200R1_OLP_SPOTWELD1ST208, 6 items
+22:20:56:348	ViaLoc1 to 73052-10-R_2t
+22:20:56:599	Running to via ViaLoc1 before envelope duplication
+22:21:19:126	Considering adjustments from ViaLoc1 to via74
+22:21:19:126	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:23:36:174	
+22:23:36:174	Applied via73: Speed90, CNT100, 
+22:23:36:174	score: 1562927.08358545, time: 6.27600000000001, intersecting frames: 5
+22:23:36:174	Speed skip on via73
+22:24:34:528	Stepped down to 70
+22:24:34:528	ViaLoc1: Speed100, CNT via73: Speed70, CNT100 ViaLoc2: Speed3000, CNT100 via74: Speed3000, CNT100  
+22:24:34:528	Considering adjustments from ViaLoc1 to via74
+22:24:34:528	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:26:45:164	
+22:26:45:164	Applied ViaLoc2: Speed3000, CNT90, 
+22:26:45:164	score: 1512700.32407061, time: 6.24400000000001, intersecting frames: 5
+22:26:45:164	ViaLoc1: Speed100, CNT via73: Speed70, CNT100 ViaLoc2: Speed3000, CNT90 via74: Speed3000, CNT100  
+22:26:45:164	Considering adjustments from ViaLoc1 to via74
+22:26:45:164	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:28:43:481	
+22:28:43:481	Applied via74: Speed3000, CNT90, 
+22:28:43:481	score: 1512700.32407027, time: 6.23600000000001, intersecting frames: 5
+22:28:43:481	ViaLoc1: Speed100, CNT via73: Speed70, CNT100 ViaLoc2: Speed3000, CNT90 via74: Speed3000, CNT90  
+22:28:43:481	Considering adjustments from ViaLoc1 to via74
+22:28:43:481	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:30:42:207	
+22:30:42:207	Applied via74: Speed2800, CNT90, 
+22:30:42:207	score: 1512700.31295621, time: 6.16400000000001, intersecting frames: 5
+22:30:42:470	Speed skip on via74
+22:34:21:122	Stepped down to 400
+22:34:21:122	ViaLoc1: Speed100, CNT via73: Speed70, CNT100 ViaLoc2: Speed3000, CNT90 via74: Speed400, CNT90  
+22:34:21:122	Considering adjustments from ViaLoc1 to via74
+22:34:21:122	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:36:19:911	
+22:36:19:911	Applied via74: Speed200, CNT90, 
+22:36:19:911	score: 1512700.31295584, time: 6.30000000000001, intersecting frames: 5
+22:36:19:911	ViaLoc1: Speed100, CNT via73: Speed70, CNT100 ViaLoc2: Speed3000, CNT90 via74: Speed200, CNT90  
+22:36:19:911	Considering adjustments from ViaLoc1 to via74
+22:36:19:911	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:38:03:854	
+22:38:03:854	Applied ViaLoc1: Speed90, CNT, 
+22:38:03:854	score: 1512700.31295571, time: 6.30000000000001, intersecting frames: 5
+22:38:03:854	Speed skip on ViaLoc1
+22:40:05:359	Stepped down to 30
+22:40:05:359	ViaLoc1: Speed30, CNT via73: Speed70, CNT100 ViaLoc2: Speed3000, CNT90 via74: Speed200, CNT90  
+22:40:05:359	Considering adjustments from ViaLoc1 to via74
+22:40:05:359	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:41:50:040	Considering adjustments from ViaLoc1 to via74
+22:41:50:040	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:43:37:706	
+22:43:37:706	Applied via74: Speed200, CNT70, 
+22:43:37:706	score: 1512700.31295483, time: 6.34800000000001, intersecting frames: 5
+22:43:37:706	ViaLoc1: Speed30, CNT via73: Speed70, CNT100 ViaLoc2: Speed3000, CNT90 via74: Speed200, CNT70  
+22:43:37:706	Considering adjustments from ViaLoc1 to via74
+22:43:37:706	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:45:23:534	Considering adjustments from ViaLoc1 to via74
+22:45:23:534	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:47:10:039	Forced score increase
+22:47:10:039	
+22:47:10:039	Applied ViaLoc2: Speed2800, CNT90, 
+22:47:10:039	score: 1923815.49277799, time: 6.30000000000001, intersecting frames: 5
+22:47:10:039	Speed skip on ViaLoc2
+22:49:12:894	Stepped down to 1600
+22:49:12:894	ViaLoc1: Speed30, CNT via73: Speed70, CNT100 ViaLoc2: Speed1600, CNT90 via74: Speed200, CNT70  
+22:49:12:894	Considering adjustments from ViaLoc1 to via74
+22:49:12:894	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:50:59:586	
+22:50:59:586	Applied via73: Speed70, CNT90, 
+22:50:59:586	score: 571818.472628126, time: 6.32400000000001, intersecting frames: 3
+22:50:59:586	ViaLoc1: Speed30, CNT via73: Speed70, CNT90 ViaLoc2: Speed1600, CNT90 via74: Speed200, CNT70  
+22:50:59:586	Considering adjustments from ViaLoc1 to via74
+22:50:59:586	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:52:46:874	
+22:52:46:874	Applied ViaLoc2: Speed1600, CNT80, 
+22:52:46:874	score: 119983.290588751, time: 6.36400000000001, intersecting frames: 1
+22:52:46:874	ViaLoc1: Speed30, CNT via73: Speed70, CNT90 ViaLoc2: Speed1600, CNT80 via74: Speed200, CNT70  
+22:52:46:874	Considering adjustments from ViaLoc1 to via74
+22:52:46:874	Collisions ignored on ViaLoc1,via74,73052-10-R_2t
+22:54:36:034	
+22:54:36:034	Applied ViaLoc2: Speed1600, CNT70, 
+22:54:36:034	score: 0, time: 6.40400000000001, intersecting frames: 0
+22:54:36:034	ViaLoc1: Speed30, CNT via73: Speed70, CNT90 ViaLoc2: Speed1600, CNT70 via74: Speed200, CNT70  
+22:54:36:034	No collisions found
+22:54:36:034	Envelope Solved
+22:54:36:034	Closed duplicate for 200R1_OLP_SPOTWELD1ST208, ViaLoc1 to 73052-10-R_2t
+22:54:36:270	Device positions reloaded
+22:55:45:913	
+22:55:45:913	 - - - - Begin final pass - - - - 
+22:55:45:913	
+22:56:55:243	No collisions found
+22:56:55:243	Envelope Solved
+22:56:55:243	PathSolver: Done
+22:56:55:243	Device positions reloaded
+22:56:55:494	383.78 minutes elapsed

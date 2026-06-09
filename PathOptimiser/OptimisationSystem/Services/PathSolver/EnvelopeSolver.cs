@@ -163,7 +163,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
                     //Get the first envelope...
                     var testEnv = currentEnvCollection.FirstOrDefault(x =>
 
-                    !StudiedVias.Contains(x.CollidingVias.First()) //Not starting with the same via as a previous envelope (avoids infinite loops)
+                    !StudiedVias.Contains(x.CollidingVias.First()) //Not starting with the same via as a previous cleared suboperation (avoids infinite loops)
                     && (x.CollidingVias.Any(y => InputVias.Contains(y)) //Must include an active via, or at least be a weld bordering one
                     || x.CollidingVias.FirstOrDefault() is TxWeldLocationOperation && x.ExtendBy(1, 1).Any(y => InputVias.Contains(y))))
                     ;
@@ -190,7 +190,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
         #region DuplicateSetup
         private void PathSolveOnEnvelopeDuplicateOperation(IEnumerable<LocOp> InputVias, CollisionEnvelope testEnv)
         {
-
+            
             using (var duplicate = new EnvelopeDuplicate(testEnv, op)) {
 
                 var firstVia = duplicate.EnvCopyOperation.Vias().First() as ITxRoboticLocationOperation;

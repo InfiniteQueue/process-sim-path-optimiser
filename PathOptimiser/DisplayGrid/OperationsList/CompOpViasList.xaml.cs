@@ -4,10 +4,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using PathOptimiser.Models;
-using PathOptimiser.OptimisationSystem.Services.PathSolver;
-using OptimisationOperation= PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
 using Tecnomatix.Engineering;
 using static PathOptimiser.MyDispatchers;
+using OptimisationOperation = PathOptimiser.OptimisationSystem.Services.PathSolver.OptimisationOperation;
 
 namespace PathOptimiser.DisplayGrid.OperationsList
 {
@@ -26,12 +25,13 @@ namespace PathOptimiser.DisplayGrid.OperationsList
 
         public void SetCompletionState(OptimisationOperation.OperationOptimisedReport report)
         {
-            borderReset.Visibility = System.Windows.Visibility.Visible;
-            ctrlStatusBorder.Visibility = System.Windows.Visibility.Visible;
+            var timeIncrease = report.optimisedTime > report.originalTime;
+            borderReset.Visibility = Visibility.Visible;
+            ctrlStatusBorder.Visibility = Visibility.Visible;
             switch (report.Success) {
                 case OptimisationOperation.Result.Success:
                     lblStatus.Content = "Clear";
-                    ctrlStatusBorder.Background = Brushes.LightGreen;
+                    ctrlStatusBorder.Background = timeIncrease ? Brushes.Orange : Brushes.LightGreen;
                     break;
                 case OptimisationOperation.Result.CouldNotComplete:
                     lblStatus.Content = "Failed";
@@ -46,9 +46,10 @@ namespace PathOptimiser.DisplayGrid.OperationsList
                     ctrlStatusBorder.Background = Brushes.Orange;
                     break;
             }
-                lblTime.Content = $"{report.originalTime:0.##} -> {report.optimisedTime:0.##} seconds";
-            lblTime.Foreground = report.optimisedTime > report.originalTime ? Brushes.DarkRed : SystemColors.ControlTextBrush;
+            lblTime.Content = $"{report.originalTime:0.##} -> {report.optimisedTime:0.##} seconds";
+            lblTime.Foreground = timeIncrease ? Brushes.Red : SystemColors.ControlTextBrush;
         }
+
         public void SetGroup(IGrouping<ITxRoboticOrderedCompoundOperation, ITxRoboticLocationOperation> collectionGroup)
         {
             SetGroup(collectionGroup.Key, collectionGroup);
@@ -85,7 +86,6 @@ namespace PathOptimiser.DisplayGrid.OperationsList
         {
             foreach (var item in RunModeControls) item.IsEnabled = !e;
         }
-
         #region Data
 
         public List<ITxRoboticLocationOperation> Vias = new List<ITxRoboticLocationOperation>();
@@ -138,7 +138,7 @@ namespace PathOptimiser.DisplayGrid.OperationsList
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show($"Reset all optimisation on {CompoundOp.Name}?", "Confirm", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
+            if (MessageBox.Show(Window.GetWindow(this), $"Reset all speed/CNT changes on {CompoundOp.Name}?", "Confirm", MessageBoxButton.OKCancel) == MessageBoxResult.OK) {
                 foreach (var adjust in OriginalViaSpeeds.ToList()) {
                     TxDispatcher.InvokeAsync(() =>
                     {
@@ -152,6 +152,15 @@ namespace PathOptimiser.DisplayGrid.OperationsList
         private void RemoveButtonClick(object sender, RoutedEventArgs e)
         {
             (this.Parent as Panel).Children.Remove(this);
+        }
+
+        private void lblCollectionName_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            try {
+                TxApplication.ActiveDocument.Selection.SetItems(new TxObjectList() { CompoundOp });
+                TxApplication.RefreshDisplay();
+            }
+            catch { }
         }
     }
 }

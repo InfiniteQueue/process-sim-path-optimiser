@@ -6,7 +6,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:PathOptimiser" 
              d:DataContext="{d:DesignInstance Type=local:DisplayGridRow}"
-             mc:Ignorable="d"  d:DesignWidth="900" MouseEnter="chkActivated_MouseEnter" BorderThickness="0,0,0,0.5" BorderBrush="Gray" d:Background="White">
+             mc:Ignorable="d"  d:DesignWidth="900" BorderThickness="0,0,0,0.5" BorderBrush="Gray" d:Background="White">
     <UserControl.Resources>
         <local:IndexConverter x:Key="IndexConverter"/>
         <Style TargetType="{x:Type CheckBox}">
@@ -85,7 +85,7 @@
 
     <Grid>
         <DockPanel LastChildFill="True" Margin="0,0,10,0">
-            <CheckBox x:Name="chkActivated" DockPanel.Dock="Left" Margin="0" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="" IsChecked="{Binding Path=Included, Mode=TwoWay}" IsEnabled="{Binding Path=CanBeActive,Mode=OneWay}" />
+            <CheckBox x:Name="chkActivated" DockPanel.Dock="Left" Margin="0" Padding="0" HorizontalAlignment="Center"  MouseEnter="chkActivated_MouseEnter" VerticalAlignment="Center" Content="" IsChecked="{Binding Path=Included, Mode=TwoWay}" IsEnabled="{Binding Path=CanBeActive,Mode=OneWay}" />
 
             <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="auto">
                     
@@ -97,7 +97,7 @@
                     <ColumnDefinition Width="auto" SharedSizeGroup="SpeedCol"/>
                 </Grid.ColumnDefinitions>
 
-                <Label x:Name="lblName" d:Content="[Via Name]" VerticalAlignment="Center" Cursor="Hand" MouseDown="lblName_MouseDown" Margin="0,0,10,0"/>
+                <Label x:Name="lblName" d:Content="[Via Name]" VerticalAlignment="Center"  MouseEnter="chkActivated_MouseEnter" Cursor="Hand" MouseDown="lblName_MouseDown" Margin="0,0,10,0"/>
 
                     
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Column="1" VerticalScrollBarVisibility="Hidden" d:HorizontalScrollBarVisibility="Visible">
