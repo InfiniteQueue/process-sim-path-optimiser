@@ -70,7 +70,6 @@ namespace PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders
         }
 
 
-
         public virtual EnvelopeCollection Run(SimPlayerTracker tracker)
         {
             Data.RecordedEnvelopes = new EnvelopeCollection(Operation as ITxCompoundOperation);
@@ -145,9 +144,6 @@ namespace PathOptimiser.OptimisationSystem.Services.EnvelopeRecorders
 
             public bool CollisionFound(TxCollisionQueryResults results)
             {
-                //Debug.WriteLine(data.CurrentVia.Name);
-
-
                 if (!results.CollisionDetected()) return false;
 
                 if (!(data.CurrentVia is TxWeldLocationOperation) && !data.ActiveVias.Contains(data.CurrentVia)) return false;

@@ -25,18 +25,6 @@ namespace PathOptimiser.OptimisationSystem
         public double FinalTime;
 
 
-        //Todo: Clean up the old implementation
-        //public double GetRelativeScore(EnvelopeCollection newEnvelopeCollection)
-        //{
-
-        //    if (newEnvelopeCollection.totalPenalty > totalPenalty && newEnvelopeCollection.FinalTime > FinalTime) return double.NegativeInfinity; //Everything is worse, reject
-
-        //    var scoreIncrease = totalPenalty - newEnvelopeCollection.totalPenalty;
-        //    var timeIncrease = newEnvelopeCollection.FinalTime - FinalTime;
-
-        //    return (scoreIncrease) / (timeIncrease); //Decrease in penalty over increase in time, higher is better
-        //}
-
         public RelativeScore GetRelativeScore(EnvelopeCollection originalCollection)
         {
             return new RelativeScore(originalCollection, this);

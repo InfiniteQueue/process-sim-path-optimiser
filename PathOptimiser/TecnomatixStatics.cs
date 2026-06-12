@@ -175,6 +175,7 @@ namespace PathOptimiser
         #region SimPlayer
         public static void SafePlaySim(TxSimulationPlayer SimPlayer, ITxOperation operation, bool rewindWhenDone,  EnvelopeRecordingData Data = null)
         {
+            SimPlayer.TimeInterval = 0.01;
             if (ActiveDocument.CurrentOperation != operation) {
                 SimPlayer.AskUserForReset(false);
                 ActiveDocument.CurrentOperation = operation;
@@ -212,6 +213,7 @@ namespace PathOptimiser
                 //PathSolver.IsCancelRequested = true;
             }
 
+            SimPlayer.TimeInterval = TxApplication.Options.Simulation.TimeInterval;
         }
 
         public static event Action<ITxOperation> SimulationError;
