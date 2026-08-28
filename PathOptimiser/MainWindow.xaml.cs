@@ -202,24 +202,26 @@ namespace PathOptimiser
         private void btnDebug_Click(object sender, RoutedEventArgs e)
         {
 
-            TxDispatcher.InvokeAsync(() =>
-            {
-                if (ActiveDocument.CurrentOperation == null) { Debugger.Break(); return; }
+            //TxDispatcher.InvokeAsync(() =>
+            //{
+            //    if (ActiveDocument.CurrentOperation == null) { Debugger.Break(); return; }
 
-                var simPlayer = new TxSimulationPlayer(false, false);
+            //    var simPlayer = new TxSimulationPlayer(false, false);
 
-                simPlayer.SetOperation(ActiveDocument.CurrentOperation);
+            //    simPlayer.SetOperation(ActiveDocument.CurrentOperation);
 
-                var Tracer = new CurrentViaTrace(new SimPlayerTracker() { SimPlayer = ActiveDocument.SimulationPlayer }, ActiveDocument.CurrentOperation, new OptimisationSystem.Models.SolverParams());
+            //    var Tracer = new CurrentViaTrace(new SimPlayerTracker() { SimPlayer = ActiveDocument.SimulationPlayer }, ActiveDocument.CurrentOperation, new OptimisationSystem.Models.SolverParams());
 
-                TecnomatixStatics.SafePlaySim(ActiveDocument.SimulationPlayer, ActiveDocument.CurrentOperation, false);
+            //    TecnomatixStatics.SafePlaySim(ActiveDocument.SimulationPlayer, ActiveDocument.CurrentOperation, false);
 
-                Tracer.BuildTraceFrames();
+            //    Tracer.BuildTraceFrames();
 
-                Tracer.Dispose();
-            });
+            //    Tracer.Dispose();
+            //});
 
-            //var via = TxApplication.ActiveSelection.GetAllItems().OfType<ITxRoboticLocationOperation>().FirstOrDefault();
+            var via = TxApplication.ActiveSelection.GetAllItems().OfType<ITxRoboticLocationOperation>().FirstOrDefault();
+
+            Debug.WriteLine((via as ITxLocatableObject).AbsoluteLocation);
 
             //if (via.GetParameter("MOUNTED_WORKPIECE_FRAME_NAME") is TxRoboticTxObjectParam param) {
             //    ;

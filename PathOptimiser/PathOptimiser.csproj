@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="SMC_Form_Library">
       <HintPath>\\SMCDESIGN15\SMC_Data_Store\SMC_Applications\SMC_NET_EXTENTIONS\SMC_Form_WPF\SMC_Form_Library\bin\Debug\SMC_Form_Library.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -54,15 +55,15 @@
     </Reference>
     <Reference Include="Tecnomatix.Engineering">
       <HintPath>..\..\..\..\..\..\Program Files\Tecnomatix_16.1.1\eMPower\Tecnomatix.Engineering.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Tecnomatix.Engineering.Olp">
       <HintPath>..\..\..\..\..\..\Program Files\Tecnomatix_16.1.1\eMPower\Tecnomatix.Engineering.Olp.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Tecnomatix.Engineering.Ui">
       <HintPath>..\..\..\..\..\..\Program Files\Tecnomatix_16.1.1\eMPower\Tecnomatix.Engineering.Ui.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />

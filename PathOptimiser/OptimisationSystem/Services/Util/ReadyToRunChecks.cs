@@ -28,13 +28,18 @@ namespace PathOptimiser.OptimisationSystem.Services
         {
             var colRoot = TxApplication.ActiveDocument.CollisionRoot;
 
-            colRoot.CheckNearMiss = true;
-            colRoot.ReportLevel = TxCollisionQueryParams.TxCollisionReportLevel.ComponentLevel;
-            //colRoot.CheckCollisions = true;
-            var results = colRoot.GetCollidingObjectsAndDistances(new TxCollisionAndDistancesQueryParams() { UseNearMiss = true, NearMissDistance = EnvelopeRecordingData.DefaultCollisionDistance, Mode = TxCollisionQueryParams.TxCollisionQueryMode.DefinedPairs, FindPenetrationRegions = false });
+            return MyDispatchers.TxDispatcher.Invoke<Failure?>(() =>
+            {
 
-            if (results.MinDistance() < EnvelopeRecordingData.DefaultCollisionDistance) return Failure.CollisionDetected;
-            else return null;
+                colRoot.CheckNearMiss = true;
+                colRoot.ReportLevel = TxCollisionQueryParams.TxCollisionReportLevel.ComponentLevel;
+                //colRoot.CheckCollisions = true;
+                var results = colRoot.GetCollidingObjectsAndDistances(new TxCollisionAndDistancesQueryParams() { UseNearMiss = true, NearMissDistance = EnvelopeRecordingData.DefaultCollisionDistance, Mode = TxCollisionQueryParams.TxCollisionQueryMode.DefinedPairs, FindPenetrationRegions = false });
+
+                if (results.MinDistance() < EnvelopeRecordingData.DefaultCollisionDistance) return Failure.CollisionDetected;
+                else return null;
+            });
+            
         }
     }
 }
