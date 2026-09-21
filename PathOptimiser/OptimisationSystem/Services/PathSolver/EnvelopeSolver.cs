@@ -237,7 +237,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
             All vias but the first and last are active
             */
 
-            var ignoredVias = testEnv.ExtendBy(extension, extension).Except(testEnv.ExtendBy(1, 1)).Select(x => duplicate.OriginalToCopy(x));
+            var ignoredVias = testEnv.ExtendBy(extension, extension, stopAtWelds: true).Except(testEnv.ExtendBy(1, 1, stopAtWelds: true)).Select(x => duplicate.OriginalToCopy(x));
 
 
 
@@ -245,7 +245,7 @@ namespace PathOptimiser.OptimisationSystem.Services.PathSolver
 
 
 
-            var duplicateActiveVias = testEnv.ExtendBy(EnvelopeDuplicate.EnvelopeViaExtensionCount - 1, EnvelopeDuplicate.EnvelopeViaExtensionCount - 1);
+            var duplicateActiveVias = testEnv.ExtendBy(EnvelopeDuplicate.EnvelopeViaExtensionCount - 1, EnvelopeDuplicate.EnvelopeViaExtensionCount - 1, stopAtWelds: true);
 
             //Active vias should not include the first and last vias of the duplicate, unless they themselves are involved in the collision
             duplicateActiveVias = duplicateActiveVias.Append(testEnv.CollidingVias.First()).Append(testEnv.CollidingVias.Last()).Distinct();
