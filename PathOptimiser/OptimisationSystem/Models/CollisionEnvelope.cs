@@ -35,7 +35,7 @@ namespace PathOptimiser
 
 
         /// <summary> Returns the vias in this collision, plus trailing and preceding</summary>
-        public IEnumerable<ITxRoboticLocationOperation> ExtendBy(int behind, int ahead)
+        public IEnumerable<ITxRoboticLocationOperation> ExtendBy(int behind, int ahead, bool stopAtWelds = false)
         {
             if (CollidingVias.Count() == 0) yield break;
 
@@ -43,7 +43,18 @@ namespace PathOptimiser
             var lastVia = CollidingVias.LastOrDefault();
             var path = firstVia.Collection as ITxOrderedCompoundOperation;
 
-            for (var i = firstVia.Index() - behind; i <= lastVia.Index() + ahead; i++) {
+            var start = firstVia.Index() - behind;
+            var end = lastVia.Index() + ahead;
+
+            if (stopAtWelds) {
+                start = firstVia.Index();
+                while (start > 0 && start > firstVia.Index() - behind && path.GetChildAt(start) is TxWeldLocationOperation == false) start--;
+
+                end = lastVia.Index();
+                while (end < path.Count - 1 && end < lastVia.Index() + ahead && path.GetChildAt(end) is TxWeldLocationOperation == false) end++;
+            }
+
+            for (var i = start; i <= end; i++) {
 
                 if (i < 0 || i >= path.Count) continue;
 
